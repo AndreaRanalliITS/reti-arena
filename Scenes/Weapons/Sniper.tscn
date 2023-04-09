@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Weapon.gd" type="Script" id=1]
+
+[sub_resource type="CubeMesh" id=7]
+size = Vector3( 0.1, 0.1, 0.756 )
+
+[sub_resource type="CubeMesh" id=6]
+size = Vector3( 0.1, 0.1, 0.2 )
+
+[sub_resource type="CylinderMesh" id=8]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.1
+
+[node name="Sniper" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.633989, -0.288, -0.690845 )
+script = ExtResource( 1 )
+pouch_size = 10
+min_damage = 9999
+max_damage = 9999
+cooldown = 1.0
+reload_time = 1.0
+ammo_label = NodePath("../../../UI/AmmoPanel/AmmoLabel")
+raycast = NodePath("../../RayCast")
+sound_player = NodePath("SoundPlayer")
+
+[node name="ShootCooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="ReloadTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SoundPlayer" type="AudioStreamPlayer3D" parent="."]
+
+[node name="BulletTrailOrigin" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013791, 0.00821209, -0.11639 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.235517 )
+mesh = SubResource( 7 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.173648, -0.984808, 0, 0.984808, 0.173648, 0, -0.0660586, 0.114599 )
+mesh = SubResource( 6 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.0452758, -0.998975, 0, 0.998975, -0.0452758, 0, 0.0988514, -0.266294 )
+mesh = SubResource( 8 )
+
+[connection signal="timeout" from="ShootCooldown" to="." method="_on_ShootCooldown_timeout"]
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_ReloadTimer_timeout"]

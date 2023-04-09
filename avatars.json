@@ -1,0 +1,17 @@
+[
+	{
+		"name": "Luca Babbabia",
+		"material": "res://Materials/Red.tres",
+		"mesh": ""
+	},
+	{
+		"name": "Carlo Ostrogoti",
+		"material": "res://Materials/Blue.tres",
+		"mesh": ""
+	},
+    {
+		"name": "Ciccio Pipparelli",
+		"material": "res://Materials/Green.tres",
+		"mesh": ""
+	}
+]

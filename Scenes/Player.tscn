@@ -1,0 +1,125 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Weapons/Gun.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/WeaponSway.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/HolsterWeapon.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Weapons/BarrelGun.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Weapons/AK47.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Weapons/Sniper.tscn" type="PackedScene" id=7]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.5
+
+[sub_resource type="CapsuleMesh" id=2]
+radius = 0.5
+
+[sub_resource type="PrismMesh" id=3]
+size = Vector3( 0.413, 0.333, 0.128 )
+
+[sub_resource type="Gradient" id=4]
+interpolation_mode = 2
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 1, 0.301961, 0.301961, 1 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[node name="Player" type="KinematicBody"]
+script = ExtResource( 1 )
+max_health = 10
+health = 5
+head = NodePath("Head")
+model = NodePath("MeshInstance")
+camera = NodePath("Head/Camera")
+hand = NodePath("Head/Hand")
+network_tick_rate = NodePath("NetworkTickRate")
+movement_tween = NodePath("MovementTween")
+life_bar = NodePath("UI/LifePanel/LifeBar")
+life_label = NodePath("UI/LifePanel/LifeLabel")
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0 )
+mesh = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="MeshInstance"]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, -0.562622, -0.496928 )
+mesh = SubResource( 3 )
+
+[node name="Head" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0 )
+
+[node name="Camera" type="Camera" parent="Head"]
+cull_mask = 524287
+
+[node name="RayCast" type="RayCast" parent="Head"]
+enabled = true
+cast_to = Vector3( 0, 0, -9999 )
+debug_shape_custom_color = Color( 0.968627, 0, 1, 1 )
+debug_shape_thickness = 1
+
+[node name="HandLocation" type="Position3D" parent="Head"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.634, -0.288, -0.691 )
+script = ExtResource( 3 )
+
+[node name="Hand" type="Position3D" parent="Head"]
+script = ExtResource( 4 )
+
+[node name="Gun" parent="Head/Hand" instance=ExtResource( 2 )]
+
+[node name="BarrelGun" parent="Head/Hand" instance=ExtResource( 5 )]
+
+[node name="AK47" parent="Head/Hand" instance=ExtResource( 6 )]
+
+[node name="Sniper" parent="Head/Hand" instance=ExtResource( 7 )]
+
+[node name="NetworkTickRate" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="MovementTween" type="Tween" parent="."]
+
+[node name="UI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="AmmoPanel" type="Panel" parent="UI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -134.0
+margin_top = -40.0
+
+[node name="AmmoLabel" type="Label" parent="UI/AmmoPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "5 / 10"
+align = 1
+valign = 1
+
+[node name="LifePanel" type="Panel" parent="UI"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 134.0
+
+[node name="LifeBar" type="TextureProgress" parent="UI/LifePanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+value = 77.0
+rounded = true
+texture_progress = SubResource( 5 )
+nine_patch_stretch = true
+
+[node name="LifeLabel" type="Label" parent="UI/LifePanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "100"
+align = 1
+valign = 1

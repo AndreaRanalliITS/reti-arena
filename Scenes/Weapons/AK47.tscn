@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Weapon.gd" type="Script" id=1]
+
+[sub_resource type="CubeMesh" id=7]
+size = Vector3( 0.1, 0.1, 0.533 )
+
+[sub_resource type="CubeMesh" id=6]
+size = Vector3( 0.1, 0.1, 0.2 )
+
+[node name="AK47" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.633989, -0.288, -0.690845 )
+script = ExtResource( 1 )
+clip_size = 15
+pouch_size = 60
+single_shot = false
+dispersion = 0.01
+cooldown = 0.1
+reload_time = 1.0
+ammo_label = NodePath("../../../UI/AmmoPanel/AmmoLabel")
+raycast = NodePath("../../RayCast")
+sound_player = NodePath("SoundPlayer")
+
+[node name="ShootCooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="ReloadTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SoundPlayer" type="AudioStreamPlayer3D" parent="."]
+
+[node name="BulletTrailOrigin" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013791, 0.00821209, -0.11639 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1523 )
+mesh = SubResource( 7 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.173648, -0.984808, 0, 0.984808, 0.173648, 0, -0.0660586, 0.114599 )
+mesh = SubResource( 6 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.245815, -0.969317, 0, 0.969317, -0.245815, 0, -0.0937623, -0.212114 )
+mesh = SubResource( 6 )
+
+[connection signal="timeout" from="ShootCooldown" to="." method="_on_ShootCooldown_timeout"]
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_ReloadTimer_timeout"]
