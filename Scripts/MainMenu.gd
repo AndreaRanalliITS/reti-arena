@@ -19,7 +19,9 @@ onready var character_idx = $Right/Panel/HBoxContainer/VBoxContainer/CharacterId
 
 
 func _ready():
-	Global.connect("toggle_network_setup",self,"_toggle_network_setup")
+	var error = Global.connect("toggle_network_setup",self,"_toggle_network_setup")
+	if error != OK:
+		printerr(error)
 	nickname.max_length = max_nickname_length
 	char_count.text = "{0}/{1}".format([nickname.text.length(),max_nickname_length])
 	

@@ -6,13 +6,21 @@ export(NodePath) onready var game_spawn_points = get_node(game_spawn_points).get
 
 var player_scene = preload("res://Scenes/Player.tscn")
 
+var connection_signals = {
+	"network_peer_connected": "_player_connected",
+	"network_peer_disconnected": "_player_disconnected",
+	"connected_to_server": "_connected_ok",
+	"connection_failed": "_connected_fail",
+	"server_disconnected": "_instance_player"
+}
+
 func _ready():
-	get_tree().connect("network_peer_connected", self, "_player_connected")
-	get_tree().connect("network_peer_disconnected", self, "_player_disconnected")
-	get_tree().connect("connected_to_server", self, "_connected_ok")
-	get_tree().connect("connection_failed", self, "_connected_fail")
-	get_tree().connect("server_disconnected", self, "_server_disconnected")
-	Global.connect("instance_player",self,"_instance_player")
+	var error = Utils.connect_signals(get_tree(),self,connection_signals)
+	if error != OK:
+		printerr(error)
+	error = Global.connect("instance_player",self,"_instance_player")
+	if error != OK:
+		printerr(error)
 	
 	if get_tree().network_peer != null:
 		Global.emit_signal("toggle_network_setup",false)

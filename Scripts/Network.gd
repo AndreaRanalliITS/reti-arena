@@ -1,21 +1,31 @@
 extends Node
 
-const DEFAULT_PORT = 28960
-const MAX_CLIENTS = 5
+var DEFAULT_PORT = 28960
+var MAX_CLIENTS = 5
 
 var server = null
 var client = null
 
 var ip_address = "127.0.0.1"
 
+var connection_signals = {
+	"connected_to_server": "_connected_to_server",
+	"server_disconnected": "_server_disconnected",
+	"connection_failed": "_connection_failed",
+	"network_peer_connected": "_player_connected"
+}
+
+
+func _init():
+	var server_confs = Utils.read_json("res://server.conf")
+	DEFAULT_PORT = server_confs.port
+	MAX_CLIENTS = server_confs.max_clients
 
 
 func _ready():
-	get_tree().connect("connected_to_server",self,"_connected_to_server")
-	get_tree().connect("server_disconnected",self,"_server_disconnected")
-	get_tree().connect("connection_failed",self,"_connection_failed")
-	get_tree().connect("network_peer_connected",self,"_player_connected")
-	
+	var error = Utils.connect_signals(get_tree(),self,connection_signals)
+	if error != OK:
+		printerr(error)
 
 
 func create_server():
@@ -53,5 +63,5 @@ func reset_network_connection():
 		get_tree().network_peer = null
 
 
-func _player_connected(id):
+func _player_connected(_id):
 	pass#print("Player "+str(id)+" connected")

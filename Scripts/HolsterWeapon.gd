@@ -9,7 +9,7 @@ onready var is_network_master = is_network_master()
 func _ready():
 	set_process_input(is_network_master)
 	weapons = get_children()
-	get_tree().connect("network_peer_connected",self,"_player_connected")
+#	get_tree().connect("network_peer_connected",self,"_player_connected")
 	if is_network_master:
 		rpc("equip",equipped_weapon)
 

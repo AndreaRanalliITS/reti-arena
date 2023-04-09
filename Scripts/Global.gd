@@ -1,8 +1,10 @@
 extends Node
 
-enum PickupType {HEALTH_PACK, GUN_AMMO, BARRELGUN_AMMO, AK47_AMMO,SNIPER_AMMO}
+enum PickupType {HEALTH_PACK, GUN_AMMO, BARRELGUN_AMMO, AK47_AMMO, SNIPER_AMMO}
 
+# warning-ignore:unused_signal
 signal instance_player(id)
+# warning-ignore:unused_signal
 signal toggle_network_setup(toggle)
 
 var server_name = ""
@@ -15,19 +17,23 @@ var player_info = {
 	"avatar" : 0,
 	"ready" : false,
 	"lobby_spawn_point" : -1,
-	"game_spawn_point" : -1
+	"game_spawn_point" : -1,
+	"deaths":0,
+	"kills":0
 }
 
 var players_info = {}
 
-
 func _ready():
-	randomize()
-	avatars = Utils.read_json("res://avatars.json")
 	lobby_spawn_indexes = range(Network.MAX_CLIENTS)
 	lobby_spawn_indexes.shuffle()
 	game_spawn_indexes = range(Network.MAX_CLIENTS)
 	game_spawn_indexes.shuffle()
+
+func _init():
+	randomize()
+	avatars = Utils.read_json("res://avatars.json")
+	
 
 
 #######################
