@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/health_pickup.png-33f231e2c471744eda5b285c576304ee.s3tc.stex"
-path.etc2="res://.import/health_pickup.png-33f231e2c471744eda5b285c576304ee.etc2.stex"
+path.s3tc="res://.import/health_pickup.png-09884ae5dccb038ceca062cb4a2bad26.s3tc.stex"
+path.etc2="res://.import/health_pickup.png-09884ae5dccb038ceca062cb4a2bad26.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/health_pickup.png"
-dest_files=[ "res://.import/health_pickup.png-33f231e2c471744eda5b285c576304ee.s3tc.stex", "res://.import/health_pickup.png-33f231e2c471744eda5b285c576304ee.etc2.stex" ]
+source_file="res://textures/health_pickup.png"
+dest_files=[ "res://.import/health_pickup.png-09884ae5dccb038ceca062cb4a2bad26.s3tc.stex", "res://.import/health_pickup.png-09884ae5dccb038ceca062cb4a2bad26.etc2.stex" ]
 
 [params]
 

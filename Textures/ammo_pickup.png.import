@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/ammo_pickup.png-db8f3989452ed7427722f97739f125f5.s3tc.stex"
-path.etc2="res://.import/ammo_pickup.png-db8f3989452ed7427722f97739f125f5.etc2.stex"
+path.s3tc="res://.import/ammo_pickup.png-159e72122a2cb7de839b4f53517be1d4.s3tc.stex"
+path.etc2="res://.import/ammo_pickup.png-159e72122a2cb7de839b4f53517be1d4.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/ammo_pickup.png"
-dest_files=[ "res://.import/ammo_pickup.png-db8f3989452ed7427722f97739f125f5.s3tc.stex", "res://.import/ammo_pickup.png-db8f3989452ed7427722f97739f125f5.etc2.stex" ]
+source_file="res://textures/ammo_pickup.png"
+dest_files=[ "res://.import/ammo_pickup.png-159e72122a2cb7de839b4f53517be1d4.s3tc.stex", "res://.import/ammo_pickup.png-159e72122a2cb7de839b4f53517be1d4.etc2.stex" ]
 
 [params]
 

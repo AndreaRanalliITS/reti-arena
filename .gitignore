@@ -3,6 +3,7 @@
 .import/
 export.cfg
 export_presets.cfg
+TrenchbroomMaps/autosave
 
 # Mono-specific ignores
 .mono/

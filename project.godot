@@ -216,6 +216,10 @@ Utils="*res://Scripts/Utils.gd"
 Network="*res://Scripts/Network.gd"
 Global="*res://Scripts/Global.gd"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/qodot/plugin.cfg" )
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
