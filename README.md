@@ -1,33 +1,34 @@
 # Reti arena project
 
-This project aims to create a simple but functioning arena fps game for my final thesis @ Reti S.p.A.
+This project aims to create a simple but functioning arena fps game for my final thesis @ Reti S.p.A. , only using opensource programs such as Godot for the game engine, Trenchbroom / Blender for 3D models.
 
-
+<br>
+<br>
 
 
 
 ## TODOs
 
-- [X] __FIRST PERSON PLAYER__
+- [x] __FIRST PERSON PLAYER__
     - [x] movement system
-    - [X] movement sync
-    - [X] health system
+    - [x] movement sync
+    - [x] health system
 
 #
-- [X] __SERVER SETUP__
+- [x] __SERVER SETUP__
     - [x] server name
     - [ ] server visibility
 
 #
-- [X] __SERVER CONNECTION__
+- [x] __SERVER CONNECTION__
 
 #
 - [ ] __WEAPONS__
-    - [X] gun
-    - [X] barrel gun
-    - [X] ak47
-    - [X] sniper
-    - [X] damage system
+    - [x] gun
+    - [x] barrel gun
+    - [x] ak47
+    - [x] sniper
+    - [x] damage system
 
 #
 - [x] __PICKUPS__
@@ -102,4 +103,4 @@ This project aims to create a simple but functioning arena fps game for my final
 
 
 
-<sub><sup><sub><sup><sub><sup><sub><sup><sub><sup> easter egg?
+<sub><sup><sub><sup><sub><sup><sub><sup><sub><sup><sub><sup><sub><sup> sirondo dance?
