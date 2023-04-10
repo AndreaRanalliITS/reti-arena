@@ -206,7 +206,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="test-multiplayer"
+config/name="reti-arena"
+config/description="FPS Arena game for the final thesis @Reti S.p.A."
 run/main_scene="res://Scenes/Map.tscn"
 config/icon="res://icon.png"
 

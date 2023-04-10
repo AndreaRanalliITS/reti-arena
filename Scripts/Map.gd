@@ -104,10 +104,10 @@ remote func _instance_player(id):
 
 
 func update_ready_label():
-	var text = "Players:\n\n"
+	var text = ""
 	for key in Global.players_info:
-		var check = "V" if Global.players_info[key].ready else "X"
-		text += "{0}: {1}\n".format([Global.players_info[key].name,check])
+		var check = "X" if Global.players_info[key].ready else " "
+		text += "[{0}] {1}\n".format([check,Global.players_info[key].name])
 	ready_players_label.text = text
 
 	#if is server, check if all player_scene are ready

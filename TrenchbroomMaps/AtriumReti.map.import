@@ -1,0 +1,13 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+path="res://.import/AtriumReti.map-4adb702d8e15cbb5715d7b14bcaa2d14.tres"
+
+[deps]
+
+source_file="res://TrenchbroomMaps/AtriumReti.map"
+dest_files=[ "res://.import/AtriumReti.map-4adb702d8e15cbb5715d7b14bcaa2d14.tres" ]
+
+[params]
+

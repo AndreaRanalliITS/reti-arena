@@ -55,6 +55,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0 )
 
 [node name="Camera" type="Camera" parent="Head"]
 cull_mask = 524287
+far = 500.0
 
 [node name="RayCast" type="RayCast" parent="Head"]
 enabled = true
