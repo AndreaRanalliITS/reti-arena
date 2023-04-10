@@ -1,4 +1,12 @@
-# TODOs
+# Reti arena project
+
+This project aims to create a simple but functioning arena fps game for my final thesis @ Reti S.p.A.
+
+
+
+
+
+## TODOs
 
 - [X] __FIRST PERSON PLAYER__
     - [x] movement system
