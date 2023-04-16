@@ -44,11 +44,11 @@ This project aims to create a simple but functioning arena fps game for my final
 
 #
 - [ ] __MODELS__
-    - [ ] player
-    - [ ] gun
-    - [ ] barrel gun
-    - [ ] ak47
-    - [ ] sniper
+    - [x] player
+    - [x] gun
+    - [x] barrel gun
+    - [x] ak47
+    - [x] sniper
     - [ ] health pickup
     - [ ] map
 
@@ -67,17 +67,17 @@ This project aims to create a simple but functioning arena fps game for my final
 
 #
 - [ ] __ANIMATIONS__
-    - [ ] player walk
-    - [ ] player idle
-    - [ ] player jump
-    - [ ] gun reload
-    - [ ] barrel gun reload
-    - [ ] ak47 reload
-    - [ ] sniper reload
-    - [ ] gun shot
-    - [ ] barrel gun shot
-    - [ ] ak47 shot
-    - [ ] sniper shot
+    - [ ] ~~player idle~~
+    - [ ] ~~player walk~~
+    - [ ] ~~player jump~~
+    - [ ] ~~gun reload~~
+    - [ ] ~~barrel gun reload~~
+    - [ ] ~~ak47 reload~~
+    - [ ] ~~sniper reload~~
+    - [ ] ~~gun shot~~
+    - [ ] ~~barrel gun shot~~
+    - [ ] ~~ak47 shot~~
+    - [ ] ~~sniper shot~~
     - [x] pickup hovering
 
 # 

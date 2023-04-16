@@ -1,17 +1,17 @@
 [
 	{
-		"name": "Luca Babbabia",
-		"material": "res://Materials/Red.tres",
+		"name": "MK I",
+		"material": "res://Materials/Robot1.material",
 		"mesh": ""
 	},
 	{
-		"name": "Carlo Ostrogoti",
-		"material": "res://Materials/Blue.tres",
+		"name": "DeepBlue",
+		"material": "res://Materials/Robot2.material",
 		"mesh": ""
 	},
     {
-		"name": "Ciccio Pipparelli",
-		"material": "res://Materials/Green.tres",
+		"name": "V3C_IO",
+		"material": "res://Materials/Robot3.material",
 		"mesh": ""
 	}
 ]

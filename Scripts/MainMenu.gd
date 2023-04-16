@@ -116,6 +116,10 @@ func _select_character(dir):
 	
 	Global.player_info.avatar = avatar
 	character_name.text = Global.avatars[avatar].name
-	player_preview.mesh.material = load(Global.avatars[avatar].material)
+#	surface_set_material(surf_idx: int, material: Material)
+
+	player_preview.mesh.surface_set_material(0, load(Global.avatars[avatar].material))
+
+#	player_preview.mesh.material = load(Global.avatars[avatar].material)
 	
 	character_idx.text = "{0}/{1}".format([avatar+1,Global.avatars.size()])

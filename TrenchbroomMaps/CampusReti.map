@@ -6,38 +6,38 @@
 "_tb_textures" "textures;textures/metal_frame;textures/plaster_white;textures/wood_floor"
 // brush 0
 {
-( 736 -128 0 ) ( 896 -128 96 ) ( 896 -224 96 ) default -480 -32 0 1 1
-( 736 -224 0 ) ( 896 -224 96 ) ( 896 -224 0 ) default -480 0 0 1 1
-( 896 -224 0 ) ( 896 -128 0 ) ( 736 -128 0 ) default -480 -32 0 1 1
-( 896 -128 0 ) ( 896 -128 96 ) ( 736 -128 0 ) default -480 0 0 1 1
-( 896 -224 96 ) ( 896 -128 96 ) ( 896 -128 0 ) default 32 0 0 1 1
+( 513 -208 0 ) ( 673 -208 96 ) ( 673 -304 96 ) default -257 -112 0 1 1
+( 513 -304 0 ) ( 673 -304 96 ) ( 673 -304 0 ) default -257 0 0 1 1
+( 673 -304 0 ) ( 673 -208 0 ) ( 513 -208 0 ) default -257 -112 0 1 1
+( 673 -208 0 ) ( 673 -208 96 ) ( 513 -208 0 ) default -257 0 0 1 1
+( 673 -304 96 ) ( 673 -208 96 ) ( 673 -208 0 ) default 112 0 0 1 1
 }
 // brush 1
 {
-( 896 304 96 ) ( 896 176 96 ) ( 896 304 0 ) default 32 0 0 1 1
-( 1008 176 0 ) ( 896 176 0 ) ( 1008 176 96 ) default -480 0 0 1 1
-( 896 304 0 ) ( 896 176 0 ) ( 1008 304 0 ) default -480 -32 0 1 1
-( 1008 304 96 ) ( 1008 176 96 ) ( 896 304 96 ) default -480 -32 0 1 1
-( 896 304 0 ) ( 1008 304 0 ) ( 896 304 96 ) default -480 0 0 1 1
-( 1008 304 0 ) ( 1008 176 0 ) ( 1008 304 96 ) default 32 0 0 1 1
+( 673 224 96 ) ( 673 96 96 ) ( 673 224 0 ) default 112 0 0 1 1
+( 785 96 0 ) ( 673 96 0 ) ( 785 96 96 ) default -257 0 0 1 1
+( 673 224 0 ) ( 673 96 0 ) ( 785 224 0 ) default -257 -112 0 1 1
+( 785 224 96 ) ( 785 96 96 ) ( 673 224 96 ) default -257 -112 0 1 1
+( 673 224 0 ) ( 785 224 0 ) ( 673 224 96 ) default -257 0 0 1 1
+( 785 224 0 ) ( 785 96 0 ) ( 785 224 96 ) default 112 0 0 1 1
 }
 // brush 2
 {
-( 896 -224 0 ) ( 896 48 0 ) ( 896 -224 96 ) default 32 0 0 1 1
-( 896 -224 96 ) ( 1008 -224 96 ) ( 896 -224 0 ) default -480 0 0 1 1
-( 1008 -224 0 ) ( 1008 48 0 ) ( 896 -224 0 ) default -480 -32 0 1 1
-( 896 -224 96 ) ( 896 48 96 ) ( 1008 -224 96 ) default -480 -32 0 1 1
-( 896 48 96 ) ( 896 48 0 ) ( 1008 48 96 ) default -480 0 0 1 1
-( 1008 -224 96 ) ( 1008 48 96 ) ( 1008 -224 0 ) default 32 0 0 1 1
+( 673 -304 0 ) ( 673 -32 0 ) ( 673 -304 96 ) default 112 0 0 1 1
+( 673 -304 96 ) ( 785 -304 96 ) ( 673 -304 0 ) default -257 0 0 1 1
+( 785 -304 0 ) ( 785 -32 0 ) ( 673 -304 0 ) default -257 -112 0 1 1
+( 673 -304 96 ) ( 673 -32 96 ) ( 785 -304 96 ) default -257 -112 0 1 1
+( 673 -32 96 ) ( 673 -32 0 ) ( 785 -32 96 ) default -257 0 0 1 1
+( 785 -304 96 ) ( 785 -32 96 ) ( 785 -304 0 ) default 112 0 0 1 1
 }
 // brush 3
 {
-( 896 48 96 ) ( 896 48 80 ) ( 896 176 96 ) default 32 0 0 1 1
-( 1008 48 96 ) ( 1008 48 80 ) ( 896 48 96 ) default -480 0 0 1 1
-( 896 176 80 ) ( 896 48 80 ) ( 1008 176 80 ) default -480 -32 0 1 1
-( 1008 176 96 ) ( 1008 48 96 ) ( 896 176 96 ) default -480 -32 0 1 1
-( 896 176 96 ) ( 896 176 80 ) ( 1008 176 96 ) default -480 0 0 1 1
-( 1008 176 96 ) ( 1008 176 80 ) ( 1008 48 96 ) default 32 0 0 1 1
+( 673 -32 96 ) ( 673 -32 80 ) ( 673 96 96 ) default 112 0 0 1 1
+( 785 -32 96 ) ( 785 -32 80 ) ( 673 -32 96 ) default -257 0 0 1 1
+( 673 96 80 ) ( 673 -32 80 ) ( 785 96 80 ) default -257 -112 0 1 1
+( 785 96 96 ) ( 785 -32 96 ) ( 673 96 96 ) default -257 -112 0 1 1
+( 673 96 96 ) ( 673 96 80 ) ( 785 96 96 ) default -257 0 0 1 1
+( 785 96 96 ) ( 785 96 80 ) ( 785 -32 96 ) default 112 0 0 1 1
 }
 // brush 4
 {
@@ -77,12 +77,12 @@
 }
 // brush 8
 {
-( -48 -64 0 ) ( -48 64 0 ) ( -48 -64 16 ) metal_frame/1K-metal_frame_4_basecolor 512 -8 0 0.1 0.05
-( -64 -48 16 ) ( -16 -48 16 ) ( -64 -48 0 ) metal_frame/1K-metal_frame_4_basecolor 512 -8 0 0.1 0.05
+( -48 -64 0 ) ( -48 64 0 ) ( -48 -64 16 ) metal_frame/1K-metal_frame_4_basecolor 414.38165 -121 0 0.3 0.3
+( -64 -48 16 ) ( -16 -48 16 ) ( -64 -48 0 ) metal_frame/1K-metal_frame_4_basecolor 414.38165 -121 0 0.3 0.3
 ( -64 -64 0 ) ( -16 -64 0 ) ( -64 64 0 ) metal_frame/1K-metal_frame_4_basecolor 512 -8 0 0.1 0.05
 ( -64 64 24 ) ( -16 64 24 ) ( -64 -64 24 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
-( -64 48 0 ) ( -16 48 0 ) ( -64 48 16 ) metal_frame/1K-metal_frame_4_basecolor 512 -8 0 0.1 0.05
-( 48 -64 0 ) ( 48 -64 16 ) ( 48 64 0 ) metal_frame/1K-metal_frame_4_basecolor 512 -8 0 0.1 0.05
+( -64 48 0 ) ( -16 48 0 ) ( -64 48 16 ) metal_frame/1K-metal_frame_4_basecolor 414.38165 -121 0 0.3 0.3
+( 48 -64 0 ) ( 48 -64 16 ) ( 48 64 0 ) metal_frame/1K-metal_frame_4_basecolor 414.38165 -121 0 0.3 0.3
 }
 // brush 9
 {
@@ -212,12 +212,12 @@
 }
 // brush 23
 {
-( 203.98832214222557 -292.4136981113278 0 ) ( 204.69542892341212 -291.7065913301412 0 ) ( 203.98832214222557 -292.4136981113278 1 ) wooden_crate 1230.3223 0 0 0.016263457 0.023
-( 203.98832214222557 -292.4136981113278 0 ) ( 203.98832214222557 -292.4136981113278 1 ) ( 204.69542892341212 -293.12080489251434 0 ) wooden_crate -1225.2773 0 180 0.016263457 -0.023
-( 203.98832214222557 -292.4136981113278 0 ) ( 204.69542892341212 -293.12080489251434 0 ) ( 204.69542892341212 -291.7065913301412 0 ) wooden_crate -191.00925 -222.52618 315 1 1
-( 294.49799013410365 -292.4136981113278 48 ) ( 295.2050969152902 -291.70659133014135 48 ) ( 295.2050969152902 -293.1208048925144 48 ) wooden_crate -600.749 1466.9487 315 0.023 0.023
-( 283.1842816351189 -281.09998961234305 16 ) ( 283.1842816351189 -281.09998961234305 17 ) ( 283.8913884163055 -280.39288283115656 16 ) wooden_crate -2063.1758 0 0 0.016263457 0.023
-( 283.1842816351189 -303.7274066103126 16 ) ( 283.89138841630546 -304.43451339149914 16 ) ( 283.1842816351189 -303.7274066103126 17 ) wooden_crate -1232.3223 0 180 0.016263457 -0.023
+( 211.01982119792964 -309.8282136179324 0 ) ( 211.2786402430322 -308.86228779164327 0 ) ( 211.01982119792964 -309.8282136179324 1 ) wooden_crate -709.48926 0 0 0.022216296 0.023
+( 211.01982119792964 -309.8282136179324 0 ) ( 211.01982119792964 -309.8282136179324 1 ) ( 211.9857470242187 -310.0870326630349 0 ) wooden_crate 974.0967 0 0 0.022216296 0.023
+( 211.01982119792964 -309.8282136179324 0 ) ( 211.9857470242187 -310.0870326630349 0 ) ( 211.2786402430322 -308.86228779164327 0 ) wooden_crate -124.01895 -404.65512 345 1 1
+( 289.4034929669914 -264.57337962199347 48 ) ( 289.66231201209405 -263.60745379570454 48 ) ( 290.3694187932806 -264.83219866709607 48 ) wooden_crate -1876.1279 1924.2988 345 0.023 0.023
+( 285.2623882453511 -280.0281928426186 16 ) ( 286.2283140716402 -280.2870118877211 16 ) ( 285.2623882453511 -280.0281928426186 17 ) wooden_crate 414.89844 0 0 0.022216296 0.023
+( 273.94867974636634 -260.4322749003531 16 ) ( 273.94867974636634 -260.4322749003531 17 ) ( 274.207498791469 -259.4663490740641 16 ) wooden_crate 1943.708 0 0 0.022216296 0.023
 }
 // brush 24
 {
@@ -239,39 +239,39 @@
 }
 // brush 26
 {
-( 142 400 96 ) ( 142 352 96 ) ( 142 400 0 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 0.1 0.1
-( 144 352 0 ) ( 142 352 0 ) ( 144 352 96 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 0.1 0.1
-( 144 400 0 ) ( 142 400 0 ) ( 144 352 0 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 0.1 0.1
-( 144 352 96 ) ( 142 352 96 ) ( 144 400 96 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 0.1 0.1
-( 144 400 96 ) ( 142 400 96 ) ( 144 400 0 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 0.1 0.1
-( 144 352 96 ) ( 144 400 96 ) ( 144 352 0 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 0.1 0.1
+( 142 400 96 ) ( 142 352 96 ) ( 142 400 0 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 100 100
+( 144 352 0 ) ( 142 352 0 ) ( 144 352 96 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 100 100
+( 144 400 0 ) ( 142 400 0 ) ( 144 352 0 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 100 100
+( 144 352 96 ) ( 142 352 96 ) ( 144 400 96 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 100 100
+( 144 400 96 ) ( 142 400 96 ) ( 144 400 0 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 100 100
+( 144 352 96 ) ( 144 400 96 ) ( 144 352 0 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 100 100
 }
 // brush 27
 {
-( -272 352 0 ) ( -272 400 0 ) ( -272 352 96 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 0.1 0.1
-( -272 352 96 ) ( -270 352 96 ) ( -272 352 0 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 0.1 0.1
-( -272 352 0 ) ( -270 352 0 ) ( -272 400 0 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 0.1 0.1
-( -272 400 96 ) ( -270 400 96 ) ( -272 352 96 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 0.1 0.1
-( -272 400 0 ) ( -270 400 0 ) ( -272 400 96 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 0.1 0.1
-( -270 352 0 ) ( -270 352 96 ) ( -270 400 0 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 0.1 0.1
+( -272 352 0 ) ( -272 400 0 ) ( -272 352 96 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 100 100
+( -272 352 96 ) ( -270 352 96 ) ( -272 352 0 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 100 100
+( -272 352 0 ) ( -270 352 0 ) ( -272 400 0 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 100 100
+( -272 400 96 ) ( -270 400 96 ) ( -272 352 96 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 100 100
+( -272 400 0 ) ( -270 400 0 ) ( -272 400 96 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 100 100
+( -270 352 0 ) ( -270 352 96 ) ( -270 400 0 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 100 100
 }
 // brush 28
 {
-( -270 400 96 ) ( -270 398 96 ) ( -270 400 0 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 0.1 0.1
-( 142 398 96 ) ( 142 398 0 ) ( -270 398 96 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 0.1 0.1
-( -270 400 0 ) ( -270 398 0 ) ( 142 400 0 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 0.1 0.1
-( 142 400 96 ) ( 142 398 96 ) ( -270 400 96 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 0.1 0.1
-( 142 400 96 ) ( -270 400 96 ) ( 142 400 0 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 0.1 0.1
-( 142 400 0 ) ( 142 398 0 ) ( 142 400 96 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 0.1 0.1
+( -270 400 96 ) ( -270 398 96 ) ( -270 400 0 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
+( 142 398 96 ) ( 142 398 0 ) ( -270 398 96 ) metal_frame/1K-metal_frame_4_basecolor -382.26352 -124 0 0.5 1.35
+( -270 400 0 ) ( -270 398 0 ) ( 142 400 0 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
+( 142 400 94 ) ( 142 398 94 ) ( -270 400 94 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
+( 142 400 96 ) ( -270 400 96 ) ( 142 400 0 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
+( 142 400 0 ) ( 142 398 0 ) ( 142 400 96 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
 }
 // brush 29
 {
-( -270 352 96 ) ( -270 352 94 ) ( -270 398 96 ) metal_frame/1K-metal_frame_4_basecolor 0 -100 0 0.1 0.1
-( 142 352 96 ) ( 142 352 94 ) ( -270 352 96 ) metal_frame/1K-metal_frame_4_basecolor 0 -100 0 0.1 0.1
-( -270 398 94 ) ( -270 352 94 ) ( 142 398 94 ) metal_frame/1K-metal_frame_4_basecolor 0 -100 0 0.1 0.1
-( -270 352 96 ) ( -270 398 96 ) ( 142 352 96 ) metal_frame/1K-metal_frame_4_basecolor 0 -100 0 0.1 0.1
-( -270 398 96 ) ( -270 398 94 ) ( 142 398 96 ) metal_frame/1K-metal_frame_4_basecolor 0 -100 0 0.1 0.1
-( 142 398 96 ) ( 142 398 94 ) ( 142 352 96 ) metal_frame/1K-metal_frame_4_basecolor 0 -100 0 0.1 0.1
+( -270 352 96 ) ( -270 352 94 ) ( -270 398 96 ) metal_frame/1K-metal_frame_4_basecolor 0 -100 0 100 100
+( 142 352 96 ) ( 142 352 94 ) ( -270 352 96 ) metal_frame/1K-metal_frame_4_basecolor 0 -100 0 100 100
+( -270 398 94 ) ( -270 352 94 ) ( 142 398 94 ) metal_frame/1K-metal_frame_4_basecolor 0 -100 0 100 100
+( -270 352 96 ) ( -270 398 96 ) ( 142 352 96 ) metal_frame/1K-metal_frame_4_basecolor 0 -100 0 100 100
+( -270 400 96 ) ( -270 400 94 ) ( 142 400 96 ) metal_frame/1K-metal_frame_4_basecolor 0 -100 0 100 100
+( 142 398 96 ) ( 142 398 94 ) ( 142 352 96 ) metal_frame/1K-metal_frame_4_basecolor 0 -100 0 100 100
 }
 // brush 30
 {
@@ -284,131 +284,14 @@
 }
 // brush 31
 {
-( -26 174 24 ) ( -26 182 0 ) ( -26 182 24 ) metal_frame/1K-metal_frame_4_basecolor 90 0 0 1 1
-( -20 176 24 ) ( -28 176 0 ) ( -28 176 24 ) metal_frame/1K-metal_frame_4_basecolor -20 0 0 1 1
+( -25 174 24 ) ( -25 182 0 ) ( -25 182 24 ) metal_frame/1K-metal_frame_4_basecolor 90 0 0 1 1
+( -20 177 24 ) ( -28 177 0 ) ( -28 177 24 ) metal_frame/1K-metal_frame_4_basecolor -20 0 0 1 1
 ( -20 182 0 ) ( -28 174 0 ) ( -20 174 0 ) metal_frame/1K-metal_frame_4_basecolor -20 -90 0 1 1
 ( -20 182 20 ) ( -28 174 20 ) ( -28 182 20 ) metal_frame/1K-metal_frame_4_basecolor -20 -90 0 1 1
-( -20 180 24 ) ( -28 180 0 ) ( -20 180 0 ) metal_frame/1K-metal_frame_4_basecolor -20 0 0 1 1
-( -22 182 24 ) ( -22 174 0 ) ( -22 174 24 ) metal_frame/1K-metal_frame_4_basecolor 90 0 0 1 1
+( -20 179 24 ) ( -28 179 0 ) ( -20 179 0 ) metal_frame/1K-metal_frame_4_basecolor -20 0 0 1 1
+( -23 182 24 ) ( -23 174 0 ) ( -23 174 24 ) metal_frame/1K-metal_frame_4_basecolor 90 0 0 1 1
 }
 // brush 32
-{
-( -36 174 24 ) ( -36 182 20 ) ( -36 182 24 ) metal_frame/1K-metal_frame_4_basecolor 90 0 0 10 1
-( -20 166 24 ) ( -28 166 20 ) ( -28 166 24 ) metal_frame/1K-metal_frame_4_basecolor -20 0 0 10 1
-( -20 182 20 ) ( -28 174 20 ) ( -20 174 20 ) metal_frame/1K-metal_frame_4_basecolor -20 -90 0 10 1
-( -20 182 21 ) ( -28 174 21 ) ( -28 182 21 ) metal_frame/1K-metal_frame_4_basecolor -20 -90 0 10 1
-( -20 190 24 ) ( -28 190 20 ) ( -20 190 20 ) metal_frame/1K-metal_frame_4_basecolor -20 0 0 10 1
-( -12 182 24 ) ( -12 174 20 ) ( -12 174 24 ) metal_frame/1K-metal_frame_4_basecolor 90 0 0 10 1
-}
-// brush 33
-{
-( -138 62 24 ) ( -138 70 0 ) ( -138 70 24 ) metal_frame/1K-metal_frame_4_basecolor 202 0 0 1 1
-( -132 64 24 ) ( -140 64 0 ) ( -140 64 24 ) metal_frame/1K-metal_frame_4_basecolor 92 0 0 1 1
-( -132 70 0 ) ( -140 62 0 ) ( -132 62 0 ) metal_frame/1K-metal_frame_4_basecolor 92 -202 0 1 1
-( -132 70 20 ) ( -140 62 20 ) ( -140 70 20 ) metal_frame/1K-metal_frame_4_basecolor 92 -202 0 1 1
-( -132 68 24 ) ( -140 68 0 ) ( -132 68 0 ) metal_frame/1K-metal_frame_4_basecolor 92 0 0 1 1
-( -134 70 24 ) ( -134 62 0 ) ( -134 62 24 ) metal_frame/1K-metal_frame_4_basecolor 202 0 0 1 1
-}
-// brush 34
-{
-( -148 62 24 ) ( -148 70 20 ) ( -148 70 24 ) metal_frame/1K-metal_frame_4_basecolor 101.200005 0 0 10 1
-( -132 54 24 ) ( -140 54 20 ) ( -140 54 24 ) metal_frame/1K-metal_frame_4_basecolor -8.799999 0 0 10 1
-( -132 70 20 ) ( -140 62 20 ) ( -132 62 20 ) metal_frame/1K-metal_frame_4_basecolor -8.799999 -202 0 10 1
-( -132 70 21 ) ( -140 62 21 ) ( -140 70 21 ) metal_frame/1K-metal_frame_4_basecolor -8.799999 -202 0 10 1
-( -132 78 24 ) ( -140 78 20 ) ( -132 78 20 ) metal_frame/1K-metal_frame_4_basecolor -8.799999 0 0 10 1
-( -124 70 24 ) ( -124 62 20 ) ( -124 62 24 ) metal_frame/1K-metal_frame_4_basecolor 101.200005 0 0 10 1
-}
-// brush 35
-{
-( -154 -66 24 ) ( -154 -58 0 ) ( -154 -58 24 ) metal_frame/1K-metal_frame_4_basecolor 330 0 0 1 1
-( -148 -64 24 ) ( -156 -64 0 ) ( -156 -64 24 ) metal_frame/1K-metal_frame_4_basecolor 108 0 0 1 1
-( -148 -58 0 ) ( -156 -66 0 ) ( -148 -66 0 ) metal_frame/1K-metal_frame_4_basecolor 108 -330 0 1 1
-( -148 -58 20 ) ( -156 -66 20 ) ( -156 -58 20 ) metal_frame/1K-metal_frame_4_basecolor 108 -330 0 1 1
-( -148 -60 24 ) ( -156 -60 0 ) ( -148 -60 0 ) metal_frame/1K-metal_frame_4_basecolor 108 0 0 1 1
-( -150 -58 24 ) ( -150 -66 0 ) ( -150 -66 24 ) metal_frame/1K-metal_frame_4_basecolor 330 0 0 1 1
-}
-// brush 36
-{
-( -164 -66 24 ) ( -164 -58 20 ) ( -164 -58 24 ) metal_frame/1K-metal_frame_4_basecolor 114 0 0 10 1
-( -148 -74 24 ) ( -156 -74 20 ) ( -156 -74 24 ) metal_frame/1K-metal_frame_4_basecolor -7.2 0 0 10 1
-( -148 -58 20 ) ( -156 -66 20 ) ( -148 -66 20 ) metal_frame/1K-metal_frame_4_basecolor -7.2 -330 0 10 1
-( -148 -58 21 ) ( -156 -66 21 ) ( -156 -58 21 ) metal_frame/1K-metal_frame_4_basecolor -7.2 -330 0 10 1
-( -148 -50 24 ) ( -156 -50 20 ) ( -148 -50 20 ) metal_frame/1K-metal_frame_4_basecolor -7.2 0 0 10 1
-( -140 -58 24 ) ( -140 -66 20 ) ( -140 -66 24 ) metal_frame/1K-metal_frame_4_basecolor 114 0 0 10 1
-}
-// brush 37
-{
-( -42 -194 24 ) ( -42 -186 0 ) ( -42 -186 24 ) metal_frame/1K-metal_frame_4_basecolor 458 0 0 1 1
-( -36 -192 24 ) ( -44 -192 0 ) ( -44 -192 24 ) metal_frame/1K-metal_frame_4_basecolor -4 0 0 1 1
-( -36 -186 0 ) ( -44 -194 0 ) ( -36 -194 0 ) metal_frame/1K-metal_frame_4_basecolor -4 -458 0 1 1
-( -36 -186 20 ) ( -44 -194 20 ) ( -44 -186 20 ) metal_frame/1K-metal_frame_4_basecolor -4 -458 0 1 1
-( -36 -188 24 ) ( -44 -188 0 ) ( -36 -188 0 ) metal_frame/1K-metal_frame_4_basecolor -4 0 0 1 1
-( -38 -186 24 ) ( -38 -194 0 ) ( -38 -194 24 ) metal_frame/1K-metal_frame_4_basecolor 458 0 0 1 1
-}
-// brush 38
-{
-( -52 -194 24 ) ( -52 -186 20 ) ( -52 -186 24 ) metal_frame/1K-metal_frame_4_basecolor 126.8 0 0 10 1
-( -36 -202 24 ) ( -44 -202 20 ) ( -44 -202 24 ) metal_frame/1K-metal_frame_4_basecolor -18.4 0 0 10 1
-( -36 -186 20 ) ( -44 -194 20 ) ( -36 -194 20 ) metal_frame/1K-metal_frame_4_basecolor -18.4 -458 0 10 1
-( -36 -186 21 ) ( -44 -194 21 ) ( -44 -186 21 ) metal_frame/1K-metal_frame_4_basecolor -18.4 -458 0 10 1
-( -36 -178 24 ) ( -44 -178 20 ) ( -36 -178 20 ) metal_frame/1K-metal_frame_4_basecolor -18.4 0 0 10 1
-( -28 -186 24 ) ( -28 -194 20 ) ( -28 -194 24 ) metal_frame/1K-metal_frame_4_basecolor 126.8 0 0 10 1
-}
-// brush 39
-{
-( 118 -114 24 ) ( 118 -106 0 ) ( 118 -106 24 ) metal_frame/1K-metal_frame_4_basecolor 378 0 0 1 1
-( 124 -112 24 ) ( 116 -112 0 ) ( 116 -112 24 ) metal_frame/1K-metal_frame_4_basecolor -164 0 0 1 1
-( 124 -106 0 ) ( 116 -114 0 ) ( 124 -114 0 ) metal_frame/1K-metal_frame_4_basecolor -164 -378 0 1 1
-( 124 -106 20 ) ( 116 -114 20 ) ( 116 -106 20 ) metal_frame/1K-metal_frame_4_basecolor -164 -378 0 1 1
-( 124 -108 24 ) ( 116 -108 0 ) ( 124 -108 0 ) metal_frame/1K-metal_frame_4_basecolor -164 0 0 1 1
-( 122 -106 24 ) ( 122 -114 0 ) ( 122 -114 24 ) metal_frame/1K-metal_frame_4_basecolor 378 0 0 1 1
-}
-// brush 40
-{
-( 108 -114 24 ) ( 108 -106 20 ) ( 108 -106 24 ) metal_frame/1K-metal_frame_4_basecolor 118.8 0 0 10 1
-( 124 -122 24 ) ( 116 -122 20 ) ( 116 -122 24 ) metal_frame/1K-metal_frame_4_basecolor -34.399994 0 0 10 1
-( 124 -106 20 ) ( 116 -114 20 ) ( 124 -114 20 ) metal_frame/1K-metal_frame_4_basecolor -34.399994 -378 0 10 1
-( 124 -106 21 ) ( 116 -114 21 ) ( 116 -106 21 ) metal_frame/1K-metal_frame_4_basecolor -34.399994 -378 0 10 1
-( 124 -98 24 ) ( 116 -98 20 ) ( 124 -98 20 ) metal_frame/1K-metal_frame_4_basecolor -34.399994 0 0 10 1
-( 132 -106 24 ) ( 132 -114 20 ) ( 132 -114 24 ) metal_frame/1K-metal_frame_4_basecolor 118.8 0 0 10 1
-}
-// brush 41
-{
-( 118 62 24 ) ( 118 70 0 ) ( 118 70 24 ) metal_frame/1K-metal_frame_4_basecolor 202 0 0 1 1
-( 124 64 24 ) ( 116 64 0 ) ( 116 64 24 ) metal_frame/1K-metal_frame_4_basecolor -164 0 0 1 1
-( 124 70 0 ) ( 116 62 0 ) ( 124 62 0 ) metal_frame/1K-metal_frame_4_basecolor -164 -202 0 1 1
-( 124 70 20 ) ( 116 62 20 ) ( 116 70 20 ) metal_frame/1K-metal_frame_4_basecolor -164 -202 0 1 1
-( 124 68 24 ) ( 116 68 0 ) ( 124 68 0 ) metal_frame/1K-metal_frame_4_basecolor -164 0 0 1 1
-( 122 70 24 ) ( 122 62 0 ) ( 122 62 24 ) metal_frame/1K-metal_frame_4_basecolor 202 0 0 1 1
-}
-// brush 42
-{
-( 108 62 24 ) ( 108 70 20 ) ( 108 70 24 ) metal_frame/1K-metal_frame_4_basecolor 101.200005 0 0 10 1
-( 124 54 24 ) ( 116 54 20 ) ( 116 54 24 ) metal_frame/1K-metal_frame_4_basecolor -34.399994 0 0 10 1
-( 124 70 20 ) ( 116 62 20 ) ( 124 62 20 ) metal_frame/1K-metal_frame_4_basecolor -34.399994 -202 0 10 1
-( 124 70 21 ) ( 116 62 21 ) ( 116 70 21 ) metal_frame/1K-metal_frame_4_basecolor -34.399994 -202 0 10 1
-( 124 78 24 ) ( 116 78 20 ) ( 124 78 20 ) metal_frame/1K-metal_frame_4_basecolor -34.399994 0 0 10 1
-( 132 70 24 ) ( 132 62 20 ) ( 132 62 24 ) metal_frame/1K-metal_frame_4_basecolor 101.200005 0 0 10 1
-}
-// brush 43
-{
-( -186 -274 24 ) ( -186 -266 0 ) ( -186 -266 24 ) metal_frame/1K-metal_frame_4_basecolor 538 0 0 1 1
-( -180 -272 24 ) ( -188 -272 0 ) ( -188 -272 24 ) metal_frame/1K-metal_frame_4_basecolor 140 0 0 1 1
-( -180 -266 0 ) ( -188 -274 0 ) ( -180 -274 0 ) metal_frame/1K-metal_frame_4_basecolor 140 -26 0 1 1
-( -180 -266 20 ) ( -188 -274 20 ) ( -188 -266 20 ) metal_frame/1K-metal_frame_4_basecolor 140 -26 0 1 1
-( -180 -268 24 ) ( -188 -268 0 ) ( -180 -268 0 ) metal_frame/1K-metal_frame_4_basecolor 140 0 0 1 1
-( -182 -266 24 ) ( -182 -274 0 ) ( -182 -274 24 ) metal_frame/1K-metal_frame_4_basecolor 538 0 0 1 1
-}
-// brush 44
-{
-( -196 -274 24 ) ( -196 -266 20 ) ( -196 -266 24 ) metal_frame/1K-metal_frame_4_basecolor 134.80002 0 0 10 1
-( -180 -282 24 ) ( -188 -282 20 ) ( -188 -282 24 ) metal_frame/1K-metal_frame_4_basecolor -3.999998 0 0 10 1
-( -180 -266 20 ) ( -188 -274 20 ) ( -180 -274 20 ) metal_frame/1K-metal_frame_4_basecolor -3.999998 -26 0 10 1
-( -180 -266 21 ) ( -188 -274 21 ) ( -188 -266 21 ) metal_frame/1K-metal_frame_4_basecolor -3.999998 -26 0 10 1
-( -180 -258 24 ) ( -188 -258 20 ) ( -180 -258 20 ) metal_frame/1K-metal_frame_4_basecolor -3.999998 0 0 10 1
-( -172 -266 24 ) ( -172 -274 20 ) ( -172 -274 24 ) metal_frame/1K-metal_frame_4_basecolor 134.80002 0 0 10 1
-}
-// brush 45
 {
 ( -276 -264 24 ) ( -276 392 16 ) ( -276 392 24 ) metal_frame/1K-metal_frame_4_basecolor 0 16 0 10 1
 ( -272 -264 24 ) ( -280 -264 16 ) ( -280 -264 24 ) metal_frame/1K-metal_frame_4_basecolor -8 16 0 10 1
@@ -417,7 +300,7 @@
 ( -272 400 24 ) ( -280 400 16 ) ( -272 400 16 ) metal_frame/1K-metal_frame_4_basecolor -8.000002 16 0 10 1
 ( -272 392 24 ) ( -272 -264 16 ) ( -272 -264 24 ) metal_frame/1K-metal_frame_4_basecolor 0 16 0 10 1
 }
-// brush 46
+// brush 33
 {
 ( -276 -264 20 ) ( -276 -260 2 ) ( -276 -260 20 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
 ( -272 -264 20 ) ( -276 -264 2 ) ( -276 -264 20 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
@@ -426,7 +309,7 @@
 ( -272 -260 20 ) ( -276 -260 2 ) ( -272 -260 2 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
 ( -272 -260 20 ) ( -272 -264 2 ) ( -272 -264 20 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
 }
-// brush 47
+// brush 34
 {
 ( -276 -232 20 ) ( -276 -228 2 ) ( -276 -228 20 ) metal_frame/1K-metal_frame_4_basecolor -32 0 0 1 1
 ( -272 -232 20 ) ( -276 -232 2 ) ( -276 -232 20 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
@@ -435,7 +318,7 @@
 ( -272 -228 20 ) ( -276 -228 2 ) ( -272 -228 2 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
 ( -272 -228 20 ) ( -272 -232 2 ) ( -272 -232 20 ) metal_frame/1K-metal_frame_4_basecolor -32 0 0 1 1
 }
-// brush 48
+// brush 35
 {
 ( -276 -200 20 ) ( -276 -196 2 ) ( -276 -196 20 ) metal_frame/1K-metal_frame_4_basecolor -64 0 0 1 1
 ( -272 -200 20 ) ( -276 -200 2 ) ( -276 -200 20 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
@@ -444,7 +327,7 @@
 ( -272 -196 20 ) ( -276 -196 2 ) ( -272 -196 2 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
 ( -272 -196 20 ) ( -272 -200 2 ) ( -272 -200 20 ) metal_frame/1K-metal_frame_4_basecolor -64 0 0 1 1
 }
-// brush 49
+// brush 36
 {
 ( -276 -168 20 ) ( -276 -164 2 ) ( -276 -164 20 ) metal_frame/1K-metal_frame_4_basecolor -96 0 0 1 1
 ( -272 -168 20 ) ( -276 -168 2 ) ( -276 -168 20 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
@@ -453,7 +336,7 @@
 ( -272 -164 20 ) ( -276 -164 2 ) ( -272 -164 2 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
 ( -272 -164 20 ) ( -272 -168 2 ) ( -272 -168 20 ) metal_frame/1K-metal_frame_4_basecolor -96 0 0 1 1
 }
-// brush 50
+// brush 37
 {
 ( -276 -136 20 ) ( -276 -132 2 ) ( -276 -132 20 ) metal_frame/1K-metal_frame_4_basecolor -128 0 0 1 1
 ( -272 -136 20 ) ( -276 -136 2 ) ( -276 -136 20 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
@@ -462,7 +345,7 @@
 ( -272 -132 20 ) ( -276 -132 2 ) ( -272 -132 2 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
 ( -272 -132 20 ) ( -272 -136 2 ) ( -272 -136 20 ) metal_frame/1K-metal_frame_4_basecolor -128 0 0 1 1
 }
-// brush 51
+// brush 38
 {
 ( -276 -104 20 ) ( -276 -100 2 ) ( -276 -100 20 ) metal_frame/1K-metal_frame_4_basecolor -160 0 0 1 1
 ( -272 -104 20 ) ( -276 -104 2 ) ( -276 -104 20 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
@@ -471,7 +354,7 @@
 ( -272 -100 20 ) ( -276 -100 2 ) ( -272 -100 2 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
 ( -272 -100 20 ) ( -272 -104 2 ) ( -272 -104 20 ) metal_frame/1K-metal_frame_4_basecolor -160 0 0 1 1
 }
-// brush 52
+// brush 39
 {
 ( -276 -72 20 ) ( -276 -68 2 ) ( -276 -68 20 ) metal_frame/1K-metal_frame_4_basecolor -192 0 0 1 1
 ( -272 -72 20 ) ( -276 -72 2 ) ( -276 -72 20 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
@@ -480,7 +363,7 @@
 ( -272 -68 20 ) ( -276 -68 2 ) ( -272 -68 2 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
 ( -272 -68 20 ) ( -272 -72 2 ) ( -272 -72 20 ) metal_frame/1K-metal_frame_4_basecolor -192 0 0 1 1
 }
-// brush 53
+// brush 40
 {
 ( -276 -40 20 ) ( -276 -36 2 ) ( -276 -36 20 ) metal_frame/1K-metal_frame_4_basecolor -224 0 0 1 1
 ( -272 -40 20 ) ( -276 -40 2 ) ( -276 -40 20 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
@@ -489,7 +372,7 @@
 ( -272 -36 20 ) ( -276 -36 2 ) ( -272 -36 2 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
 ( -272 -36 20 ) ( -272 -40 2 ) ( -272 -40 20 ) metal_frame/1K-metal_frame_4_basecolor -224 0 0 1 1
 }
-// brush 54
+// brush 41
 {
 ( -276 -8 20 ) ( -276 -4 2 ) ( -276 -4 20 ) metal_frame/1K-metal_frame_4_basecolor -256 0 0 1 1
 ( -272 -8 20 ) ( -276 -8 2 ) ( -276 -8 20 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
@@ -498,7 +381,7 @@
 ( -272 -4 20 ) ( -276 -4 2 ) ( -272 -4 2 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
 ( -272 -4 20 ) ( -272 -8 2 ) ( -272 -8 20 ) metal_frame/1K-metal_frame_4_basecolor -256 0 0 1 1
 }
-// brush 55
+// brush 42
 {
 ( -276 24 20 ) ( -276 28 2 ) ( -276 28 20 ) metal_frame/1K-metal_frame_4_basecolor -288 0 0 1 1
 ( -272 24 20 ) ( -276 24 2 ) ( -276 24 20 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
@@ -507,7 +390,7 @@
 ( -272 28 20 ) ( -276 28 2 ) ( -272 28 2 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
 ( -272 28 20 ) ( -272 24 2 ) ( -272 24 20 ) metal_frame/1K-metal_frame_4_basecolor -288 0 0 1 1
 }
-// brush 56
+// brush 43
 {
 ( -276 56 20 ) ( -276 60 2 ) ( -276 60 20 ) metal_frame/1K-metal_frame_4_basecolor -320 0 0 1 1
 ( -272 56 20 ) ( -276 56 2 ) ( -276 56 20 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
@@ -516,7 +399,7 @@
 ( -272 60 20 ) ( -276 60 2 ) ( -272 60 2 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
 ( -272 60 20 ) ( -272 56 2 ) ( -272 56 20 ) metal_frame/1K-metal_frame_4_basecolor -320 0 0 1 1
 }
-// brush 57
+// brush 44
 {
 ( -276 88 20 ) ( -276 92 2 ) ( -276 92 20 ) metal_frame/1K-metal_frame_4_basecolor -352 0 0 1 1
 ( -272 88 20 ) ( -276 88 2 ) ( -276 88 20 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
@@ -525,7 +408,7 @@
 ( -272 92 20 ) ( -276 92 2 ) ( -272 92 2 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
 ( -272 92 20 ) ( -272 88 2 ) ( -272 88 20 ) metal_frame/1K-metal_frame_4_basecolor -352 0 0 1 1
 }
-// brush 58
+// brush 45
 {
 ( -276 120 20 ) ( -276 124 2 ) ( -276 124 20 ) metal_frame/1K-metal_frame_4_basecolor -384 0 0 1 1
 ( -272 120 20 ) ( -276 120 2 ) ( -276 120 20 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
@@ -534,7 +417,7 @@
 ( -272 124 20 ) ( -276 124 2 ) ( -272 124 2 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
 ( -272 124 20 ) ( -272 120 2 ) ( -272 120 20 ) metal_frame/1K-metal_frame_4_basecolor -384 0 0 1 1
 }
-// brush 59
+// brush 46
 {
 ( -276 152 20 ) ( -276 156 2 ) ( -276 156 20 ) metal_frame/1K-metal_frame_4_basecolor -416 0 0 1 1
 ( -272 152 20 ) ( -276 152 2 ) ( -276 152 20 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
@@ -543,7 +426,7 @@
 ( -272 156 20 ) ( -276 156 2 ) ( -272 156 2 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
 ( -272 156 20 ) ( -272 152 2 ) ( -272 152 20 ) metal_frame/1K-metal_frame_4_basecolor -416 0 0 1 1
 }
-// brush 60
+// brush 47
 {
 ( -276 184 20 ) ( -276 188 2 ) ( -276 188 20 ) metal_frame/1K-metal_frame_4_basecolor -448 0 0 1 1
 ( -272 184 20 ) ( -276 184 2 ) ( -276 184 20 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
@@ -552,7 +435,7 @@
 ( -272 188 20 ) ( -276 188 2 ) ( -272 188 2 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
 ( -272 188 20 ) ( -272 184 2 ) ( -272 184 20 ) metal_frame/1K-metal_frame_4_basecolor -448 0 0 1 1
 }
-// brush 61
+// brush 48
 {
 ( -276 216 20 ) ( -276 220 2 ) ( -276 220 20 ) metal_frame/1K-metal_frame_4_basecolor -480 0 0 1 1
 ( -272 216 20 ) ( -276 216 2 ) ( -276 216 20 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
@@ -561,7 +444,7 @@
 ( -272 220 20 ) ( -276 220 2 ) ( -272 220 2 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
 ( -272 220 20 ) ( -272 216 2 ) ( -272 216 20 ) metal_frame/1K-metal_frame_4_basecolor -480 0 0 1 1
 }
-// brush 62
+// brush 49
 {
 ( -276 248 20 ) ( -276 252 2 ) ( -276 252 20 ) metal_frame/1K-metal_frame_4_basecolor -512 0 0 1 1
 ( -272 248 20 ) ( -276 248 2 ) ( -276 248 20 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
@@ -570,7 +453,7 @@
 ( -272 252 20 ) ( -276 252 2 ) ( -272 252 2 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
 ( -272 252 20 ) ( -272 248 2 ) ( -272 248 20 ) metal_frame/1K-metal_frame_4_basecolor -512 0 0 1 1
 }
-// brush 63
+// brush 50
 {
 ( -276 280 20 ) ( -276 284 2 ) ( -276 284 20 ) metal_frame/1K-metal_frame_4_basecolor -544 0 0 1 1
 ( -272 280 20 ) ( -276 280 2 ) ( -276 280 20 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
@@ -579,7 +462,7 @@
 ( -272 284 20 ) ( -276 284 2 ) ( -272 284 2 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
 ( -272 284 20 ) ( -272 280 2 ) ( -272 280 20 ) metal_frame/1K-metal_frame_4_basecolor -544 0 0 1 1
 }
-// brush 64
+// brush 51
 {
 ( -276 312 20 ) ( -276 316 2 ) ( -276 316 20 ) metal_frame/1K-metal_frame_4_basecolor -576 0 0 1 1
 ( -272 312 20 ) ( -276 312 2 ) ( -276 312 20 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
@@ -588,7 +471,7 @@
 ( -272 316 20 ) ( -276 316 2 ) ( -272 316 2 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
 ( -272 316 20 ) ( -272 312 2 ) ( -272 312 20 ) metal_frame/1K-metal_frame_4_basecolor -576 0 0 1 1
 }
-// brush 65
+// brush 52
 {
 ( -276 344 20 ) ( -276 348 2 ) ( -276 348 20 ) metal_frame/1K-metal_frame_4_basecolor -608 0 0 1 1
 ( -272 344 20 ) ( -276 344 2 ) ( -276 344 20 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
@@ -597,7 +480,7 @@
 ( -272 348 20 ) ( -276 348 2 ) ( -272 348 2 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
 ( -272 348 20 ) ( -272 344 2 ) ( -272 344 20 ) metal_frame/1K-metal_frame_4_basecolor -608 0 0 1 1
 }
-// brush 66
+// brush 53
 {
 ( -276 376 20 ) ( -276 380 2 ) ( -276 380 20 ) metal_frame/1K-metal_frame_4_basecolor -640 0 0 1 1
 ( -272 376 20 ) ( -276 376 2 ) ( -276 376 20 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
@@ -606,7 +489,7 @@
 ( -272 380 20 ) ( -276 380 2 ) ( -272 380 2 ) metal_frame/1K-metal_frame_4_basecolor 0 0 0 1 1
 ( -272 380 20 ) ( -272 376 2 ) ( -272 376 20 ) metal_frame/1K-metal_frame_4_basecolor -640 0 0 1 1
 }
-// brush 67
+// brush 54
 {
 ( -400 1008 -16 ) ( -400 1008 0 ) ( -400 -1008 -16 ) wood_floor/laminate_floor_02_diff_1k 0 0 0 0.1 0.1
 ( -2296 -416 -16 ) ( -2296 -416 0 ) ( -280 -416 -16 ) wood_floor/laminate_floor_02_diff_1k 592 0 0 0.1 0.1
@@ -615,7 +498,7 @@
 ( -280 -264 -16 ) ( -280 -264 0 ) ( -2296 -264 -16 ) wood_floor/laminate_floor_02_diff_1k 592 0 0 0.1 0.1
 ( -280 -1008 -16 ) ( -280 -1008 0 ) ( -280 1008 -16 ) wood_floor/laminate_floor_02_diff_1k 0 0 0 0.1 0.1
 }
-// brush 68
+// brush 55
 {
 ( -400 -264 0 ) ( -400 -264 -16 ) ( -400 416 -16 ) wood_floor/laminate_floor_02_diff_1k -496 0 0 0.1 0.1
 ( -400 -264 0 ) ( -280 -264 0 ) ( -280 -264 -16 ) wood_floor/laminate_floor_02_diff_1k -432 0 0 0.1 0.1
@@ -623,7 +506,7 @@
 ( -280 -264 0 ) ( -400 -264 0 ) ( -400 416 -16 ) wood_floor/laminate_floor_02_diff_1k -432 496 0 0.1 0.1
 ( -280 -264 0 ) ( -280 416 -16 ) ( -280 -264 -16 ) wood_floor/laminate_floor_02_diff_1k -496 0 0 0.1 0.1
 }
-// brush 69
+// brush 56
 {
 ( 218.88833252988252 170.60612308660188 0 ) ( 218.62951348478003 171.57204891289092 0 ) ( 218.88833252988252 170.60612308660188 1 ) wooden_crate -1394.8018 0 0 0.022216296 0.023
 ( 268.2842712474619 233.5349816350385 16 ) ( 269.250197073751 233.79380068014103 16 ) ( 268.2842712474619 233.5349816350385 17 ) wooden_crate 1179.1172 0 0 0.022216296 0.023
@@ -632,13 +515,136 @@
 ( 218.88833252988252 170.60612308660188 0 ) ( 218.88833252988252 170.60612308660188 1 ) ( 219.8542583561716 170.86494213170437 0 ) wooden_crate -1474.081 0 0 0.022216296 0.023
 ( 248.68835330519647 244.84869013402323 16 ) ( 248.68835330519647 244.84869013402323 17 ) ( 248.429534260094 245.81461596031232 16 ) wooden_crate -1954 0 0 0.022216296 0.023
 }
-// brush 70
+// brush 57
 {
-( 304 1024 512 ) ( 304 -1024 512 ) ( 304 1024 -16 ) plaster_white/1K-plaster_14-diffuse 0 0 0 0.1 0.1
-( 320 -400 -16 ) ( 304 -400 -16 ) ( 320 -400 512 ) plaster_white/1K-plaster_14-diffuse 704 0 0 0.1 0.1
-( 320 1024 0 ) ( 304 1024 0 ) ( 320 -1024 0 ) plaster_white/1K-plaster_14-diffuse 704 0 0 0.1 0.1
-( 320 -1024 208 ) ( 304 -1024 208 ) ( 320 1024 208 ) plaster_white/1K-plaster_14-diffuse 704 0 0 0.1 0.1
-( 320 400 512 ) ( 304 400 512 ) ( 320 400 -16 ) plaster_white/1K-plaster_14-diffuse 704 0 0 0.1 0.1
-( 320 -1024 512 ) ( 320 1024 512 ) ( 320 -1024 -16 ) plaster_white/1K-plaster_14-diffuse 0 0 0 0.1 0.1
+( 304 1024 683 ) ( 304 -1024 683 ) ( 304 1024 155 ) plaster_white/1K-plaster_14-diffuse 0 686 0 0.1 0.1
+( 320 -400 155 ) ( 304 -400 155 ) ( 320 -400 683 ) plaster_white/1K-plaster_14-diffuse 704 686 0 0.1 0.1
+( 320 1024 171 ) ( 304 1024 171 ) ( 320 -1024 171 ) plaster_white/1K-plaster_14-diffuse 704 0 0 0.1 0.1
+( 320 -1024 379 ) ( 304 -1024 379 ) ( 320 1024 379 ) plaster_white/1K-plaster_14-diffuse 704 0 0 0.1 0.1
+( 320 400 683 ) ( 304 400 683 ) ( 320 400 155 ) plaster_white/1K-plaster_14-diffuse 704 686 0 0.1 0.1
+( 320 -1024 683 ) ( 320 1024 683 ) ( 320 -1024 155 ) plaster_white/1K-plaster_14-diffuse 0 686 0 0.1 0.1
+}
+// brush 58
+{
+( -36 175.70000000000002 24 ) ( -36 180.29999999999998 20 ) ( -36 180.29999999999998 24 ) metal_frame/1K-metal_frame_4_basecolor 23.217377 -1 0 1.1499999 1
+( -28 166.5 24 ) ( -36 175.70000000000002 20 ) ( -36 175.70000000000002 24 ) metal_frame/1K-metal_frame_4_basecolor 23.217377 -1 0 1.1499999 1
+( -28 189.5 24 ) ( -36 180.29999999999998 20 ) ( -28 189.5 20 ) metal_frame/1K-metal_frame_4_basecolor 23.217377 -1 0 1.1499999 1
+( -20 166.5 24 ) ( -28 166.5 20 ) ( -28 166.5 24 ) metal_frame/1K-metal_frame_4_basecolor 0 -1 0 1 1
+( -12 180.29999999999998 20 ) ( -20 166.5 20 ) ( -12 175.70000000000002 20 ) metal_frame/1K-metal_frame_4_basecolor 0 -23.217377 0 1 1.1499999
+( -12 180.29999999999998 21 ) ( -28 189.5 21 ) ( -20 189.5 21 ) metal_frame/1K-metal_frame_4_basecolor 0 -23.217377 0 1 1.1499999
+( -20 189.5 24 ) ( -28 189.5 20 ) ( -20 189.5 20 ) metal_frame/1K-metal_frame_4_basecolor 0 -1 0 1 1
+( -12 175.70000000000002 24 ) ( -20 166.5 20 ) ( -20 166.5 24 ) metal_frame/1K-metal_frame_4_basecolor 23.217377 -1 0 1.1499999 1
+( -12 180.29999999999998 24 ) ( -20 189.5 20 ) ( -12 180.29999999999998 20 ) metal_frame/1K-metal_frame_4_basecolor 23.217377 -1 0 1.1499999 1
+( -12 180.29999999999998 24 ) ( -12 175.70000000000002 20 ) ( -12 175.70000000000002 24 ) metal_frame/1K-metal_frame_4_basecolor 23.217377 -1 0 1.1499999 1
+}
+// brush 59
+{
+( -152 65 24 ) ( -152 73 0 ) ( -152 73 24 ) metal_frame/1K-metal_frame_4_basecolor 199 0 0 1 1
+( -147 68 24 ) ( -155 68 0 ) ( -155 68 24 ) metal_frame/1K-metal_frame_4_basecolor 107 0 0 1 1
+( -147 73 0 ) ( -155 65 0 ) ( -147 65 0 ) metal_frame/1K-metal_frame_4_basecolor 107 -199 0 1 1
+( -147 73 20 ) ( -155 65 20 ) ( -155 73 20 ) metal_frame/1K-metal_frame_4_basecolor 107 -199 0 1 1
+( -147 70 24 ) ( -155 70 0 ) ( -147 70 0 ) metal_frame/1K-metal_frame_4_basecolor 107 0 0 1 1
+( -150 73 24 ) ( -150 65 0 ) ( -150 65 24 ) metal_frame/1K-metal_frame_4_basecolor 199 0 0 1 1
+}
+// brush 60
+{
+( -163 66.70000000000002 24 ) ( -163 71.29999999999998 20 ) ( -163 71.29999999999998 24 ) metal_frame/1K-metal_frame_4_basecolor 117.99999 -1 0 1.1499999 1
+( -155 57.5 24 ) ( -163 66.70000000000002 20 ) ( -163 66.70000000000002 24 ) metal_frame/1K-metal_frame_4_basecolor 117.99999 -1 0 1.1499999 1
+( -155 80.5 24 ) ( -163 71.29999999999998 20 ) ( -155 80.5 20 ) metal_frame/1K-metal_frame_4_basecolor 117.99999 -1 0 1.1499999 1
+( -147 57.5 24 ) ( -155 57.5 20 ) ( -155 57.5 24 ) metal_frame/1K-metal_frame_4_basecolor 127 -1 0 1 1
+( -139 71.29999999999998 20 ) ( -147 57.5 20 ) ( -139 66.70000000000002 20 ) metal_frame/1K-metal_frame_4_basecolor 127 -117.99999 0 1 1.1499999
+( -139 71.29999999999998 21 ) ( -155 80.5 21 ) ( -147 80.5 21 ) metal_frame/1K-metal_frame_4_basecolor 127 -117.99999 0 1 1.1499999
+( -147 80.5 24 ) ( -155 80.5 20 ) ( -147 80.5 20 ) metal_frame/1K-metal_frame_4_basecolor 127 -1 0 1 1
+( -139 66.70000000000002 24 ) ( -147 57.5 20 ) ( -147 57.5 24 ) metal_frame/1K-metal_frame_4_basecolor 117.99999 -1 0 1.1499999 1
+( -139 71.29999999999998 24 ) ( -147 80.5 20 ) ( -139 71.29999999999998 20 ) metal_frame/1K-metal_frame_4_basecolor 117.99999 -1 0 1.1499999 1
+( -139 71.29999999999998 24 ) ( -139 66.70000000000002 20 ) ( -139 66.70000000000002 24 ) metal_frame/1K-metal_frame_4_basecolor 117.99999 -1 0 1.1499999 1
+}
+// brush 61
+{
+( -165 -121 24 ) ( -165 -113 0 ) ( -165 -113 24 ) metal_frame/1K-metal_frame_4_basecolor 385 0 0 1 1
+( -160 -118 24 ) ( -168 -118 0 ) ( -168 -118 24 ) metal_frame/1K-metal_frame_4_basecolor 120 0 0 1 1
+( -160 -113 0 ) ( -168 -121 0 ) ( -160 -121 0 ) metal_frame/1K-metal_frame_4_basecolor 120 -385 0 1 1
+( -160 -113 20 ) ( -168 -121 20 ) ( -168 -113 20 ) metal_frame/1K-metal_frame_4_basecolor 120 -385 0 1 1
+( -160 -116 24 ) ( -168 -116 0 ) ( -160 -116 0 ) metal_frame/1K-metal_frame_4_basecolor 120 0 0 1 1
+( -163 -113 24 ) ( -163 -121 0 ) ( -163 -121 24 ) metal_frame/1K-metal_frame_4_basecolor 385 0 0 1 1
+}
+// brush 62
+{
+( -176 -119.29999999999998 24 ) ( -176 -114.70000000000002 20 ) ( -176 -114.70000000000002 24 ) metal_frame/1K-metal_frame_4_basecolor 279.7392 -1 0 1.1499999 1
+( -168 -128.5 24 ) ( -176 -119.29999999999998 20 ) ( -176 -119.29999999999998 24 ) metal_frame/1K-metal_frame_4_basecolor 279.7392 -1 0 1.1499999 1
+( -168 -105.5 24 ) ( -176 -114.70000000000002 20 ) ( -168 -105.5 20 ) metal_frame/1K-metal_frame_4_basecolor 279.7392 -1 0 1.1499999 1
+( -160 -128.5 24 ) ( -168 -128.5 20 ) ( -168 -128.5 24 ) metal_frame/1K-metal_frame_4_basecolor 140 -1 0 1 1
+( -152 -114.70000000000002 20 ) ( -160 -128.5 20 ) ( -152 -119.29999999999998 20 ) metal_frame/1K-metal_frame_4_basecolor 140 -279.7392 0 1 1.1499999
+( -152 -114.70000000000002 21 ) ( -168 -105.5 21 ) ( -160 -105.5 21 ) metal_frame/1K-metal_frame_4_basecolor 140 -279.7392 0 1 1.1499999
+( -160 -105.5 24 ) ( -168 -105.5 20 ) ( -160 -105.5 20 ) metal_frame/1K-metal_frame_4_basecolor 140 -1 0 1 1
+( -152 -119.29999999999998 24 ) ( -160 -128.5 20 ) ( -160 -128.5 24 ) metal_frame/1K-metal_frame_4_basecolor 279.7392 -1 0 1.1499999 1
+( -152 -114.70000000000002 24 ) ( -160 -105.5 20 ) ( -152 -114.70000000000002 20 ) metal_frame/1K-metal_frame_4_basecolor 279.7392 -1 0 1.1499999 1
+( -152 -114.70000000000002 24 ) ( -152 -119.29999999999998 20 ) ( -152 -119.29999999999998 24 ) metal_frame/1K-metal_frame_4_basecolor 279.7392 -1 0 1.1499999 1
+}
+// brush 63
+{
+( -30 -178 24 ) ( -30 -170 0 ) ( -30 -170 24 ) metal_frame/1K-metal_frame_4_basecolor 442 0 0 1 1
+( -25 -175 24 ) ( -33 -175 0 ) ( -33 -175 24 ) metal_frame/1K-metal_frame_4_basecolor -15 0 0 1 1
+( -25 -170 0 ) ( -33 -178 0 ) ( -25 -178 0 ) metal_frame/1K-metal_frame_4_basecolor -15 -442 0 1 1
+( -25 -170 20 ) ( -33 -178 20 ) ( -33 -170 20 ) metal_frame/1K-metal_frame_4_basecolor -15 -442 0 1 1
+( -25 -173 24 ) ( -33 -173 0 ) ( -25 -173 0 ) metal_frame/1K-metal_frame_4_basecolor -15 0 0 1 1
+( -28 -170 24 ) ( -28 -178 0 ) ( -28 -178 24 ) metal_frame/1K-metal_frame_4_basecolor 442 0 0 1 1
+}
+// brush 64
+{
+( -41 -176.29999999999998 24 ) ( -41 -171.70000000000002 20 ) ( -41 -171.70000000000002 24 ) metal_frame/1K-metal_frame_4_basecolor 329.30444 -1 0 1.1499999 1
+( -33 -185.5 24 ) ( -41 -176.29999999999998 20 ) ( -41 -176.29999999999998 24 ) metal_frame/1K-metal_frame_4_basecolor 329.3045 -1 0 1.1499999 1
+( -33 -162.5 24 ) ( -41 -171.70000000000002 20 ) ( -33 -162.5 20 ) metal_frame/1K-metal_frame_4_basecolor 329.30444 -1 0 1.1499999 1
+( -25 -185.5 24 ) ( -33 -185.5 20 ) ( -33 -185.5 24 ) metal_frame/1K-metal_frame_4_basecolor 5 -1 0 1 1
+( -17 -171.70000000000002 20 ) ( -25 -185.5 20 ) ( -17 -176.29999999999998 20 ) metal_frame/1K-metal_frame_4_basecolor 5 -329.30444 0 1 1.1499999
+( -17 -171.70000000000002 21 ) ( -33 -162.5 21 ) ( -25 -162.5 21 ) metal_frame/1K-metal_frame_4_basecolor 5 -329.30444 0 1 1.1499999
+( -25 -162.5 24 ) ( -33 -162.5 20 ) ( -25 -162.5 20 ) metal_frame/1K-metal_frame_4_basecolor 5 -1 0 1 1
+( -17 -176.29999999999998 24 ) ( -25 -185.5 20 ) ( -25 -185.5 24 ) metal_frame/1K-metal_frame_4_basecolor 329.3045 -1 0 1.1499999 1
+( -17 -171.70000000000002 24 ) ( -25 -162.5 20 ) ( -17 -171.70000000000002 20 ) metal_frame/1K-metal_frame_4_basecolor 329.30444 -1 0 1.1499999 1
+( -17 -171.70000000000002 24 ) ( -17 -176.29999999999998 20 ) ( -17 -176.29999999999998 24 ) metal_frame/1K-metal_frame_4_basecolor 329.30444 -1 0 1.1499999 1
+}
+// brush 65
+{
+( 106 -167 24 ) ( 106 -159 0 ) ( 106 -159 24 ) metal_frame/1K-metal_frame_4_basecolor 431 0 0 1 1
+( 111 -164 24 ) ( 103 -164 0 ) ( 103 -164 24 ) metal_frame/1K-metal_frame_4_basecolor -151 0 0 1 1
+( 111 -159 0 ) ( 103 -167 0 ) ( 111 -167 0 ) metal_frame/1K-metal_frame_4_basecolor -151 -431 0 1 1
+( 111 -159 20 ) ( 103 -167 20 ) ( 103 -159 20 ) metal_frame/1K-metal_frame_4_basecolor -151 -431 0 1 1
+( 111 -162 24 ) ( 103 -162 0 ) ( 111 -162 0 ) metal_frame/1K-metal_frame_4_basecolor -151 0 0 1 1
+( 108 -159 24 ) ( 108 -167 0 ) ( 108 -167 24 ) metal_frame/1K-metal_frame_4_basecolor 431 0 0 1 1
+}
+// brush 66
+{
+( 95 -165.29999999999998 24 ) ( 95 -160.70000000000002 20 ) ( 95 -160.70000000000002 24 ) metal_frame/1K-metal_frame_4_basecolor 319.7392 -1 0 1.1499999 1
+( 103 -174.5 24 ) ( 95 -165.29999999999998 20 ) ( 95 -165.29999999999998 24 ) metal_frame/1K-metal_frame_4_basecolor 319.73926 -1 0 1.1499999 1
+( 103 -151.5 24 ) ( 95 -160.70000000000002 20 ) ( 103 -151.5 20 ) metal_frame/1K-metal_frame_4_basecolor 319.7392 -1 0 1.1499999 1
+( 111 -174.5 24 ) ( 103 -174.5 20 ) ( 103 -174.5 24 ) metal_frame/1K-metal_frame_4_basecolor -131 -1 0 1 1
+( 119 -160.70000000000002 20 ) ( 111 -174.5 20 ) ( 119 -165.29999999999998 20 ) metal_frame/1K-metal_frame_4_basecolor -131 -319.7392 0 1 1.1499999
+( 119 -160.70000000000002 21 ) ( 103 -151.5 21 ) ( 111 -151.5 21 ) metal_frame/1K-metal_frame_4_basecolor -131 -319.7392 0 1 1.1499999
+( 111 -151.5 24 ) ( 103 -151.5 20 ) ( 111 -151.5 20 ) metal_frame/1K-metal_frame_4_basecolor -131 -1 0 1 1
+( 119 -165.29999999999998 24 ) ( 111 -174.5 20 ) ( 111 -174.5 24 ) metal_frame/1K-metal_frame_4_basecolor 319.73926 -1 0 1.1499999 1
+( 119 -160.70000000000002 24 ) ( 111 -151.5 20 ) ( 119 -160.70000000000002 20 ) metal_frame/1K-metal_frame_4_basecolor 319.7392 -1 0 1.1499999 1
+( 119 -160.70000000000002 24 ) ( 119 -165.29999999999998 20 ) ( 119 -165.29999999999998 24 ) metal_frame/1K-metal_frame_4_basecolor 319.7392 -1 0 1.1499999 1
+}
+// brush 67
+{
+( -174 -272 24 ) ( -174 -264 0 ) ( -174 -264 24 ) metal_frame/1K-metal_frame_4_basecolor 536 0 0 1 1
+( -169 -269 24 ) ( -177 -269 0 ) ( -177 -269 24 ) metal_frame/1K-metal_frame_4_basecolor 129 0 0 1 1
+( -169 -264 0 ) ( -177 -272 0 ) ( -169 -272 0 ) metal_frame/1K-metal_frame_4_basecolor 129 -24 0 1 1
+( -169 -264 20 ) ( -177 -272 20 ) ( -177 -264 20 ) metal_frame/1K-metal_frame_4_basecolor 129 -24 0 1 1
+( -169 -267 24 ) ( -177 -267 0 ) ( -169 -267 0 ) metal_frame/1K-metal_frame_4_basecolor 129 0 0 1 1
+( -172 -264 24 ) ( -172 -272 0 ) ( -172 -272 24 ) metal_frame/1K-metal_frame_4_basecolor 536 0 0 1 1
+}
+// brush 68
+{
+( -185 -270.29999999999995 24 ) ( -185 -265.7 20 ) ( -185 -265.7 24 ) metal_frame/1K-metal_frame_4_basecolor 411.04376 -1 0 1.1499999 1
+( -177 -279.5 24 ) ( -185 -270.29999999999995 20 ) ( -185 -270.29999999999995 24 ) metal_frame/1K-metal_frame_4_basecolor 411.04382 -1 0 1.1499999 1
+( -177 -256.5 24 ) ( -185 -265.7 20 ) ( -177 -256.5 20 ) metal_frame/1K-metal_frame_4_basecolor 411.04376 -1 0 1.1499999 1
+( -169 -279.5 24 ) ( -177 -279.5 20 ) ( -177 -279.5 24 ) metal_frame/1K-metal_frame_4_basecolor 149 -1 0 1 1
+( -161 -265.7 20 ) ( -169 -279.5 20 ) ( -161 -270.29999999999995 20 ) metal_frame/1K-metal_frame_4_basecolor 149 -411.04376 0 1 1.1499999
+( -161 -265.7 21 ) ( -177 -256.5 21 ) ( -169 -256.5 21 ) metal_frame/1K-metal_frame_4_basecolor 149 -411.04376 0 1 1.1499999
+( -169 -256.5 24 ) ( -177 -256.5 20 ) ( -169 -256.5 20 ) metal_frame/1K-metal_frame_4_basecolor 149 -1 0 1 1
+( -161 -265.7 24 ) ( -169 -256.5 20 ) ( -161 -265.7 20 ) metal_frame/1K-metal_frame_4_basecolor 411.04376 -1 0 1.1499999 1
+( -161 -270.29999999999995 24 ) ( -169 -279.5 20 ) ( -169 -279.5 24 ) metal_frame/1K-metal_frame_4_basecolor 411.04382 -1 0 1.1499999 1
+( -161 -265.7 24 ) ( -161 -270.29999999999995 20 ) ( -161 -270.29999999999995 24 ) metal_frame/1K-metal_frame_4_basecolor 411.04376 -1 0 1.1499999 1
 }
 }

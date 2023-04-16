@@ -21,7 +21,7 @@ export(NodePath) onready var life_bar = get_node(life_bar) as TextureProgress
 export(NodePath) onready var life_label = get_node(life_label) as Label
 
 var velocity = Vector3()
-
+var gravity_vec = Vector3()
 var pup_position = Vector3()
 var pup_velocity = Vector3()
 var pup_rotation = Vector2()
@@ -59,6 +59,7 @@ func _ready():
 func get_input() -> Vector3:
 	var input_dir = Vector3()
 	
+	
 	if Input.is_action_pressed("forward"):
 		input_dir += -global_transform.basis.z
 	if Input.is_action_pressed("backward"):
@@ -86,20 +87,23 @@ func _input(event):
 
 func _physics_process(delta):
 	if is_network_master:
-		velocity.y += gravity * delta
 		
 		var desired_velocity = get_input() * speed
 		velocity.x = desired_velocity.x
 		velocity.z = desired_velocity.z
 		
-		if Input.is_action_just_pressed("jump") and is_on_floor():
-			velocity.y += jump_speed
+		if is_on_floor():
+			velocity.y=0
+			if Input.is_action_just_pressed("jump"):
+				velocity.y += jump_speed
+		velocity.y += gravity * delta
+		
 	else:
 		global_transform.origin = pup_position
 		velocity.x = pup_velocity.x
 		velocity.z = pup_velocity.z
 		rotation.y = pup_rotation.y
-		head.rotation.x = pup_rotation.x
+#		head.rotation.x = pup_rotation.x
 	
 	if !movement_tween.is_active():
 		velocity = move_and_slide(velocity, Vector3.UP, true)
@@ -121,7 +125,8 @@ puppet func update_state(p_position, p_velocity, p_rotation):
 
 func update_mesh_material(avatar_idx):
 	print("[{0}] [{1}] {2}".format([get_tree().get_network_unique_id(),name,"Changing avatar to "+str(avatar_idx)]))
-	model.mesh.material = load(Global.avatars[avatar_idx].material)
+#	model.mesh.material = load(Global.avatars[avatar_idx].material)
+	model.mesh.surface_set_material(0, load(Global.avatars[avatar_idx].material))
 
 
 master func receive_damage(dmg : int):

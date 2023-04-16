@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Models/lowpoly_tree.glb" type="PackedScene" id=1]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.3
+height = 2.361
+
+[node name="lowpoly_tree" instance=ExtResource( 1 )]
+
+[node name="StaticBody" type="StaticBody" parent="." index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="0"]
+transform = Transform( 0.888209, 0.395798, 0.233301, 0, 0.507794, -0.861479, -0.45944, 0.765173, 0.451027, -0.356145, 1.01299, -0.641317 )
+shape = SubResource( 1 )

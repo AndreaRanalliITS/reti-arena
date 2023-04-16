@@ -1,15 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/Weapon.gd" type="Script" id=1]
-
-[sub_resource type="CubeMesh" id=7]
-size = Vector3( 0.209, 0.1, 0.533 )
-
-[sub_resource type="CubeMesh" id=6]
-size = Vector3( 0.1, 0.1, 0.2 )
+[ext_resource path="res://Models/barrel_gun.glb" type="PackedScene" id=2]
 
 [node name="BarrelGun" type="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.633989, -0.288, -0.690845 )
 script = ExtResource( 1 )
 clip_size = 2
 pouch_size = 7
@@ -31,15 +25,10 @@ one_shot = true
 [node name="SoundPlayer" type="AudioStreamPlayer3D" parent="."]
 
 [node name="BulletTrailOrigin" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013791, 0.00821209, -0.11639 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03, -0.425725 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1523 )
-mesh = SubResource( 7 )
-
-[node name="MeshInstance2" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.173648, -0.984808, 0, 0.984808, 0.173648, 0, -0.0660586, 0.114599 )
-mesh = SubResource( 6 )
+[node name="barrel_gun" parent="." instance=ExtResource( 2 )]
+transform = Transform( -3.10351e-09, 0, 0.071, 0, 0.071, 0, -0.071, 0, -3.10351e-09, 0, -0.0282706, 0.0283133 )
 
 [connection signal="timeout" from="ShootCooldown" to="." method="_on_ShootCooldown_timeout"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_ReloadTimer_timeout"]

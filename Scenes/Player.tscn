@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Weapons/Gun.tscn" type="PackedScene" id=2]
@@ -7,15 +7,11 @@
 [ext_resource path="res://Scenes/Weapons/BarrelGun.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Weapons/AK47.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Weapons/Sniper.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Statics/robot.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CapsuleShape" id=1]
-radius = 0.5
-
-[sub_resource type="CapsuleMesh" id=2]
-radius = 0.5
-
-[sub_resource type="PrismMesh" id=3]
-size = Vector3( 0.413, 0.333, 0.128 )
+radius = 0.4
+height = 1.2
 
 [sub_resource type="Gradient" id=4]
 interpolation_mode = 2
@@ -30,7 +26,7 @@ script = ExtResource( 1 )
 max_health = 10
 health = 5
 head = NodePath("Head")
-model = NodePath("MeshInstance")
+model = NodePath("RobotMesh")
 camera = NodePath("Head/Camera")
 hand = NodePath("Head/Hand")
 network_tick_rate = NodePath("NetworkTickRate")
@@ -42,13 +38,7 @@ life_label = NodePath("UI/LifePanel/LifeLabel")
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0 )
 shape = SubResource( 1 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0 )
-mesh = SubResource( 2 )
-
-[node name="MeshInstance" type="MeshInstance" parent="MeshInstance"]
-transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, -0.562622, -0.496928 )
-mesh = SubResource( 3 )
+[node name="RobotMesh" parent="." instance=ExtResource( 8 )]
 
 [node name="Head" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0 )
@@ -64,7 +54,7 @@ debug_shape_custom_color = Color( 0.968627, 0, 1, 1 )
 debug_shape_thickness = 1
 
 [node name="HandLocation" type="Position3D" parent="Head"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.634, -0.288, -0.691 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.397928, -0.402529, -0.459735 )
 script = ExtResource( 3 )
 
 [node name="Hand" type="Position3D" parent="Head"]
@@ -124,3 +114,5 @@ anchor_bottom = 1.0
 text = "100"
 align = 1
 valign = 1
+
+[editable path="RobotMesh"]
