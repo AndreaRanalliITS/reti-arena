@@ -1121,7 +1121,7 @@ transform = Transform( -0.996118, 0, -0.0880253, 0, 1, 0, 0.0880253, 0, -0.99611
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 69.9545, 0 )
 
 [node name="Pickcup" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8611, 1.62191, -1.79615 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8611, 1.36819, -1.79615 )
 pickup_type = 1
 
 [node name="Lobby" type="Spatial" parent="."]

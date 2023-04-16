@@ -49,7 +49,7 @@ This project aims to create a simple but functioning arena fps game for my final
     - [x] barrel gun
     - [x] ak47
     - [x] sniper
-    - [ ] health pickup
+    - [x] health pickup
     - [ ] map
 
 #
