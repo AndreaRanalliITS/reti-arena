@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/barrelgun_reload.ogg-581430834e3dc005c6070a376d9d752c.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Weapons/barrelgun_reload.ogg"
+dest_files=[ "res://.import/barrelgun_reload.ogg-581430834e3dc005c6070a376d9d752c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

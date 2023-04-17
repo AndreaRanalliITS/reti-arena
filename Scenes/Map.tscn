@@ -1,4 +1,4 @@
-[gd_scene load_steps=135 format=2]
+[gd_scene load_steps=137 format=2]
 
 [ext_resource path="res://Scenes/UI/ServerCard.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Map.gd" type="Script" id=2]
@@ -19,6 +19,8 @@
 [ext_resource path="res://Fonts/Code.ttf" type="DynamicFontData" id=17]
 [ext_resource path="res://Scenes/Statics/RelaxTree.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Statics/robot.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Sounds/UI/ui_sound.wav" type="AudioStream" id=20]
+[ext_resource path="res://Sounds/UI/ui_error.ogg" type="AudioStream" id=21]
 
 [sub_resource type="ViewportTexture" id=4]
 viewport_path = NodePath("Viewport")
@@ -500,6 +502,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
 max_nickname_length = 30
+button_sound = ExtResource( 20 )
+error_sound = ExtResource( 21 )
 
 [node name="Left" type="TabContainer" parent="UI/MainMenu"]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -1038,6 +1042,8 @@ margin_bottom = 50.0
 rect_min_size = Vector2( 40, 0 )
 text = ">"
 
+[node name="UISounds" type="AudioStreamPlayer" parent="UI"]
+
 [node name="Viewport" type="Viewport" parent="."]
 size = Vector2( 1024, 512 )
 transparent_bg = true
@@ -1122,7 +1128,22 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 69.9545, 0 )
 
 [node name="Pickcup" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8611, 1.36819, -1.79615 )
+
+[node name="Pickcup2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1172, 1.36819, -1.48489 )
 pickup_type = 1
+
+[node name="Pickcup3" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.31697, 1.36819, -9.47062 )
+pickup_type = 2
+
+[node name="Pickcup4" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.25955, 1.36819, -10.2427 )
+pickup_type = 3
+
+[node name="Pickcup5" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1591, 1.36819, 6.70283 )
+pickup_type = 4
 
 [node name="Lobby" type="Spatial" parent="."]
 script = ExtResource( 7 )

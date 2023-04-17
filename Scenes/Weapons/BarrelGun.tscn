@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Weapon.gd" type="Script" id=1]
 [ext_resource path="res://Models/barrel_gun.glb" type="PackedScene" id=2]
+[ext_resource path="res://Sounds/Weapons/barrelgun_reload.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Sounds/Weapons/barrelgun_shot.ogg" type="AudioStream" id=4]
 
 [node name="BarrelGun" type="Spatial"]
 script = ExtResource( 1 )
@@ -12,6 +14,8 @@ max_rays = 5
 dispersion = 0.01
 cooldown = 1.0
 reload_time = 1.0
+shoot_sound = ExtResource( 4 )
+reload_sound = ExtResource( 3 )
 ammo_label = NodePath("../../../UI/AmmoPanel/AmmoLabel")
 raycast = NodePath("../../RayCast")
 sound_player = NodePath("SoundPlayer")

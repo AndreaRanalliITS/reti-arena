@@ -1,6 +1,8 @@
 extends HBoxContainer
 
 export(int,0,999) var max_nickname_length = 15
+export(AudioStream) var button_sound
+export(AudioStream) var error_sound
 
 var tab_route = []
 
@@ -16,6 +18,7 @@ onready var ip_address = $Left/ManualSetup/LineEdit
 onready var server_name = $Left/HostSetup/ServerName
 onready var character_name = $Right/Panel/HBoxContainer/VBoxContainer/MeshName
 onready var character_idx = $Right/Panel/HBoxContainer/VBoxContainer/CharacterIdx
+onready var sounds_player = get_node("../UISounds") as AudioStreamPlayer
 
 
 func _ready():
@@ -30,7 +33,7 @@ func _ready():
 
 func _on_IpAddress_text_changed(_new_text):
 	clear_error(manual_join_error)
-
+	play_sound(button_sound)
 
 func _on_Host_pressed():
 	Network.create_server()
@@ -39,7 +42,7 @@ func _on_Host_pressed():
 	Global.players_info[get_tree().get_network_unique_id()] = Global.player_info
 	hide()
 	Global.emit_signal("instance_player",get_tree().get_network_unique_id())
-
+	play_sound(button_sound)
 
 func _on_Join_pressed():
 	Network.join_server()
@@ -54,18 +57,23 @@ func _toggle_network_setup(toggle):
 func _change_tab(tabIdx):
 	tab_route.append(left_menu.current_tab)
 	left_menu.current_tab = tabIdx
+	play_sound(button_sound)
 
 
 
 func _previous_tab():
 	left_menu.current_tab = tab_route.pop_back()
+	play_sound(button_sound)
 
 
 func _on_Quit_pressed():
+	play_sound(button_sound)
 	get_tree().quit()
 
 
 func _on_Nickname_text_changed(new_text):
+	# Removes any characters from the string that are prohibited in Node names (. : @ / ")
+	var length_before = new_text.length()
 	nickname.text = new_text.validate_node_name().strip_edges()
 	char_count.text = "{0}/{1}".format([nickname.text.length(),max_nickname_length])
 	nickname.caret_position = nickname.text.length()
@@ -75,6 +83,12 @@ func _on_Nickname_text_changed(new_text):
 	server_name.text = nickname.text + "'s server"
 	Global.server_name = server_name.text
 	Global.player_info.name = nickname.text
+	
+	if length_before != nickname.text.length():
+		play_sound(error_sound)
+	else:
+		play_sound(button_sound)
+	
 	
 	if allow_play:
 		clear_error(nickname_error)
@@ -98,6 +112,7 @@ func _on_ManualJoin_pressed():
 	
 	Network.ip_address = ip_address.text
 	_on_Join_pressed()
+	play_sound(button_sound)
 
 
 
@@ -123,3 +138,11 @@ func _select_character(dir):
 #	player_preview.mesh.material = load(Global.avatars[avatar].material)
 	
 	character_idx.text = "{0}/{1}".format([avatar+1,Global.avatars.size()])
+	play_sound(button_sound)
+
+
+func play_sound(sound:AudioStream):
+	sounds_player.stop()
+	sounds_player.stream = sound
+	sounds_player.play()
+

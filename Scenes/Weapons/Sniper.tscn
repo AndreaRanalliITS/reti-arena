@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Weapon.gd" type="Script" id=1]
 [ext_resource path="res://Models/sniper.glb" type="PackedScene" id=2]
+[ext_resource path="res://Sounds/Weapons/sniper_shot.wav" type="AudioStream" id=3]
+[ext_resource path="res://Sounds/Weapons/sniper_reload.mp3" type="AudioStream" id=4]
 
 [node name="Sniper" type="Spatial"]
 script = ExtResource( 1 )
@@ -10,6 +12,8 @@ min_damage = 9999
 max_damage = 9999
 cooldown = 1.0
 reload_time = 1.0
+shoot_sound = ExtResource( 3 )
+reload_sound = ExtResource( 4 )
 ammo_label = NodePath("../../../UI/AmmoPanel/AmmoLabel")
 raycast = NodePath("../../RayCast")
 sound_player = NodePath("SoundPlayer")

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ak47_shot.ogg-442743fba07064e1400c94b3c2ad441a.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Weapons/ak47_shot.ogg"
+dest_files=[ "res://.import/ak47_shot.ogg-442743fba07064e1400c94b3c2ad441a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

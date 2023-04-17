@@ -54,16 +54,21 @@ This project aims to create a simple but functioning arena fps game for my final
 
 #
  - [ ] __SFXs__
-    - [ ] gun 
-    - [ ] barrel gun
-    - [ ] ak47
-    - [ ] sniper
-    - [ ] health pickup
-    - [ ] ammo pickup
+    - [x] gun reload
+    - [x] gun shot
+    - [x] barrel gun shot
+    - [x] barrel gun reload
+    - [x] ak47 reload
+    - [x] ak47 shot
+    - [x] sniper reload
+    - [x] sniper shot
+    - [x] health pickup
+    - [x] ammo pickup
     - [ ] victory
     - [ ] damage
     - [ ] death
-    - [ ] menu buttons
+    - [x] menu buttons
+    - [x] ui error
 
 #
 - [ ] __ANIMATIONS__

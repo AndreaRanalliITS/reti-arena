@@ -1,7 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Pickup.gd" type="Script" id=1]
 [ext_resource path="res://Models/medkit.glb" type="PackedScene" id=2]
+[ext_resource path="res://Models/sniper.glb" type="PackedScene" id=3]
+[ext_resource path="res://Models/AK47.glb" type="PackedScene" id=4]
+[ext_resource path="res://Models/barrel_gun.glb" type="PackedScene" id=5]
+[ext_resource path="res://Models/gun.glb" type="PackedScene" id=6]
+[ext_resource path="res://Sounds/Entities/health_pickup.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/Weapons/barrelgun_reload.ogg" type="AudioStream" id=8]
 
 [sub_resource type="SphereShape" id=1]
 
@@ -63,11 +69,15 @@ tracks/1/keys = {
 
 [node name="Pickcup" type="Area"]
 script = ExtResource( 1 )
-mesh_instance = NodePath("Mesh")
+ammo_pickup_sound = ExtResource( 8 )
+health_pickup_sound = ExtResource( 7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.271, 0 )
 shape = SubResource( 1 )
+
+[node name="SoundPlayer" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.353392, 0 )
 
 [node name="RespawnTimer" type="Timer" parent="."]
 one_shot = true
@@ -81,6 +91,22 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.048, 0 )
 
 [node name="medkit" parent="Mesh" instance=ExtResource( 2 )]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0 )
+
+[node name="gun" parent="Mesh" instance=ExtResource( 6 )]
+transform = Transform( -6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, 0, 0.279017, 0 )
+visible = false
+
+[node name="barrel_gun" parent="Mesh" instance=ExtResource( 5 )]
+transform = Transform( -5.3765e-09, 0, 0.123, 0, 0.123, 0, -0.123, 0, -5.3765e-09, 0, 0.315788, 0.291131 )
+visible = false
+
+[node name="AK47" parent="Mesh" instance=ExtResource( 4 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.427946, -0.14711 )
+visible = false
+
+[node name="sniper" parent="Mesh" instance=ExtResource( 3 )]
+transform = Transform( 0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0.307324, 0.487541 )
+visible = false
 
 [connection signal="body_entered" from="." to="." method="_on_Pickcup_body_entered"]
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_RespawnTimer_timeout"]
