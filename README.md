@@ -2,6 +2,10 @@
 
 This project aims to create a simple but functioning arena fps game for my final thesis @ Reti S.p.A. , only using opensource programs such as Godot for the game engine, Trenchbroom / Blender for 3D models.
 
+
+### Credits
+Music by <a href="https://pixabay.com/users/grand_project-19033897/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=126684">Grand_Project</a> from <a href="https://pixabay.com/music//?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=126684">Pixabay</a>
+
 <br>
 <br>
 
@@ -23,7 +27,7 @@ This project aims to create a simple but functioning arena fps game for my final
 - [x] __SERVER CONNECTION__
 
 #
-- [ ] __WEAPONS__
+- [x] __WEAPONS__
     - [x] gun
     - [x] barrel gun
     - [x] ak47
@@ -69,6 +73,8 @@ This project aims to create a simple but functioning arena fps game for my final
     - [ ] death
     - [x] menu buttons
     - [x] ui error
+    - [x] menu music
+    - [x] combat music
 
 #
 - [ ] __ANIMATIONS__
@@ -87,7 +93,7 @@ This project aims to create a simple but functioning arena fps game for my final
 
 # 
 - [ ] __GUI__
-    - [ ] main menu
+    - [x] main menu
     - [ ] ingame menu
     - [ ] crosshair
     - [x] lifebar
