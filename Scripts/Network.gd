@@ -1,10 +1,12 @@
 extends Node
 
 var DEFAULT_PORT = 28960
-var MAX_CLIENTS = 5
+var DEFAULT_MAX_CLIENTS = 5
 
 var server = null
 var client = null
+var port = null
+var max_clients = null
 
 var ip_address = "127.0.0.1"
 
@@ -17,9 +19,9 @@ var connection_signals = {
 
 
 func _init():
-	var server_confs = Utils.read_json("res://server.conf")
-	DEFAULT_PORT = server_confs.port
-	MAX_CLIENTS = server_confs.max_clients
+	port = Utils.get_setting("server_confs", "port",DEFAULT_PORT)
+	max_clients = Utils.get_setting("server_confs", "max_clients",DEFAULT_MAX_CLIENTS)
+
 
 
 func _ready():
@@ -31,14 +33,14 @@ func _ready():
 func create_server():
 	print("Creating server")
 	server = NetworkedMultiplayerENet.new()
-	server.create_server(DEFAULT_PORT,MAX_CLIENTS)
+	server.create_server(port,max_clients)
 	get_tree().set_network_peer(server)
 
 
 func join_server():
 	print("Joining server")
 	client = NetworkedMultiplayerENet.new()
-	client.create_client(ip_address,DEFAULT_PORT)
+	client.create_client(ip_address,port)
 	get_tree().set_network_peer(client)
 
 

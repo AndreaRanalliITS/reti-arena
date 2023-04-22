@@ -3,6 +3,9 @@ extends Spatial
 export(NodePath) onready var ready_players_label = get_node(ready_players_label) as Label3D
 export(NodePath) onready var lobby_spawn_points = get_node(lobby_spawn_points).get_children() as Array
 export(NodePath) onready var game_spawn_points = get_node(game_spawn_points).get_children() as Array
+export(NodePath) onready var music_player = get_node(music_player) as AudioStreamPlayer
+export(AudioStream) var menu_music
+export(AudioStream) var combat_music
 
 var player_scene = preload("res://Scenes/Player.tscn")
 
@@ -11,25 +14,30 @@ var connection_signals = {
 	"network_peer_disconnected": "_player_disconnected",
 	"connected_to_server": "_connected_ok",
 	"connection_failed": "_connected_fail",
-	"server_disconnected": "_instance_player"
+	"server_disconnected": "_server_disconnected"
 }
 
 func _ready():
+	music_player.stream = menu_music
+	music_player.play()
 	var error = Utils.connect_signals(get_tree(),self,connection_signals)
 	if error != OK:
 		printerr(error)
 	error = Global.connect("instance_player",self,"_instance_player")
 	if error != OK:
 		printerr(error)
+#	error = Global.connect("toggle_network_setup",self,"_toggle_network_setup")
+#	if error != OK:
+#		printerr(error)
 	
 	if get_tree().network_peer != null:
 		Global.emit_signal("toggle_network_setup",false)
 
 
 func _process(_delta):
-	if Input.is_action_just_pressed("toggle_ready_state"):
+	if Input.is_action_just_pressed("toggle_ready_state") && Global.players_info.size() >= 2:
 		rpc("_update_player_ready_state",get_tree().get_network_unique_id())
-	
+
 
 
 func _player_connected(id):
@@ -82,6 +90,7 @@ remotesync func _update_player_ready_state(player_id):
 
 
 remote func _instance_player(id):
+	music_player.stop()
 	log_info("instancing player_scene "+str(id)+"\n"+str(Global.players_info[id]))
 	var player_inst = player_scene.instance()
 	player_inst.set_network_master(id)
@@ -126,13 +135,18 @@ func everyone_is_ready()->bool:
 func start_match():
 	get_tree().refuse_new_network_connections = true
 	#move everyone to their match start positions
+	rpc("move_to_start_pos")
 	move_to_start_pos()
-	for key in Global.players_info:
-		if key != 1:
-			rpc_id(key,"move_to_start_pos")
+	music_player.stop()
+	music_player.stream = combat_music
+	music_player.play(42)
+	
+#	for key in Global.players_info:
+#		if key != 1:
+#			rpc_id(key,"move_to_start_pos")
 
 
-remote func move_to_start_pos():
+remotesync func move_to_start_pos():
 	var player = get_node(str(get_tree().get_network_unique_id()))
 	
 	var spawn_point = game_spawn_points[Global.player_info.game_spawn_point]

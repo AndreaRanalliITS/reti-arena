@@ -35,6 +35,7 @@ func _ready():
 	# get_tree().connect("network_peer_connected",self,"_player_connected")
 	
 	if is_network_master:
+		mouse_sensitivity = Utils.get_setting("player_confs","mouse_sensitivity",0.08)
 		network_tick_rate.connect("timeout",self,"_on_NetworkTickRate_timeout")
 		network_tick_rate.start()
 		life_bar.min_value = 0

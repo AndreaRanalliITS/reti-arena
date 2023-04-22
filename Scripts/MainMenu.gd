@@ -16,12 +16,22 @@ onready var show_join = $Left/Main/Join
 onready var manual_join_error = $Left/ManualSetup/ErrorMessage
 onready var ip_address = $Left/ManualSetup/LineEdit
 onready var server_name = $Left/HostSetup/ServerName
+onready var master_slider = $Left/Settings/MasterSlider as HSlider
+onready var sfx_slider = $Left/Settings/SfxSlider as HSlider
+onready var music_slider = $Left/Settings/MusicSlider as HSlider
+onready var mouse_sensitivity_slider = $Left/Settings/MouseSensitivitySlider as HSlider
 onready var character_name = $Right/Panel/HBoxContainer/VBoxContainer/MeshName
 onready var character_idx = $Right/Panel/HBoxContainer/VBoxContainer/CharacterIdx
 onready var sounds_player = get_node("../UISounds") as AudioStreamPlayer
 
+onready var default_bus_layout = preload("res://default_bus_layout.tres")
 
 func _ready():
+	var bus_layout = Utils.get_setting("audio_confs","bus_layout",default_bus_layout)
+	AudioServer.set_bus_layout(bus_layout)
+	
+	set_sliders_pos()
+	
 	var error = Global.connect("toggle_network_setup",self,"_toggle_network_setup")
 	if error != OK:
 		printerr(error)
@@ -50,8 +60,15 @@ func _on_Join_pressed():
 
 
 func _toggle_network_setup(toggle):
-	visible = toggle
+	get_parent().visible = toggle
 
+
+func set_sliders_pos():
+	master_slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
+	sfx_slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX"))
+	music_slider.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))
+	Utils.settings.erase_section_key("player_confs","mouse_sensitivity")
+	mouse_sensitivity_slider.value = Utils.get_setting("player_confs","mouse_sensitivity",0.08)
 
 
 func _change_tab(tabIdx):
@@ -141,8 +158,42 @@ func _select_character(dir):
 	play_sound(button_sound)
 
 
-func play_sound(sound:AudioStream):
+func play_sound(sound:AudioStream,bus="SFX"):
 	sounds_player.stop()
+	sounds_player.bus = bus
 	sounds_player.stream = sound
 	sounds_player.play()
 
+
+func update_audio_bus_vol_level(bus_name,new_level):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(bus_name), new_level)
+	AudioServer.set_bus_mute(AudioServer.get_bus_index(bus_name),new_level == -80)
+
+
+func _on_MasterSlider_drag_ended(_value_changed):
+	update_audio_bus_vol_level("Master", master_slider.value)
+	play_sound(button_sound,"Master")
+
+
+
+func _on_SfxSlider_drag_ended(_value_changed):
+	update_audio_bus_vol_level("SFX", sfx_slider.value)
+	play_sound(button_sound)
+
+
+
+func _on_Save_Settings_pressed():
+	Utils.set_setting("audio_confs","bus_layout",AudioServer.generate_bus_layout())
+	Utils.set_setting("player_confs","mouse_sensitivity",mouse_sensitivity_slider.value)
+	play_sound(button_sound)
+	_previous_tab()
+
+
+func _on_Reset_Settings_pressed():
+	AudioServer.set_bus_layout(default_bus_layout)
+	set_sliders_pos()
+	play_sound(button_sound)
+
+
+func _on_MusicSlider_value_changed(value):
+	update_audio_bus_vol_level("Music", value)

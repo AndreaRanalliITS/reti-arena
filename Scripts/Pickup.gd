@@ -9,7 +9,7 @@ export(AudioStream) var health_pickup_sound
 onready var mesh_instance = $Mesh
 onready var animation_player = $AnimationPlayer
 onready var respawn_timer = $RespawnTimer
-onready var sound_player = $SoundPlayer as AudioStreamPlayer3D
+onready var sound_player = $SoundPlayer as AudioStreamPlayer
 
 
 func _ready():

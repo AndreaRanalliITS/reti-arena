@@ -25,9 +25,9 @@ var player_info = {
 var players_info = {}
 
 func _ready():
-	lobby_spawn_indexes = range(Network.MAX_CLIENTS)
+	lobby_spawn_indexes = range(Network.max_clients)
 	lobby_spawn_indexes.shuffle()
-	game_spawn_indexes = range(Network.MAX_CLIENTS)
+	game_spawn_indexes = range(Network.max_clients)
 	game_spawn_indexes.shuffle()
 
 func _init():

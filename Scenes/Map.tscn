@@ -1,4 +1,4 @@
-[gd_scene load_steps=137 format=2]
+[gd_scene load_steps=140 format=2]
 
 [ext_resource path="res://Scenes/UI/ServerCard.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Map.gd" type="Script" id=2]
@@ -21,11 +21,13 @@
 [ext_resource path="res://Scenes/Statics/robot.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Sounds/UI/ui_sound.wav" type="AudioStream" id=20]
 [ext_resource path="res://Sounds/UI/ui_error.ogg" type="AudioStream" id=21]
+[ext_resource path="res://textures/menu_background.jpg" type="Texture" id=22]
+[ext_resource path="res://textures/shadow.png" type="Texture" id=23]
+[ext_resource path="res://Sounds/Music/menu_music.mp3" type="AudioStream" id=24]
+[ext_resource path="res://Sounds/Music/combat_music.ogg" type="AudioStream" id=25]
 
 [sub_resource type="ViewportTexture" id=4]
 viewport_path = NodePath("Viewport")
-
-[sub_resource type="CapsuleMesh" id=5]
 
 [sub_resource type="DynamicFont" id=84]
 font_data = ExtResource( 17 )
@@ -487,6 +489,9 @@ script = ExtResource( 2 )
 ready_players_label = NodePath("Label3DPlayersReady")
 lobby_spawn_points = NodePath("LobbySpawnPoints")
 game_spawn_points = NodePath("GameSpawnPoints")
+music_player = NodePath("MusicPlayer")
+menu_music = ExtResource( 24 )
+combat_music = ExtResource( 25 )
 
 [node name="UI" type="Control" parent="."]
 anchor_right = 1.0
@@ -505,9 +510,18 @@ max_nickname_length = 30
 button_sound = ExtResource( 20 )
 error_sound = ExtResource( 21 )
 
+[node name="Backgrounbd" type="TextureRect" parent="UI/MainMenu"]
+self_modulate = Color( 0.870588, 0.870588, 0.870588, 1 )
+show_behind_parent = true
+margin_bottom = 590.0
+texture = ExtResource( 22 )
+expand = true
+stretch_mode = 4
+
 [node name="Left" type="TabContainer" parent="UI/MainMenu"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_right = 478.0
+margin_left = 4.0
+margin_right = 480.0
 margin_bottom = 590.0
 size_flags_horizontal = 3
 tab_align = 0
@@ -523,38 +537,38 @@ margin_bottom = -4.0
 
 [node name="Title" type="Label" parent="UI/MainMenu/Left/Main"]
 self_modulate = Color( 1, 0, 0, 1 )
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 0, 100 )
 size_flags_vertical = 6
-text = "INSERT TITLE HERE"
+text = "RETI ARENA"
 align = 1
 valign = 1
 clip_text = true
 
 [node name="Control" type="Control" parent="UI/MainMenu/Left/Main"]
 margin_top = 104.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 143.0
 size_flags_vertical = 3
 
 [node name="ErrorMessage" type="Label" parent="UI/MainMenu/Left/Main"]
 self_modulate = Color( 1, 0, 0, 1 )
 margin_top = 147.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 161.0
 valign = 2
 clip_text = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/MainMenu/Left/Main"]
 margin_top = 165.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 225.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_horizontal = 3
 
 [node name="Nickname" type="LineEdit" parent="UI/MainMenu/Left/Main/HBoxContainer"]
-margin_right = 421.0
+margin_right = 419.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 max_length = 15
@@ -563,8 +577,8 @@ caret_blink = true
 caret_blink_speed = 0.2
 
 [node name="CharCount" type="Label" parent="UI/MainMenu/Left/Main/HBoxContainer"]
-margin_left = 425.0
-margin_right = 470.0
+margin_left = 423.0
+margin_right = 468.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 45, 0 )
 size_flags_vertical = 3
@@ -574,14 +588,14 @@ valign = 1
 
 [node name="HSeparator" type="HSeparator" parent="UI/MainMenu/Left/Main"]
 margin_top = 229.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 279.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 
 [node name="Host" type="Button" parent="UI/MainMenu/Left/Main"]
 margin_top = 283.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 343.0
 rect_min_size = Vector2( 0, 60 )
 hint_tooltip = "Host a server on thi LAN"
@@ -591,7 +605,7 @@ text = "HOST"
 
 [node name="Join" type="Button" parent="UI/MainMenu/Left/Main"]
 margin_top = 347.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 407.0
 rect_min_size = Vector2( 0, 60 )
 hint_tooltip = "Join a server on this LAN"
@@ -602,7 +616,7 @@ clip_text = true
 
 [node name="Settings" type="Button" parent="UI/MainMenu/Left/Main"]
 margin_top = 411.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 471.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_horizontal = 3
@@ -611,7 +625,7 @@ clip_text = true
 
 [node name="Quit" type="Button" parent="UI/MainMenu/Left/Main"]
 margin_top = 475.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 535.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_horizontal = 3
@@ -620,7 +634,7 @@ clip_text = true
 
 [node name="Control2" type="Control" parent="UI/MainMenu/Left/Main"]
 margin_top = 539.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 578.0
 size_flags_vertical = 3
 
@@ -642,29 +656,31 @@ align = 1
 valign = 1
 clip_text = true
 
-[node name="Control2" type="Control" parent="UI/MainMenu/Left/Settings"]
+[node name="Spacer" type="Control" parent="UI/MainMenu/Left/Settings"]
 margin_top = 18.0
 margin_right = 470.0
-margin_bottom = 111.0
+margin_bottom = 133.0
 size_flags_vertical = 3
 
 [node name="MasterLabel" type="Label" parent="UI/MainMenu/Left/Settings"]
-margin_top = 115.0
+margin_top = 137.0
 margin_right = 470.0
-margin_bottom = 129.0
+margin_bottom = 151.0
 size_flags_horizontal = 3
 text = "Main"
 clip_text = true
 
 [node name="MasterSlider" type="HSlider" parent="UI/MainMenu/Left/Settings"]
-margin_top = 133.0
+margin_top = 155.0
 margin_right = 470.0
-margin_bottom = 149.0
+margin_bottom = 171.0
+min_value = -80.0
+max_value = 6.0
 
 [node name="SfxLabel" type="Label" parent="UI/MainMenu/Left/Settings"]
-margin_top = 153.0
+margin_top = 175.0
 margin_right = 470.0
-margin_bottom = 183.0
+margin_bottom = 205.0
 rect_min_size = Vector2( 0, 30 )
 size_flags_horizontal = 3
 text = "Sound effects"
@@ -672,14 +688,16 @@ valign = 2
 clip_text = true
 
 [node name="SfxSlider" type="HSlider" parent="UI/MainMenu/Left/Settings"]
-margin_top = 187.0
+margin_top = 209.0
 margin_right = 470.0
-margin_bottom = 203.0
+margin_bottom = 225.0
+min_value = -80.0
+max_value = 6.0
 
 [node name="MusicLabel" type="Label" parent="UI/MainMenu/Left/Settings"]
-margin_top = 207.0
+margin_top = 229.0
 margin_right = 470.0
-margin_bottom = 237.0
+margin_bottom = 259.0
 rect_min_size = Vector2( 0, 30 )
 size_flags_horizontal = 3
 text = "Music"
@@ -687,42 +705,39 @@ valign = 2
 clip_text = true
 
 [node name="MusicSlider" type="HSlider" parent="UI/MainMenu/Left/Settings"]
-margin_top = 241.0
+margin_top = 263.0
 margin_right = 470.0
-margin_bottom = 257.0
+margin_bottom = 279.0
+min_value = -80.0
+max_value = 6.0
 
 [node name="HSeparator" type="HSeparator" parent="UI/MainMenu/Left/Settings"]
-margin_top = 261.0
+margin_top = 283.0
 margin_right = 470.0
-margin_bottom = 311.0
+margin_bottom = 333.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 
 [node name="MouseSensitivityLabel" type="Label" parent="UI/MainMenu/Left/Settings"]
-margin_top = 315.0
+margin_top = 337.0
 margin_right = 470.0
-margin_bottom = 329.0
+margin_bottom = 351.0
 text = "Mouse sensitivity"
 clip_text = true
 
 [node name="MouseSensitivitySlider" type="HSlider" parent="UI/MainMenu/Left/Settings"]
-margin_top = 333.0
+margin_top = 355.0
 margin_right = 470.0
-margin_bottom = 349.0
+margin_bottom = 371.0
+max_value = 1.0
+step = 0.001
+value = 0.08
 
 [node name="Control" type="Control" parent="UI/MainMenu/Left/Settings"]
-margin_top = 353.0
-margin_right = 470.0
-margin_bottom = 446.0
-size_flags_vertical = 3
-
-[node name="Back" type="Button" parent="UI/MainMenu/Left/Settings"]
-margin_top = 450.0
+margin_top = 375.0
 margin_right = 470.0
 margin_bottom = 490.0
-rect_min_size = Vector2( 0, 40 )
-text = "CANCEL"
-clip_text = true
+size_flags_vertical = 3
 
 [node name="Save and back" type="Button" parent="UI/MainMenu/Left/Settings"]
 margin_top = 494.0
@@ -959,26 +974,37 @@ rect_min_size = Vector2( 0, 60 )
 text = "Quit to title"
 
 [node name="VSeparator" type="VSeparator" parent="UI/MainMenu"]
-margin_left = 482.0
-margin_right = 532.0
+margin_left = 484.0
+margin_right = 534.0
 margin_bottom = 590.0
 rect_min_size = Vector2( 50, 0 )
 
 [node name="Right" type="VBoxContainer" parent="UI/MainMenu"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 536.0
+margin_left = 538.0
 margin_right = 1014.0
 margin_bottom = 590.0
 size_flags_horizontal = 3
 
 [node name="TextureRect" type="Panel" parent="UI/MainMenu/Right"]
-self_modulate = Color( 1, 1, 1, 0.262745 )
-margin_right = 478.0
+self_modulate = Color( 1, 1, 1, 0 )
+margin_right = 476.0
 margin_bottom = 536.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="UI/MainMenu/Right/TextureRect"]
+[node name="Shadow" type="TextureRect" parent="UI/MainMenu/Right/TextureRect"]
+show_behind_parent = true
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -193.0
+margin_bottom = -2.0
+texture = ExtResource( 23 )
+expand = true
+flip_v = true
+
+[node name="SkinPreview" type="TextureRect" parent="UI/MainMenu/Right/TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -992,7 +1018,7 @@ stretch_mode = 7
 [node name="Panel" type="Panel" parent="UI/MainMenu/Right"]
 self_modulate = Color( 1, 1, 1, 0 )
 margin_top = 540.0
-margin_right = 478.0
+margin_right = 476.0
 margin_bottom = 590.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
@@ -1003,15 +1029,15 @@ anchor_bottom = 1.0
 alignment = 1
 
 [node name="MeshSelectorLeft" type="Button" parent="UI/MainMenu/Right/Panel/HBoxContainer"]
-margin_left = 95.0
-margin_right = 135.0
+margin_left = 94.0
+margin_right = 134.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 40, 0 )
 text = "<"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/MainMenu/Right/Panel/HBoxContainer"]
-margin_left = 139.0
-margin_right = 339.0
+margin_left = 138.0
+margin_right = 338.0
 margin_bottom = 50.0
 alignment = 1
 
@@ -1036,13 +1062,14 @@ align = 1
 valign = 1
 
 [node name="MeshSelectorRight" type="Button" parent="UI/MainMenu/Right/Panel/HBoxContainer"]
-margin_left = 343.0
-margin_right = 383.0
+margin_left = 342.0
+margin_right = 382.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 40, 0 )
 text = ">"
 
 [node name="UISounds" type="AudioStreamPlayer" parent="UI"]
+bus = "SFX"
 
 [node name="Viewport" type="Viewport" parent="."]
 size = Vector2( 1024, 512 )
@@ -1057,13 +1084,6 @@ cull_mask = 524288
 [node name="PlayerPreview" parent="." instance=ExtResource( 19 )]
 transform = Transform( 0.0627012, 0, 0.077901, 0, 0.1, 0, -0.077901, 0, 0.0627012, 0, -11.1112, 1.21155 )
 layers = 524288
-
-[node name="PlayerPreview_old" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -9.24629, 0 )
-visible = false
-layers = 524288
-cast_shadow = 0
-mesh = SubResource( 5 )
 
 [node name="Label3DPlayersReadyTitle" type="Label3D" parent="."]
 transform = Transform( 15, 0, 0, 0, 15, 0, 0, 0, 1, 0, 10.8231, -23.493 )
@@ -1507,12 +1527,19 @@ shape = SubResource( 119 )
 [node name="entity_0_brush_28_collision_shape" type="CollisionShape" parent="Arena/entity_0_worldspawn"]
 shape = SubResource( 120 )
 
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+bus = "Music"
+
 [connection signal="text_changed" from="UI/MainMenu/Left/Main/HBoxContainer/Nickname" to="UI/MainMenu" method="_on_Nickname_text_changed"]
 [connection signal="pressed" from="UI/MainMenu/Left/Main/Host" to="UI/MainMenu" method="_change_tab" binds= [ 4 ]]
 [connection signal="pressed" from="UI/MainMenu/Left/Main/Join" to="UI/MainMenu" method="_change_tab" binds= [ 2 ]]
 [connection signal="pressed" from="UI/MainMenu/Left/Main/Settings" to="UI/MainMenu" method="_change_tab" binds= [ 1 ]]
 [connection signal="pressed" from="UI/MainMenu/Left/Main/Quit" to="UI/MainMenu" method="_on_Quit_pressed"]
-[connection signal="pressed" from="UI/MainMenu/Left/Settings/Back" to="UI/MainMenu" method="_previous_tab"]
+[connection signal="drag_ended" from="UI/MainMenu/Left/Settings/MasterSlider" to="UI/MainMenu" method="_on_MasterSlider_drag_ended"]
+[connection signal="drag_ended" from="UI/MainMenu/Left/Settings/SfxSlider" to="UI/MainMenu" method="_on_SfxSlider_drag_ended"]
+[connection signal="value_changed" from="UI/MainMenu/Left/Settings/MusicSlider" to="UI/MainMenu" method="_on_MusicSlider_value_changed"]
+[connection signal="pressed" from="UI/MainMenu/Left/Settings/Save and back" to="UI/MainMenu" method="_on_Save_Settings_pressed"]
+[connection signal="pressed" from="UI/MainMenu/Left/Settings/Reset" to="UI/MainMenu" method="_on_Reset_Settings_pressed"]
 [connection signal="visibility_changed" from="UI/MainMenu/Left/ServerList" to="UI/MainMenu/Left/ServerList" method="_on_ServerList_visibility_changed"]
 [connection signal="timeout" from="UI/MainMenu/Left/ServerList/CleanupTimer" to="UI/MainMenu/Left/ServerList" method="_on_CleanupTimer_timeout"]
 [connection signal="pressed" from="UI/MainMenu/Left/ServerList/ManualSetup" to="UI/MainMenu" method="_change_tab" binds= [ 3 ]]
