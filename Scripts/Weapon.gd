@@ -73,6 +73,8 @@ func _process(_delta):
 
 
 func shoot():
+	if Global.paused: return
+	
 	var rays_to_cast = (randi()%(max_rays-min_rays+1))+min_rays
 	var hits = {}
 	var collision_points = []
@@ -99,6 +101,8 @@ func shoot():
 
 
 func reload():
+	if Global.paused: return
+	
 	var missing_amount = clip_size - clip_amount
 	
 	if (pouch_amount-missing_amount) < 0:

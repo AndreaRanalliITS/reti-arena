@@ -94,7 +94,7 @@ Music by <a href="https://pixabay.com/users/grand_project-19033897/?utm_source=l
 # 
 - [ ] __GUI__
     - [x] main menu
-    - [ ] ingame menu
+    - [x] ingame menu
     - [ ] crosshair
     - [x] lifebar
     - [x] ammo counter

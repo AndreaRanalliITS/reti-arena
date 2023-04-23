@@ -34,8 +34,10 @@ func _ready():
 		Global.emit_signal("toggle_network_setup",false)
 
 
+
+
 func _process(_delta):
-	if Input.is_action_just_pressed("toggle_ready_state") && Global.players_info.size() >= 2:
+	if Input.is_action_just_pressed("toggle_ready_state") :#&& Global.players_info.size() >= 2:
 		rpc("_update_player_ready_state",get_tree().get_network_unique_id())
 
 
@@ -81,6 +83,8 @@ remote func receive_info_from_server_and_spawn(updated_info):
 	Global.player_info = updated_info
 	Global.players_info[get_tree().get_network_unique_id()] = Global.player_info
 	_instance_player(get_tree().get_network_unique_id())
+	Global.can_pause = true
+	
 
 
 remotesync func _update_player_ready_state(player_id):
@@ -122,7 +126,7 @@ func update_ready_label():
 	#if is server, check if all player_scene are ready
 	if get_tree().get_network_unique_id() == 1 and everyone_is_ready():
 		log_info("EVERYONE IS READY")
-		start_match()
+		rpc("start_match")
 
 
 func everyone_is_ready()->bool:
@@ -132,28 +136,32 @@ func everyone_is_ready()->bool:
 	return true
 
 
-func start_match():
+remotesync func start_match():
+	
 	get_tree().refuse_new_network_connections = true
-	#move everyone to their match start positions
-	rpc("move_to_start_pos")
-	move_to_start_pos()
+	
+	#reset counters
+	for key in Global.players_info:
+		Global.players_info[key].deaths = 0
+		Global.players_info[key].kills = 0
+	
 	music_player.stop()
 	music_player.stream = combat_music
-	music_player.play(42)
+	music_player.play(42.10)
 	
-#	for key in Global.players_info:
-#		if key != 1:
-#			rpc_id(key,"move_to_start_pos")
-
-
-remotesync func move_to_start_pos():
 	var player = get_node(str(get_tree().get_network_unique_id()))
 	
+	#move everyone to their match start positions
 	var spawn_point = game_spawn_points[Global.player_info.game_spawn_point]
 	player.global_transform.origin = spawn_point.transform.origin
 	player.global_rotation = spawn_point.global_rotation
 	player.reset_state()
 	player.invincible = false
+	
+#	for key in Global.players_info:
+#		if key != 1:
+#			rpc_id(key,"move_to_start_pos")
+
 
 
 func log_info(message:String):

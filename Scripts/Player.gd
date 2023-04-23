@@ -9,6 +9,8 @@ export(float,0,999) var mouse_sensitivity = .08
 export(int,0,9999) var max_health = 100
 export(int,0,9999) var health = 100
 export(bool) var invincible = false
+export(bool) var spec_mode = false
+export(NodePath) onready var collision_shape = get_node(collision_shape) as CollisionShape
 export(NodePath) onready var head = get_node(head) as Spatial
 export(NodePath) onready var model = get_node(model) as Spatial
 export(NodePath) onready var camera = get_node(camera) as Camera
@@ -20,6 +22,7 @@ onready var is_network_master = is_network_master()
 export(NodePath) onready var life_bar = get_node(life_bar) as TextureProgress
 export(NodePath) onready var life_label = get_node(life_label) as Label
 
+var can_move = true
 var velocity = Vector3()
 var gravity_vec = Vector3()
 var pup_position = Vector3()
@@ -31,10 +34,8 @@ var pup_rotation = Vector2()
 
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	# get_tree().connect("network_peer_connected",self,"_player_connected")
-	
 	if is_network_master:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		mouse_sensitivity = Utils.get_setting("player_confs","mouse_sensitivity",0.08)
 		network_tick_rate.connect("timeout",self,"_on_NetworkTickRate_timeout")
 		network_tick_rate.start()
@@ -42,6 +43,9 @@ func _ready():
 		life_bar.max_value = max_health
 		update_lifebar()
 		camera.current = true
+		var error = Global.connect("toggle_pause",self,"_toggle_pause")
+		if error != OK:
+			printerr(error)
 	else:
 		camera.queue_free()
 		get_node("UI").queue_free()
@@ -51,10 +55,6 @@ func _ready():
 	model.visible = !is_network_master
 #	get_node("UI").visible = is_network_master
 
-
-# func _player_connected(_id):
-# 	if is_network_master:
-# 		rpc("update_mesh_material",Global.selected_character)
 
 
 func get_input() -> Vector3:
@@ -80,7 +80,7 @@ func _input(event):
 	if !is_network_master:
 		return
 	
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion && can_move:
 		rotate_y(deg2rad(-event.relative.x * mouse_sensitivity))
 		head.rotate_x(deg2rad(-event.relative.y * mouse_sensitivity))
 		head.rotation.x = clamp(head.rotation.x,-HEAD_ROTATION_CLAMP,HEAD_ROTATION_CLAMP)
@@ -88,16 +88,18 @@ func _input(event):
 
 func _physics_process(delta):
 	if is_network_master:
-		
-		var desired_velocity = get_input() * speed
-		velocity.x = desired_velocity.x
-		velocity.z = desired_velocity.z
+		if can_move:
+			var desired_velocity = get_input() * speed
+			velocity.x = desired_velocity.x
+			velocity.z = desired_velocity.z
 		
 		if is_on_floor():
 			velocity.y=0
-			if Input.is_action_just_pressed("jump"):
+			if Input.is_action_just_pressed("jump") && can_move:
 				velocity.y += jump_speed
-		velocity.y += gravity * delta
+		
+		if not spec_mode:
+			velocity.y += gravity * delta
 		
 	else:
 		global_transform.origin = pup_position
@@ -108,6 +110,10 @@ func _physics_process(delta):
 	
 	if !movement_tween.is_active():
 		velocity = move_and_slide(velocity, Vector3.UP, true)
+
+
+func _toggle_pause(toggle):
+	can_move = not toggle
 
 
 func update_lifebar():
@@ -126,7 +132,6 @@ puppet func update_state(p_position, p_velocity, p_rotation):
 
 func update_mesh_material(avatar_idx):
 	print("[{0}] [{1}] {2}".format([get_tree().get_network_unique_id(),name,"Changing avatar to "+str(avatar_idx)]))
-#	model.mesh.material = load(Global.avatars[avatar_idx].material)
 	model.mesh.surface_set_material(0, load(Global.avatars[avatar_idx].material))
 
 
@@ -135,24 +140,30 @@ master func receive_damage(dmg : int):
 #	print(name + " received " + str(dmg) + " damage")
 	health -= dmg
 	if health <= 0:
-		global_transform.origin = Vector3(0,15,0)
-		health = max_health
+#		health = max_health
+		rpc("_update_deaths_count")
+		rpc("_toggle_spec_mode",true)
 	update_lifebar()
 
 
-func receive_health(heal:int):
-	health += heal
-	if health > max_health:
-		health = max_health
-	update_lifebar()
+remotesync func _update_deaths_count():
+	Global.players_info[get_tree().get_network_unique_id()].deaths += 1
+
+func receive_health(heal:int)->bool:
+	if health <= 0: return false
+	
+	if health < max_health:
+		health += heal
+		if health > max_health:
+			health = max_health
+		update_lifebar()
+		return true
+	return false
 
 
 func receive_pickup(pickup_type,amount)->bool:
 	if pickup_type == Global.PickupType.HEALTH_PACK:
-		if health < max_health:
-			receive_health(amount)
-			return true
-		return false
+		return receive_health(amount)
 	else:
 		return hand.receive_ammo(pickup_type,amount)
 
@@ -160,7 +171,13 @@ func reset_state():
 	health = max_health
 	update_lifebar()
 	hand.reset_state()
+	#rpc("_toggle_spec_mode",false)
+
+puppetsync func _toggle_spec_mode(toggle):
+	collision_shape.disabled = toggle
+	model.visible = not toggle
+	hand.set_enabled(not toggle)
+	spec_mode = toggle
 
 func _on_NetworkTickRate_timeout():
-#	if is_network_master():
 	rpc_unreliable("update_state",global_transform.origin,velocity, Vector2(head.rotation.x,rotation.y))

@@ -1,5 +1,8 @@
 extends HBoxContainer
 
+enum MenuMode {MAIN,IN_GAME}
+
+export(MenuMode) var mode
 export(int,0,999) var max_nickname_length = 15
 export(AudioStream) var button_sound
 export(AudioStream) var error_sound
@@ -24,9 +27,17 @@ onready var character_name = $Right/Panel/HBoxContainer/VBoxContainer/MeshName
 onready var character_idx = $Right/Panel/HBoxContainer/VBoxContainer/CharacterIdx
 onready var sounds_player = get_node("../UISounds") as AudioStreamPlayer
 
+
+export(Array,NodePath) var main_mode_only_elements = []
+
 onready var default_bus_layout = preload("res://default_bus_layout.tres")
 
 func _ready():
+	var tmp = []
+	for node_path in main_mode_only_elements:
+		tmp.append(get_node(node_path))
+	main_mode_only_elements = tmp
+	set_menu_mode(mode)
 	var bus_layout = Utils.get_setting("audio_confs","bus_layout",default_bus_layout)
 	AudioServer.set_bus_layout(bus_layout)
 	
@@ -35,32 +46,51 @@ func _ready():
 	var error = Global.connect("toggle_network_setup",self,"_toggle_network_setup")
 	if error != OK:
 		printerr(error)
+	error = Global.connect("toggle_pause",self,"_toggle_pause")
+	if error != OK:
+		printerr(error)
+	
 	nickname.max_length = max_nickname_length
 	char_count.text = "{0}/{1}".format([nickname.text.length(),max_nickname_length])
 	
 	_select_character(0)
 
 
+func _toggle_pause(toggle):
+	if mode == MenuMode.IN_GAME:
+		visible = toggle
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE if toggle else Input.MOUSE_MODE_CAPTURED)
+		tab_route.clear()
+		_change_tab(0)
+
+
 func _on_IpAddress_text_changed(_new_text):
 	clear_error(manual_join_error)
 	play_sound(button_sound)
 
+
 func _on_Host_pressed():
-	Network.create_server()
-	Global.player_info.lobby_spawn_point = Global.lobby_spawn_indexes.pop_front()
-	Global.player_info.game_spawn_point = Global.game_spawn_indexes.pop_front()
-	Global.players_info[get_tree().get_network_unique_id()] = Global.player_info
-	hide()
-	Global.emit_signal("instance_player",get_tree().get_network_unique_id())
 	play_sound(button_sound)
+	if Network.create_server():
+		Global.player_info.lobby_spawn_point = Global.lobby_spawn_indexes.pop_front()
+		Global.player_info.game_spawn_point = Global.game_spawn_indexes.pop_front()
+		Global.players_info[get_tree().get_network_unique_id()] = Global.player_info
+		hide()
+		Global.emit_signal("instance_player",get_tree().get_network_unique_id())
+		
+		set_menu_mode(MenuMode.IN_GAME)
+		Global.can_pause = true
 
 func _on_Join_pressed():
-	Network.join_server()
-	hide()
+	play_sound(button_sound)
+	if Network.join_server():
+		hide()
+		set_menu_mode(MenuMode.IN_GAME)
+	
 
 
 func _toggle_network_setup(toggle):
-	get_parent().visible = toggle
+	visible = toggle
 
 
 func set_sliders_pos():
@@ -75,7 +105,6 @@ func _change_tab(tabIdx):
 	tab_route.append(left_menu.current_tab)
 	left_menu.current_tab = tabIdx
 	play_sound(button_sound)
-
 
 
 func _previous_tab():
@@ -101,7 +130,7 @@ func _on_Nickname_text_changed(new_text):
 	Global.server_name = server_name.text
 	Global.player_info.name = nickname.text
 	
-	if length_before != nickname.text.length():
+	if length_before > nickname.text.length():
 		play_sound(error_sound)
 	else:
 		play_sound(button_sound)
@@ -148,11 +177,9 @@ func _select_character(dir):
 	
 	Global.player_info.avatar = avatar
 	character_name.text = Global.avatars[avatar].name
-#	surface_set_material(surf_idx: int, material: Material)
 
 	player_preview.mesh.surface_set_material(0, load(Global.avatars[avatar].material))
 
-#	player_preview.mesh.material = load(Global.avatars[avatar].material)
 	
 	character_idx.text = "{0}/{1}".format([avatar+1,Global.avatars.size()])
 	play_sound(button_sound)
@@ -165,21 +192,22 @@ func play_sound(sound:AudioStream,bus="SFX"):
 	sounds_player.play()
 
 
+func set_menu_mode(new_mode):
+	var is_main_mode = new_mode == MenuMode.MAIN
+	
+	for element in main_mode_only_elements:
+		element.visible = is_main_mode
+	
+	mode = new_mode
+
+
 func update_audio_bus_vol_level(bus_name,new_level):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(bus_name), new_level)
 	AudioServer.set_bus_mute(AudioServer.get_bus_index(bus_name),new_level == -80)
 
 
 func _on_MasterSlider_drag_ended(_value_changed):
-	update_audio_bus_vol_level("Master", master_slider.value)
-	play_sound(button_sound,"Master")
-
-
-
-func _on_SfxSlider_drag_ended(_value_changed):
-	update_audio_bus_vol_level("SFX", sfx_slider.value)
 	play_sound(button_sound)
-
 
 
 func _on_Save_Settings_pressed():
@@ -197,3 +225,11 @@ func _on_Reset_Settings_pressed():
 
 func _on_MusicSlider_value_changed(value):
 	update_audio_bus_vol_level("Music", value)
+
+
+func _on_MasterSlider_value_changed(value):
+	update_audio_bus_vol_level("Master", value)
+
+
+func _on_SfxSlider_drag_ended(_value_changed):
+	play_sound(button_sound)

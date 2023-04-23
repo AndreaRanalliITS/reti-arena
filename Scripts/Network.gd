@@ -33,15 +33,23 @@ func _ready():
 func create_server():
 	print("Creating server")
 	server = NetworkedMultiplayerENet.new()
-	server.create_server(port,max_clients)
-	get_tree().set_network_peer(server)
+	var error = server.create_server(port,max_clients)
+	if error == OK:
+		get_tree().set_network_peer(server)
+		return true
+	print_debug(error)
+	return false
 
 
 func join_server():
 	print("Joining server")
 	client = NetworkedMultiplayerENet.new()
-	client.create_client(ip_address,port)
-	get_tree().set_network_peer(client)
+	var error = client.create_client(ip_address,port)
+	if error == OK:
+		get_tree().set_network_peer(client)
+		return true
+	print_debug(error)
+	return false
 
 
 func _connected_to_server():

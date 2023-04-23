@@ -509,6 +509,7 @@ script = ExtResource( 3 )
 max_nickname_length = 30
 button_sound = ExtResource( 20 )
 error_sound = ExtResource( 21 )
+main_mode_only_elements = [ NodePath("Left/Main/HBoxContainer/Nickname"), NodePath("Left/Main/HBoxContainer/CharCount"), NodePath("Left/Main/Host"), NodePath("Left/Main/Join"), NodePath("Right/Panel"), NodePath("Right/PlayerPreview") ]
 
 [node name="Backgrounbd" type="TextureRect" parent="UI/MainMenu"]
 self_modulate = Color( 0.870588, 0.870588, 0.870588, 1 )
@@ -648,7 +649,7 @@ margin_right = -4.0
 margin_bottom = -4.0
 
 [node name="Title" type="Label" parent="UI/MainMenu/Left/Settings"]
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
 text = "Settings"
@@ -658,13 +659,13 @@ clip_text = true
 
 [node name="Spacer" type="Control" parent="UI/MainMenu/Left/Settings"]
 margin_top = 18.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 133.0
 size_flags_vertical = 3
 
 [node name="MasterLabel" type="Label" parent="UI/MainMenu/Left/Settings"]
 margin_top = 137.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 151.0
 size_flags_horizontal = 3
 text = "Main"
@@ -672,14 +673,15 @@ clip_text = true
 
 [node name="MasterSlider" type="HSlider" parent="UI/MainMenu/Left/Settings"]
 margin_top = 155.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 171.0
 min_value = -80.0
 max_value = 6.0
+step = 0.01
 
 [node name="SfxLabel" type="Label" parent="UI/MainMenu/Left/Settings"]
 margin_top = 175.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 205.0
 rect_min_size = Vector2( 0, 30 )
 size_flags_horizontal = 3
@@ -689,14 +691,15 @@ clip_text = true
 
 [node name="SfxSlider" type="HSlider" parent="UI/MainMenu/Left/Settings"]
 margin_top = 209.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 225.0
 min_value = -80.0
 max_value = 6.0
+step = 0.01
 
 [node name="MusicLabel" type="Label" parent="UI/MainMenu/Left/Settings"]
 margin_top = 229.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 259.0
 rect_min_size = Vector2( 0, 30 )
 size_flags_horizontal = 3
@@ -706,28 +709,29 @@ clip_text = true
 
 [node name="MusicSlider" type="HSlider" parent="UI/MainMenu/Left/Settings"]
 margin_top = 263.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 279.0
 min_value = -80.0
 max_value = 6.0
+step = 0.01
 
 [node name="HSeparator" type="HSeparator" parent="UI/MainMenu/Left/Settings"]
 margin_top = 283.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 333.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 
 [node name="MouseSensitivityLabel" type="Label" parent="UI/MainMenu/Left/Settings"]
 margin_top = 337.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 351.0
 text = "Mouse sensitivity"
 clip_text = true
 
 [node name="MouseSensitivitySlider" type="HSlider" parent="UI/MainMenu/Left/Settings"]
 margin_top = 355.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 371.0
 max_value = 1.0
 step = 0.001
@@ -735,13 +739,13 @@ value = 0.08
 
 [node name="Control" type="Control" parent="UI/MainMenu/Left/Settings"]
 margin_top = 375.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 490.0
 size_flags_vertical = 3
 
 [node name="Save and back" type="Button" parent="UI/MainMenu/Left/Settings"]
 margin_top = 494.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 534.0
 rect_min_size = Vector2( 0, 40 )
 text = "SAVE AND BACK"
@@ -749,7 +753,7 @@ clip_text = true
 
 [node name="Reset" type="Button" parent="UI/MainMenu/Left/Settings"]
 margin_top = 538.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 578.0
 rect_min_size = Vector2( 0, 40 )
 text = "DEFAULT"
@@ -986,14 +990,14 @@ margin_right = 1014.0
 margin_bottom = 590.0
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="Panel" parent="UI/MainMenu/Right"]
+[node name="PlayerPreview" type="Panel" parent="UI/MainMenu/Right"]
 self_modulate = Color( 1, 1, 1, 0 )
 margin_right = 476.0
 margin_bottom = 536.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Shadow" type="TextureRect" parent="UI/MainMenu/Right/TextureRect"]
+[node name="Shadow" type="TextureRect" parent="UI/MainMenu/Right/PlayerPreview"]
 show_behind_parent = true
 anchor_top = 1.0
 anchor_right = 1.0
@@ -1004,7 +1008,7 @@ texture = ExtResource( 23 )
 expand = true
 flip_v = true
 
-[node name="SkinPreview" type="TextureRect" parent="UI/MainMenu/Right/TextureRect"]
+[node name="SkinPreview" type="TextureRect" parent="UI/MainMenu/Right/PlayerPreview"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -1536,6 +1540,7 @@ bus = "Music"
 [connection signal="pressed" from="UI/MainMenu/Left/Main/Settings" to="UI/MainMenu" method="_change_tab" binds= [ 1 ]]
 [connection signal="pressed" from="UI/MainMenu/Left/Main/Quit" to="UI/MainMenu" method="_on_Quit_pressed"]
 [connection signal="drag_ended" from="UI/MainMenu/Left/Settings/MasterSlider" to="UI/MainMenu" method="_on_MasterSlider_drag_ended"]
+[connection signal="value_changed" from="UI/MainMenu/Left/Settings/MasterSlider" to="UI/MainMenu" method="_on_MasterSlider_value_changed"]
 [connection signal="drag_ended" from="UI/MainMenu/Left/Settings/SfxSlider" to="UI/MainMenu" method="_on_SfxSlider_drag_ended"]
 [connection signal="value_changed" from="UI/MainMenu/Left/Settings/MusicSlider" to="UI/MainMenu" method="_on_MusicSlider_value_changed"]
 [connection signal="pressed" from="UI/MainMenu/Left/Settings/Save and back" to="UI/MainMenu" method="_on_Save_Settings_pressed"]

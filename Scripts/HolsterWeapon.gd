@@ -1,6 +1,6 @@
 extends Position3D
 
-
+var enabled = true setget set_enabled
 var equipped_weapon = 0
 var weapons
 onready var is_network_master = is_network_master()
@@ -15,7 +15,7 @@ func _ready():
 
 
 func _input(event):
-	#if not is_network_master(): return
+	if not enabled: return
 	
 	if event is InputEventKey:
 		equip_by_key([KEY_1,KEY_2,KEY_3,KEY_4].find(event.scancode))
@@ -82,3 +82,13 @@ func reset_state():
 	equipped_weapon = 0
 	if is_network_master:
 		rpc("equip",equipped_weapon)
+
+
+func set_enabled(val):
+	reset_state()
+	if val:
+		equipped_weapon = 1
+		equip(equipped_weapon)
+	
+	for w in weapons:
+		w.visible = val
