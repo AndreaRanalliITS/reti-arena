@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=2]
+[gd_scene load_steps=142 format=2]
 
 [ext_resource path="res://Scenes/UI/ServerCard.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Map.gd" type="Script" id=2]
@@ -25,6 +25,8 @@
 [ext_resource path="res://textures/shadow.png" type="Texture" id=23]
 [ext_resource path="res://Sounds/Music/menu_music.mp3" type="AudioStream" id=24]
 [ext_resource path="res://Sounds/Music/combat_music.ogg" type="AudioStream" id=25]
+[ext_resource path="res://Scenes/Breakables/vending_machine.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Scenes/Breakables/coffee_machine.tscn" type="PackedScene" id=27]
 
 [sub_resource type="ViewportTexture" id=4]
 viewport_path = NodePath("Viewport")
@@ -1417,6 +1419,12 @@ transform = Transform( -0.187013, 0, -1.4883, 0, 1.5, 0, 1.4883, 0, -0.187013, 2
 
 [node name="TreeRelax" parent="Breakables" instance=ExtResource( 18 )]
 transform = Transform( -1.2623, 0, 0.446427, 0, 1.144, 0, -0.535009, 0, -1.0533, 0, 1.541, -0.0997574 )
+
+[node name="vending_machine" parent="Breakables" instance=ExtResource( 26 )]
+transform = Transform( -0.734, 0, -1.10831e-07, 0, 0.734, 0, 1.10831e-07, 0, -0.734, 23.3067, 0.0438533, -15.2243 )
+
+[node name="coffee_machine" parent="Breakables" instance=ExtResource( 27 )]
+transform = Transform( -0.446, 0, -6.73441e-08, 0, 0.446, 0, 6.73441e-08, 0, -0.446, 23.3519, 0.0488629, -12.6171 )
 
 [node name="Arena" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 64, 0 )

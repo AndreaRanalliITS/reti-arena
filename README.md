@@ -55,6 +55,7 @@ Music by <a href="https://pixabay.com/users/grand_project-19033897/?utm_source=l
     - [x] sniper
     - [x] health pickup
     - [ ] map
+    - [x] props
 
 #
  - [ ] __SFXs__
