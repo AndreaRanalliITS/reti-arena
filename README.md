@@ -54,7 +54,8 @@ Music by <a href="https://pixabay.com/users/grand_project-19033897/?utm_source=l
     - [x] ak47
     - [x] sniper
     - [x] health pickup
-    - [ ] map
+    - [ ] arena map
+    - [x] lobby map
     - [x] props
 
 #
@@ -91,6 +92,7 @@ Music by <a href="https://pixabay.com/users/grand_project-19033897/?utm_source=l
     - [ ] ~~ak47 shot~~
     - [ ] ~~sniper shot~~
     - [x] pickup hovering
+    - [ ] generic reload
 
 # 
 - [ ] __GUI__
