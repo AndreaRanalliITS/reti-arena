@@ -27,7 +27,7 @@ var velocity = Vector3()
 var gravity_vec = Vector3()
 var pup_position = Vector3()
 var pup_velocity = Vector3()
-var pup_rotation = Vector2()
+var pup_rotation:float = 0.0
 
 
 
@@ -105,12 +105,21 @@ func _physics_process(delta):
 		global_transform.origin = pup_position
 		velocity.x = pup_velocity.x
 		velocity.z = pup_velocity.z
-		rotation.y = pup_rotation.y
-#		head.rotation.x = pup_rotation.x
+		rotation.y = pup_rotation
 	
 	if !movement_tween.is_active():
-		velocity = move_and_slide(velocity, Vector3.UP, true)
-
+		if not spec_mode:
+			velocity = move_and_slide(velocity, Vector3.UP, true)
+		else:
+			#TODO: fix spec mode camera movement
+			var input_dir = Vector3()
+			
+			if Input.is_action_pressed("forward"):
+				input_dir += -global_transform.basis.z
+			if Input.is_action_pressed("backward"):
+				input_dir += global_transform.basis.z
+			velocity.z = input_dir.z
+			move_and_slide(velocity, Vector3.UP, true)
 
 func _toggle_pause(toggle):
 	can_move = not toggle
@@ -148,6 +157,18 @@ master func receive_damage(dmg : int):
 
 remotesync func _update_deaths_count():
 	Global.players_info[get_tree().get_network_unique_id()].deaths += 1
+	
+	# if server and one player remaining, end match
+	if get_tree().get_network_unique_id() == 1:
+		var dead_players = 0
+		for key in Global.players_info:
+			if Global.players_info[key].deaths > 0:
+				dead_players += 1
+		
+		if (Global.players_info.size() - dead_players) <= 1:
+			pass
+#			Global.emit_signal("match_ended")
+
 
 func receive_health(heal:int)->bool:
 	if health <= 0: return false
@@ -167,17 +188,19 @@ func receive_pickup(pickup_type,amount)->bool:
 	else:
 		return hand.receive_ammo(pickup_type,amount)
 
-func reset_state():
+func reset_state(wpns_to_reset=[0],wpn_to_equip=0):
 	health = max_health
 	update_lifebar()
-	hand.reset_state()
-	#rpc("_toggle_spec_mode",false)
+	rpc("_toggle_spec_mode",false)
+	hand.reset_state(wpns_to_reset,wpn_to_equip)
+	
 
 puppetsync func _toggle_spec_mode(toggle):
-	collision_shape.disabled = toggle
-	model.visible = not toggle
+	input_ray_pickable = not toggle
+	model.visible = not toggle && not is_network_master()
 	hand.set_enabled(not toggle)
 	spec_mode = toggle
 
 func _on_NetworkTickRate_timeout():
-	rpc_unreliable("update_state",global_transform.origin,velocity, Vector2(head.rotation.x,rotation.y))
+	rpc_unreliable("update_state",global_transform.origin,velocity, rotation.y)
+

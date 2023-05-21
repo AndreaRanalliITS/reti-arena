@@ -18,14 +18,6 @@ func set_setting(section,key,value):
 	settings.set_value(section,key,value)
 	settings.save(settings_path)
 
-#func get_settings(path="res://settings.ini"):	
-#	var config = ConfigFile.new()
-#	# Load data from a file.
-#	var _err = config.load(path)
-#	return config
-
-#func save_settings(settings,path="res://settings.ini"):
-#	settings.save(path)
 
 func read_json(json_path)->Dictionary:
 	var file = File.new()
@@ -34,13 +26,6 @@ func read_json(json_path)->Dictionary:
 	content = JSON.parse(content).result
 	file.close()
 	return content
-#
-#func save_json(json_path,content):
-#	var file = File.new()
-#	file.open(json_path,File.WRITE)
-#	var json_string = JSON.print(content)
-#	file.store_string(json_string)
-#	file.close()
 
 
 

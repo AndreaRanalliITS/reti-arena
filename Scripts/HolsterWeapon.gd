@@ -51,10 +51,16 @@ func _player_connected(_id):
 	if is_network_master:
 		rpc("equip",equipped_weapon)
 
+
+# equip weapon in index, if invalid index is passed, 
+# all weapons are unequipped
 puppetsync func equip(index:int):
 	weapons[equipped_weapon].equipped = false
-	weapons[index].equipped = true
-	equipped_weapon = index
+	if index >= 0 and index < weapons.size():
+		weapons[index].equipped = true
+		equipped_weapon = index
+	else:
+		equipped_weapon = -1
 
 func receive_ammo(pickup_type,amount)->bool:
 	var weapon = null
@@ -73,22 +79,27 @@ func receive_ammo(pickup_type,amount)->bool:
 		return true
 	return false
 
-func reset_state():
+# resets player arsenal.
+# if wpns_to_reset (array of indexes of weapons) is passed,
+# specified weapons will be reset to original state with full ammo.
+# if wpn_to_equip is specified, weapon with that index will be equipped
+func reset_state(wpns_to_reset=[0],wpn_to_equip=0):
+	var child_index = 0
 	for w in weapons:
-		w.force_state(0,0)
-		w.equipped = false
+		if child_index in wpns_to_reset:
+			w.force_state(w.clip_size,w.pouch_size)
+		else:
+			w.force_state(0,0)
+		child_index += 1
 	
-	weapons[0].force_state(5,15)
-	equipped_weapon = 0
-	if is_network_master:
-		rpc("equip",equipped_weapon)
+	if is_network_master and wpn_to_equip != null:
+		rpc("equip",wpn_to_equip)
 
-
-func set_enabled(val):
-	reset_state()
+# toggle arsenal
+func set_enabled(val,equip_on_enable=0):
 	if val:
-		equipped_weapon = 1
-		equip(equipped_weapon)
+		equip(equip_on_enable)
+	else:
+		equip(-1)
 	
-	for w in weapons:
-		w.visible = val
+	enabled = val

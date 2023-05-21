@@ -60,17 +60,19 @@ func _process(_delta):
 	var has_to_fire = (Input.is_action_just_pressed("fire") and single_shot) or (Input.is_action_pressed("fire") and not single_shot)
 	if has_to_fire && !cooling_down && !reloading && clip_amount > 0:
 		cooling_down = true
-		shoot()
 		clip_amount -= 1
+		shoot()
 		cooldown_timer.start()
 		update_ammo_label()
 	elif Input.is_action_just_pressed("reload") && !reloading && clip_amount < clip_size:
-		reloading = true
-		cooldown_timer.stop()
-		cooling_down = false
-		reload_timer.start()
-		rpc("play_sound",reload_sound)
+		start_reloading()
 
+func start_reloading():
+	reloading = true
+	cooldown_timer.stop()
+	cooling_down = false
+	reload_timer.start()
+	rpc("play_sound",reload_sound)
 
 func shoot():
 	if Global.paused: return
@@ -97,6 +99,9 @@ func shoot():
 	rpc_unreliable("draw_bullet_trail",bullet_trail_origin.global_transform.origin,collision_points)
 	for key in hits.keys():
 		key.rpc("receive_damage",hits[key])
+	
+	if clip_amount == 0:
+		start_reloading()
 
 
 
@@ -146,7 +151,7 @@ func _on_ReloadTimer_timeout():
 	reloading = false
 
 func can_be_equipped():
-	return pouch_amount > 0 and clip_amount > 0
+	return pouch_amount > 0 or clip_amount > 0
 
 func set_equipped(value : bool):
 	if is_network_master:
@@ -165,7 +170,8 @@ func add_ammo(amount):
 	pouch_amount += amount
 	if pouch_amount > pouch_size:
 		pouch_amount = pouch_size
-	update_ammo_label()
+	if equipped:
+		update_ammo_label()
 
 
 func force_state(clip,pouch):

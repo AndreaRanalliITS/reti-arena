@@ -16,7 +16,7 @@ var server_name = ""
 var avatars = null
 var lobby_spawn_indexes = null
 var game_spawn_indexes = null
-var match_started = false
+var match_on = false
 var can_pause = false
 var paused = false
 
@@ -44,7 +44,15 @@ func _ready():
 	lobby_spawn_indexes.shuffle()
 	game_spawn_indexes = range(Network.max_clients)
 	game_spawn_indexes.shuffle()
+	var error = connect("match_started",self,"toggle_match_on",[true])
+	if error != OK:
+		printerr(error)
+	error = connect("match_ended",self,"toggle_match_on",[false])
+	if error != OK:
+		printerr(error)
 
+func toggle_match_on(toggle):
+	match_on = toggle
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel") and can_pause:

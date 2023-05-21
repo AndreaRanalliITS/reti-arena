@@ -41,9 +41,9 @@ Music by <a href="https://pixabay.com/users/grand_project-19033897/?utm_source=l
     - [x] sync system
 
 #
-- [ ] __MATCH MANAGEMENT__
+- [x] __MATCH MANAGEMENT__
     - [x] player ready system
-    - [ ] match finished system
+    - [x] match finished system
     - [x] lobby system
 
 #
@@ -54,7 +54,7 @@ Music by <a href="https://pixabay.com/users/grand_project-19033897/?utm_source=l
     - [x] ak47
     - [x] sniper
     - [x] health pickup
-    - [ ] arena map
+    - [x] arena map
     - [x] lobby map
     - [x] props
 
@@ -95,10 +95,10 @@ Music by <a href="https://pixabay.com/users/grand_project-19033897/?utm_source=l
     - [ ] generic reload
 
 # 
-- [ ] __GUI__
+- [x] __GUI__
     - [x] main menu
     - [x] ingame menu
-    - [ ] crosshair
+    - [x] crosshair
     - [x] lifebar
     - [x] ammo counter
 
