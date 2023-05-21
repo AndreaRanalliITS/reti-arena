@@ -1,6 +1,6 @@
 # Reti arena project
 
-This project aims to create a simple but functional arena fps game for my final thesis @ Reti S.p.A. , only using opensource programs such as Godot for the game engine, Trenchbroom / Blender for 3D models.
+This project aims to create a simple but functional arena fps game for my final thesis @ Reti S.p.A. , only using opensource programs such as Godot 3.5.2 for the game engine, Trenchbroom for the game map and Blender for 3D models.
 
 
 ### Credits
