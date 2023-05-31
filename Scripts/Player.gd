@@ -60,11 +60,12 @@ func _ready():
 func get_input() -> Vector3:
 	var input_dir = Vector3()
 	
+	var subject = head if spec_mode else self
 	
 	if Input.is_action_pressed("forward"):
-		input_dir += -global_transform.basis.z
+		input_dir += -subject.global_transform.basis.z
 	if Input.is_action_pressed("backward"):
-		input_dir += global_transform.basis.z
+		input_dir += subject.global_transform.basis.z
 	if Input.is_action_pressed("left"):
 		input_dir += -global_transform.basis.x
 	if Input.is_action_pressed("right"):
@@ -92,6 +93,8 @@ func _physics_process(delta):
 			var desired_velocity = get_input() * speed
 			velocity.x = desired_velocity.x
 			velocity.z = desired_velocity.z
+			if spec_mode:
+				velocity.y = desired_velocity.y
 		
 		if is_on_floor():
 			velocity.y=0
@@ -108,18 +111,7 @@ func _physics_process(delta):
 		rotation.y = pup_rotation
 	
 	if !movement_tween.is_active():
-		if not spec_mode:
-			velocity = move_and_slide(velocity, Vector3.UP, true)
-		else:
-			#TODO: fix spec mode camera movement
-			var input_dir = Vector3()
-			
-			if Input.is_action_pressed("forward"):
-				input_dir += -global_transform.basis.z
-			if Input.is_action_pressed("backward"):
-				input_dir += global_transform.basis.z
-			velocity.z = input_dir.z
-			move_and_slide(velocity, Vector3.UP, true)
+		velocity = move_and_slide(velocity, Vector3.UP, true)
 
 func _toggle_pause(toggle):
 	can_move = not toggle
