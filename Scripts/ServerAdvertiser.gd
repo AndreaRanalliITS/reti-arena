@@ -34,6 +34,11 @@ func _start_advertising():
 		socket_udp.set_broadcast_enabled(true)
 		socket_udp.set_dest_address("255.255.255.255",broadcast_port)
 
+func _stop_advertising():
+	broadcast_timer.stop()
+	if socket_udp != null:
+		socket_udp.close()
+	
 
 func _on_BroadcastTimer_timeout():
 	server_info.player_count = Global.players_info.size()

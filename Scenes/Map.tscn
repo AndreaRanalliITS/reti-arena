@@ -2213,5 +2213,6 @@ transform = Transform( 0.599517, 0, 0.0240686, 0, 0.6, 0, -0.0240686, 0, 0.59951
 [connection signal="text_changed" from="UI/MainMenu/Left/HostSetup/ServerName" to="UI/MainMenu" method="_on_ServerName_text_changed"]
 [connection signal="pressed" from="UI/MainMenu/Left/HostSetup/Host" to="UI/MainMenu" method="_on_Host_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Left/HostSetup/Back" to="UI/MainMenu" method="_previous_tab"]
+[connection signal="pressed" from="UI/MainMenu/Left/HostSetup/Back" to="UI/MainMenu/Left/HostSetup" method="_stop_advertising"]
 [connection signal="pressed" from="UI/MainMenu/Right/Panel/HBoxContainer/MeshSelectorLeft" to="UI/MainMenu" method="_select_character" binds= [ -1 ]]
 [connection signal="pressed" from="UI/MainMenu/Right/Panel/HBoxContainer/MeshSelectorRight" to="UI/MainMenu" method="_select_character" binds= [ 1 ]]
