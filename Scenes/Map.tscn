@@ -1488,6 +1488,7 @@ tree_attach_batch_size = 16
 set_owner_batch_size = 16
 
 [node name="entity_0_worldspawn" type="StaticBody" parent="Lobby"]
+collision_mask = 524289
 
 [node name="entity_0_mesh_instance" type="MeshInstance" parent="Lobby/entity_0_worldspawn"]
 use_in_baked_light = true
@@ -1741,6 +1742,7 @@ tree_attach_batch_size = 16
 set_owner_batch_size = 16
 
 [node name="entity_0_worldspawn" type="StaticBody" parent="Arena"]
+collision_mask = 524289
 
 [node name="entity_0_mesh_instance" type="MeshInstance" parent="Arena/entity_0_worldspawn"]
 use_in_baked_light = true

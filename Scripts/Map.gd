@@ -112,6 +112,7 @@ remote func _instance_player(id):
 	if player_inst.is_network_master():
 		player_inst.add_to_group("Players")
 		can_change_ready_status = true
+#		player_inst._toggle_spec_mode(true)
 
 	if !player_inst.is_network_master():
 		player_inst.update_mesh_material(Global.players_info[id].avatar)

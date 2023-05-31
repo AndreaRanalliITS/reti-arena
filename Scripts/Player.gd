@@ -98,7 +98,7 @@ func _physics_process(delta):
 		
 		if is_on_floor():
 			velocity.y=0
-			if Input.is_action_just_pressed("jump") && can_move:
+			if Input.is_action_just_pressed("jump") && can_move && not spec_mode:
 				velocity.y += jump_speed
 		
 		if not spec_mode:
@@ -175,6 +175,9 @@ func receive_health(heal:int)->bool:
 
 
 func receive_pickup(pickup_type,amount)->bool:
+	if spec_mode: 
+		return false
+	
 	if pickup_type == Global.PickupType.HEALTH_PACK:
 		return receive_health(amount)
 	else:
@@ -191,6 +194,9 @@ puppetsync func _toggle_spec_mode(toggle):
 	input_ray_pickable = not toggle
 	model.visible = not toggle && not is_network_master()
 	hand.set_enabled(not toggle)
+	set_collision_layer_bit(0, not toggle)
+	set_collision_layer_bit(19, toggle)
+	set_collision_mask_bit(0,not toggle)
 	spec_mode = toggle
 
 func _on_NetworkTickRate_timeout():
