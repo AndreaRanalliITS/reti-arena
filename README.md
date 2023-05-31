@@ -21,7 +21,7 @@ Music by <a href="https://pixabay.com/users/grand_project-19033897/?utm_source=l
 #
 - [x] __SERVER SETUP__
     - [x] server name
-    - [ ] server visibility
+    - [ ] server visibility (server card)
 
 #
 - [x] __SERVER CONNECTION__
@@ -47,7 +47,7 @@ Music by <a href="https://pixabay.com/users/grand_project-19033897/?utm_source=l
     - [x] lobby system
 
 #
-- [ ] __MODELS__
+- [x] __MODELS__
     - [x] player
     - [x] gun
     - [x] barrel gun

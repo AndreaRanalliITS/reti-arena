@@ -168,7 +168,7 @@ remotesync func start_match():
 	Global.emit_signal("match_started")
 
 
-remotesync func _end_match():
+func _end_match():
 	get_tree().refuse_new_network_connections = false
 	
 	#reset counters
@@ -177,15 +177,17 @@ remotesync func _end_match():
 		Global.players_info[key].kills = 0
 		Global.players_info[key].ready = false
 	
+	update_ready_label()
 	music_player.stop()
 	
 	var player = get_node(str(get_tree().get_network_unique_id()))
 	
-	#move everyone to their match start positions
+	#move everyone to their lobby start positions
 	var spawn_point = lobby_spawn_points[Global.player_info.lobby_spawn_point]
 	player.global_transform.origin = spawn_point.transform.origin
 	player.global_rotation = spawn_point.global_rotation
 	player.reset_state(range(player.hand.weapons.size()))
+	player._toggle_spec_mode(false)
 	player.invincible = true
 
 func log_info(message:String):

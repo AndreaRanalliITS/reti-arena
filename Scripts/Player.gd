@@ -158,9 +158,11 @@ remotesync func _update_deaths_count():
 				dead_players += 1
 		
 		if (Global.players_info.size() - dead_players) <= 1:
-			pass
-#			Global.emit_signal("match_ended")
+			rpc("_end_match")
 
+
+remotesync func _end_match():
+	Global.emit_signal("match_ended")
 
 func receive_health(heal:int)->bool:
 	if health <= 0: return false
