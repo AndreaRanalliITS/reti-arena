@@ -8,10 +8,11 @@ func _init():
 	settings = ConfigFile.new()
 	var _err = settings.load(settings_path)
 
-func get_setting(section,key,default):
+func get_setting(section,key,default=null):
 	var value = settings.get_value(section,key,default)
-	settings.set_value(section,key,value)
-	settings.save(settings_path)
+	if default != null:
+		settings.set_value(section,key,value)
+		settings.save(settings_path)
 	return value
 	
 func set_setting(section,key,value):

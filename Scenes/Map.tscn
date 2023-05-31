@@ -1,4 +1,4 @@
-[gd_scene load_steps=239 format=2]
+[gd_scene load_steps=240 format=2]
 
 [ext_resource path="res://Scenes/UI/ServerCard.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Map.gd" type="Script" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://textures/plaster_white/1K-plaster_14-ao.jpg" type="Texture" id=32]
 [ext_resource path="res://textures/wood_floor/laminate_floor_02_arm_1k.jpg" type="Texture" id=33]
 [ext_resource path="res://textures/metal_frame/1K-metal_frame_4_roughness.png" type="Texture" id=34]
+[ext_resource path="res://Scripts/ServerAdvertiser.gd" type="Script" id=35]
 
 [sub_resource type="ViewportTexture" id=4]
 viewport_path = NodePath("Viewport")
@@ -1087,13 +1088,13 @@ margin_right = -4.0
 margin_bottom = -4.0
 script = ExtResource( 5 )
 cleanup_timer = NodePath("CleanupTimer")
-server_card_list = NodePath("ScrollContainer/VBoxContainer")
+server_card_list = NodePath("ScrollContainer/CardList")
 
 [node name="CleanupTimer" type="Timer" parent="UI/MainMenu/Left/ServerList"]
 wait_time = 3.0
 
 [node name="Label" type="Label" parent="UI/MainMenu/Left/ServerList"]
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 0, 30 )
 text = "Available servers"
@@ -1102,24 +1103,24 @@ valign = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="UI/MainMenu/Left/ServerList"]
 margin_top = 34.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 490.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MainMenu/Left/ServerList/ScrollContainer"]
-margin_right = 470.0
+[node name="CardList" type="VBoxContainer" parent="UI/MainMenu/Left/ServerList/ScrollContainer"]
+margin_right = 468.0
 margin_bottom = 456.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ServerCard" parent="UI/MainMenu/Left/ServerList/ScrollContainer/VBoxContainer" instance=ExtResource( 1 )]
-margin_right = 470.0
+[node name="ServerCard" parent="UI/MainMenu/Left/ServerList/ScrollContainer/CardList" instance=ExtResource( 1 )]
+margin_right = 468.0
 
 [node name="ManualSetup" type="Button" parent="UI/MainMenu/Left/ServerList"]
 margin_top = 494.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 534.0
 rect_min_size = Vector2( 0, 40 )
 size_flags_horizontal = 3
@@ -1127,7 +1128,7 @@ text = "Manual setup"
 
 [node name="Back" type="Button" parent="UI/MainMenu/Left/ServerList"]
 margin_top = 538.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 578.0
 rect_min_size = Vector2( 0, 40 )
 size_flags_horizontal = 3
@@ -1143,7 +1144,7 @@ margin_right = -4.0
 margin_bottom = -4.0
 
 [node name="Title" type="Label" parent="UI/MainMenu/Left/ManualSetup"]
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 14.0
 text = "Manual setup"
 align = 1
@@ -1151,20 +1152,20 @@ valign = 1
 
 [node name="Control" type="Control" parent="UI/MainMenu/Left/ManualSetup"]
 margin_top = 18.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 214.0
 size_flags_vertical = 3
 
 [node name="ErrorMessage" type="Label" parent="UI/MainMenu/Left/ManualSetup"]
 self_modulate = Color( 1, 0, 0, 1 )
 margin_top = 218.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 232.0
 valign = 1
 
 [node name="LineEdit" type="LineEdit" parent="UI/MainMenu/Left/ManualSetup"]
 margin_top = 236.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 276.0
 rect_min_size = Vector2( 0, 40 )
 size_flags_horizontal = 3
@@ -1174,14 +1175,14 @@ placeholder_text = "IP address"
 
 [node name="HSeparator" type="HSeparator" parent="UI/MainMenu/Left/ManualSetup"]
 margin_top = 280.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 290.0
 rect_min_size = Vector2( 0, 10 )
 size_flags_horizontal = 3
 
 [node name="ManualJoin" type="Button" parent="UI/MainMenu/Left/ManualSetup"]
 margin_top = 294.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 334.0
 rect_min_size = Vector2( 0, 40 )
 size_flags_horizontal = 3
@@ -1189,7 +1190,7 @@ text = "Join"
 
 [node name="Back" type="Button" parent="UI/MainMenu/Left/ManualSetup"]
 margin_top = 338.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 378.0
 rect_min_size = Vector2( 0, 40 )
 size_flags_horizontal = 3
@@ -1197,7 +1198,7 @@ text = "Back"
 
 [node name="Control2" type="Control" parent="UI/MainMenu/Left/ManualSetup"]
 margin_top = 382.0
-margin_right = 470.0
+margin_right = 468.0
 margin_bottom = 578.0
 size_flags_vertical = 3
 
@@ -1211,9 +1212,12 @@ margin_right = -4.0
 margin_bottom = -4.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource( 35 )
+
+[node name="BroadcastTimer" type="Timer" parent="UI/MainMenu/Left/HostSetup"]
 
 [node name="Title" type="Label" parent="UI/MainMenu/Left/HostSetup"]
-margin_right = 472.0
+margin_right = 468.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 0, 30 )
 size_flags_horizontal = 3
@@ -1224,12 +1228,12 @@ clip_text = true
 
 [node name="ErrorMessage" type="Label" parent="UI/MainMenu/Left/HostSetup"]
 margin_top = 34.0
-margin_right = 472.0
+margin_right = 468.0
 margin_bottom = 48.0
 
 [node name="ServerName" type="LineEdit" parent="UI/MainMenu/Left/HostSetup"]
 margin_top = 52.0
-margin_right = 472.0
+margin_right = 468.0
 margin_bottom = 92.0
 rect_min_size = Vector2( 0, 40 )
 size_flags_horizontal = 3
@@ -1239,7 +1243,7 @@ caret_blink = true
 
 [node name="Host" type="Button" parent="UI/MainMenu/Left/HostSetup"]
 margin_top = 96.0
-margin_right = 472.0
+margin_right = 468.0
 margin_bottom = 136.0
 rect_min_size = Vector2( 0, 40 )
 size_flags_horizontal = 3
@@ -1247,7 +1251,7 @@ text = "Host"
 
 [node name="Back" type="Button" parent="UI/MainMenu/Left/HostSetup"]
 margin_top = 140.0
-margin_right = 472.0
+margin_right = 468.0
 margin_bottom = 180.0
 rect_min_size = Vector2( 0, 40 )
 size_flags_horizontal = 3
@@ -2204,6 +2208,8 @@ transform = Transform( 0.599517, 0, 0.0240686, 0, 0.6, 0, -0.0240686, 0, 0.59951
 [connection signal="text_changed" from="UI/MainMenu/Left/ManualSetup/LineEdit" to="UI/MainMenu" method="_on_IpAddress_text_changed"]
 [connection signal="pressed" from="UI/MainMenu/Left/ManualSetup/ManualJoin" to="UI/MainMenu" method="_on_ManualJoin_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Left/ManualSetup/Back" to="UI/MainMenu" method="_previous_tab"]
+[connection signal="timeout" from="UI/MainMenu/Left/HostSetup/BroadcastTimer" to="UI/MainMenu/Left/HostSetup" method="_on_BroadcastTimer_timeout"]
+[connection signal="text_changed" from="UI/MainMenu/Left/HostSetup/ServerName" to="UI/MainMenu" method="_on_ServerName_text_changed"]
 [connection signal="pressed" from="UI/MainMenu/Left/HostSetup/Host" to="UI/MainMenu" method="_on_Host_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Left/HostSetup/Back" to="UI/MainMenu" method="_previous_tab"]
 [connection signal="pressed" from="UI/MainMenu/Right/Panel/HBoxContainer/MeshSelectorLeft" to="UI/MainMenu" method="_select_character" binds= [ -1 ]]

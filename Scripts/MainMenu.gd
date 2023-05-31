@@ -77,7 +77,7 @@ func _on_Host_pressed():
 		Global.players_info[get_tree().get_network_unique_id()] = Global.player_info
 		hide()
 		Global.emit_signal("instance_player",get_tree().get_network_unique_id())
-		
+		Global.emit_signal("hosting_started")
 		set_menu_mode(MenuMode.IN_GAME)
 		Global.can_pause = true
 
@@ -233,3 +233,7 @@ func _on_MasterSlider_value_changed(value):
 
 func _on_SfxSlider_drag_ended(_value_changed):
 	play_sound(button_sound)
+
+
+func _on_ServerName_text_changed(new_text):
+	Global.server_name = new_text

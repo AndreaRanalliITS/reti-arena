@@ -11,6 +11,8 @@ signal match_started()
 # warning-ignore:unused_signal
 signal match_ended()
 signal toggle_pause(toggle)
+# warning-ignore:unused_signal
+signal hosting_started()
 
 var server_name = ""
 var avatars = null
