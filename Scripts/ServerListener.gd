@@ -1,10 +1,6 @@
 extends VBoxContainer
 
 
-signal new_server
-signal remove_server
-
-
 var socket_udp = PacketPeerUDP.new()
 var listen_port = Network.DEFAULT_PORT
 var known_servers = {}
@@ -12,7 +8,7 @@ var known_servers = {}
 export(int) var server_cleanup_threshold = 3
 export(NodePath) onready var cleanup_timer = get_node(cleanup_timer) as Timer
 export(NodePath) onready var server_card_list = get_node(server_card_list) as VBoxContainer
-export(Resource) onready var card_template = load(card_template)
+export(Resource) var card_template
 
 
 func _ready():
