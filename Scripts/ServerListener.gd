@@ -52,10 +52,6 @@ func remove_card(info):
 	card_to_remove.queue_free()
 
 
-func _exit_tree():
-	socket_udp.close()
-
-
 
 func _on_CleanupTimer_timeout():
 	var now = OS.get_unix_time()
@@ -65,7 +61,6 @@ func _on_CleanupTimer_timeout():
 			known_servers.erase(server_ip)
 			print_debug("Removing server from list: " + server_ip)
 			remove_card(server_info)
-#			emit_signal("remove_server",server_ip)
 
 
 func _on_ServerList_visibility_changed():

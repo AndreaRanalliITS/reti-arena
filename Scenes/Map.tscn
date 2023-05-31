@@ -1089,6 +1089,7 @@ margin_bottom = -4.0
 script = ExtResource( 5 )
 cleanup_timer = NodePath("CleanupTimer")
 server_card_list = NodePath("ScrollContainer/CardList")
+card_template = ExtResource( 1 )
 
 [node name="CleanupTimer" type="Timer" parent="UI/MainMenu/Left/ServerList"]
 wait_time = 3.0
