@@ -1,4 +1,4 @@
-extends Node
+extends VBoxContainer
 
 export(NodePath) onready var broadcast_timer = get_node(broadcast_timer) as Timer
 export(float) var broadcast_interval = 1.0
@@ -28,17 +28,19 @@ func _exit_tree():
 
 func _start_advertising():
 	if get_tree().is_network_server():
-		broadcast_timer.start()
+		print_debug("start advertising")
 		server_info.name = Global.server_name
 		socket_udp = PacketPeerUDP.new()
 		socket_udp.set_broadcast_enabled(true)
-		socket_udp.set_dest_address("255.255.255.255",broadcast_port)
+		socket_udp.set_dest_address("255.255.255.255",12345)
+		broadcast_timer.start()
 
 func _stop_advertising():
+	print_debug("stop advertising")
 	broadcast_timer.stop()
 	if socket_udp != null:
 		socket_udp.close()
-	
+
 
 func _on_BroadcastTimer_timeout():
 	server_info.player_count = Global.players_info.size()
@@ -47,3 +49,4 @@ func _on_BroadcastTimer_timeout():
 	var packet_message = to_json(server_info)
 	var packet = packet_message.to_ascii()
 	socket_udp.put_packet(packet)
+	print_debug("packet sent")

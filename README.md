@@ -21,7 +21,7 @@ Music by <a href="https://pixabay.com/users/grand_project-19033897/?utm_source=l
 #
 - [x] __SERVER SETUP__
     - [x] server name
-    - [ ] server visibility (server card)
+    - [ ] ~~server visibility (server card)~~
 
 #
 - [x] __SERVER CONNECTION__

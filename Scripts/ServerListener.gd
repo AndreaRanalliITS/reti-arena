@@ -1,7 +1,7 @@
 extends VBoxContainer
 
 
-var socket_udp = PacketPeerUDP.new()
+var socket_udp
 var listen_port = Network.DEFAULT_PORT
 var known_servers = {}
 
@@ -12,19 +12,23 @@ export(Resource) var card_template
 
 
 func _ready():
+	set_process(false)
+	cleanup_timer.wait_time = server_cleanup_threshold
 	known_servers.clear()
 
 
 func _process(_delta):
-	if socket_udp.get_available_packet_count() > 0:
+	while(socket_udp.get_available_packet_count() > 0):
 		var server_ip = socket_udp.get_packet_ip()
 		var server_port = socket_udp.get_packet_port()
 		var array_bytes = socket_udp.get_packet()
-		
+
+		print_debug("packet detected from ",server_ip)
+
 		if server_ip.empty() or server_port <= 0:
-			printerr("invalid ip or port: " + str(server_ip) + ":" + str(server_port))
+			printerr("invalid ip or port: {0}:{1}".format([server_ip,server_port]))
 			return
-		
+
 		var server_message = array_bytes.get_string_from_ascii()
 		var game_info = parse_json(server_message)
 		game_info.ip_address = server_ip
@@ -32,7 +36,6 @@ func _process(_delta):
 		known_servers[server_ip] = game_info
 		if not known_servers.has(server_ip):
 			create_card(game_info)
-			print_debug(socket_udp.get_packet_ip())
 		else:
 			update_card(game_info)
 
@@ -65,11 +68,15 @@ func _on_CleanupTimer_timeout():
 
 func _on_ServerList_visibility_changed():
 	if is_visible_in_tree():
+		socket_udp = PacketPeerUDP.new()
 		cleanup_timer.start()
 		if socket_udp.listen(listen_port) != OK:
-			printerr("GameServer LAN service: Error listening on port " + str(listen_port))
+			printerr("GameServer LAN service: Error listening on port ",listen_port)
 		else:
-			print_debug("GameServer LAN service: listening on port " + str(listen_port))
+			print_debug("GameServer LAN service: listening on port ",listen_port)
+			set_process(true)
 	else:
+		set_process(false)
+		print_debug("not listening anymore")
 		cleanup_timer.stop()
 		socket_udp.close()
