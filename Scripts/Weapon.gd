@@ -27,6 +27,9 @@ export(NodePath) onready var ammo_label = get_node(ammo_label) as Label
 export(NodePath) onready var raycast = get_node(raycast) as RayCast
 export(NodePath) onready var sound_player = get_node(sound_player) as AudioStreamPlayer3D
 
+export(NodePath) onready var crosshair_collection = get_node(crosshair_collection) as TextureRect
+export(NodePath) onready var crosshair = get_node(crosshair) as TextureRect
+
 var equipped = false setget set_equipped
 var equippable : bool setget ,can_be_equipped
 var cooling_down = false
@@ -163,6 +166,12 @@ func set_equipped(value : bool):
 			reloading = false
 			reload_timer.stop()
 		equipped = value
+		if equipped:
+			for child in crosshair.get_parent().get_children():
+				child.visible = false
+			if crosshair:
+				crosshair.visible = true
+		
 	visible = value
 
 
@@ -172,6 +181,8 @@ func add_ammo(amount):
 		pouch_amount = pouch_size
 	if equipped:
 		update_ammo_label()
+	elif(clip_amount == 0):
+		reload()
 
 
 func force_state(clip,pouch):

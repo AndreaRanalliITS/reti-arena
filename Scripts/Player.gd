@@ -15,6 +15,7 @@ export(NodePath) onready var head = get_node(head) as Spatial
 export(NodePath) onready var model = get_node(model) as Spatial
 export(NodePath) onready var camera = get_node(camera) as Camera
 export(NodePath) onready var hand = get_node(hand) as Position3D
+export(NodePath) onready var player_name_label = get_node(player_name_label) as Label3D
 export(NodePath) onready var network_tick_rate = get_node(network_tick_rate) as Timer
 export(NodePath) onready var movement_tween = get_node(movement_tween) as Tween
 
@@ -46,14 +47,14 @@ func _ready():
 		var error = Global.connect("toggle_pause",self,"_toggle_pause")
 		if error != OK:
 			printerr(error)
+		rpc("_update_mesh_material",Global.players_info[get_tree().get_network_unique_id()].avatar)
 	else:
 		camera.queue_free()
 		get_node("UI").queue_free()
 		network_tick_rate.queue_free()
 	
-#	camera.current = is_network_master
-	model.visible = !is_network_master
-#	get_node("UI").visible = is_network_master
+	model.visible = not is_network_master
+	player_name_label.visible = not is_network_master
 
 
 
@@ -131,19 +132,18 @@ puppet func update_state(p_position, p_velocity, p_rotation):
 	movement_tween.start()
 
 
-func update_mesh_material(avatar_idx):
-	print("[{0}] [{1}] {2}".format([get_tree().get_network_unique_id(),name,"Changing avatar to "+str(avatar_idx)]))
+puppet func _update_mesh_material(avatar_idx):
+	print("[{0}] [{1}] Changing avatar to {2}\n".format([get_tree().get_network_unique_id(),name,avatar_idx]))
 	model.mesh.surface_set_material(0, load(Global.avatars[avatar_idx].material))
 
 
 master func receive_damage(dmg : int):
 	if invincible: return
-#	print(name + " received " + str(dmg) + " damage")
 	health -= dmg
 	if health <= 0:
-#		health = max_health
 		rpc("_update_deaths_count")
 		rpc("_toggle_spec_mode",true)
+		rpc("_toggle_label",false)
 	update_lifebar()
 
 
@@ -185,12 +185,22 @@ func receive_pickup(pickup_type,amount)->bool:
 	else:
 		return hand.receive_ammo(pickup_type,amount)
 
+
+
 func reset_state(wpns_to_reset=[0],wpn_to_equip=0):
 	health = max_health
 	update_lifebar()
 	rpc("_toggle_spec_mode",false)
+	rpc("_toggle_label",true)
 	hand.reset_state(wpns_to_reset,wpn_to_equip)
-	
+
+
+func _set_label_text(text):
+	player_name_label.text = text
+
+puppet func _toggle_label(toggle):
+	player_name_label.visible = toggle
+
 
 puppetsync func _toggle_spec_mode(toggle):
 	input_ray_pickable = not toggle
@@ -200,6 +210,8 @@ puppetsync func _toggle_spec_mode(toggle):
 	set_collision_layer_bit(19, toggle)
 	set_collision_mask_bit(0,not toggle)
 	spec_mode = toggle
+
+
 
 func _on_NetworkTickRate_timeout():
 	rpc_unreliable("update_state",global_transform.origin,velocity, rotation.y)

@@ -100,6 +100,7 @@ remotesync func _update_player_ready_state(player_id):
 
 
 remote func _instance_player(id):
+#	print("INFOs:\n{0}".format([var2str(Global.players_info)]))
 	music_player.stop()
 #	log_info("instancing player_scene "+str(id)+"\n"+str(Global.players_info[id]))
 	var player_inst = player_scene.instance()
@@ -114,8 +115,9 @@ remote func _instance_player(id):
 		can_change_ready_status = true
 #		player_inst._toggle_spec_mode(true)
 
-	if !player_inst.is_network_master():
-		player_inst.update_mesh_material(Global.players_info[id].avatar)
+	if not player_inst.is_network_master():
+#		player_inst._update_mesh_material(Global.players_info[id].avatar)
+		player_inst._set_label_text(Global.players_info[id].name)
 	
 	var spawn_point = lobby_spawn_points[Global.players_info[id].lobby_spawn_point]
 	player_inst.global_transform.origin = spawn_point.transform.origin
@@ -164,6 +166,7 @@ remotesync func start_match():
 	player.global_rotation = spawn_point.global_rotation
 	player.reset_state()
 	player.invincible = false
+	player.rpc("_toggle_label",false)
 	
 	Global.emit_signal("match_started")
 
@@ -191,4 +194,4 @@ func _end_match():
 	player.invincible = true
 
 func log_info(message:String):
-	print("[{0}] {1}".format([get_tree().get_network_unique_id(),message]))
+	print("[{0}] {1}" % [get_tree().get_network_unique_id(),message])

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Weapons/Gun.tscn" type="PackedScene" id=2]
@@ -8,7 +8,9 @@
 [ext_resource path="res://Scenes/Weapons/AK47.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Weapons/Sniper.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Statics/robot.tscn" type="PackedScene" id=8]
-[ext_resource path="res://crosshair_red_cross.png" type="Texture" id=9]
+[ext_resource path="res://textures/crosshair_red_cross.png" type="Texture" id=9]
+[ext_resource path="res://textures/dot_crosshair.png" type="Texture" id=10]
+[ext_resource path="res://Fonts/Code.ttf" type="DynamicFontData" id=11]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.4
@@ -22,6 +24,12 @@ colors = PoolColorArray( 1, 0.301961, 0.301961, 1 )
 [sub_resource type="GradientTexture" id=5]
 gradient = SubResource( 4 )
 
+[sub_resource type="DynamicFont" id=6]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = -3
+font_data = ExtResource( 11 )
+
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
 max_health = 10
@@ -31,6 +39,7 @@ head = NodePath("Head")
 model = NodePath("RobotMesh")
 camera = NodePath("Head/Camera")
 hand = NodePath("Head/Hand")
+player_name_label = NodePath("PlayerName")
 network_tick_rate = NodePath("NetworkTickRate")
 movement_tween = NodePath("MovementTween")
 life_bar = NodePath("UI/LifePanel/LifeBar")
@@ -63,12 +72,31 @@ script = ExtResource( 3 )
 script = ExtResource( 4 )
 
 [node name="Gun" parent="Head/Hand" instance=ExtResource( 2 )]
+max_damage = 5
+damage_range = 50.0
+crosshair_collection = NodePath("../../../UI/Crosshairs")
+crosshair = NodePath("../../../UI/Crosshairs/Dot")
 
 [node name="BarrelGun" parent="Head/Hand" instance=ExtResource( 5 )]
+dispersion = 0.02
+max_damage = 30
+damage_range = 50.0
+crosshair_collection = NodePath("../../../UI/Crosshairs")
+crosshair = NodePath("../../../UI/Crosshairs/Cross")
 
 [node name="AK47" parent="Head/Hand" instance=ExtResource( 6 )]
+max_damage = 5
+damage_range = 50.0
+crosshair_collection = NodePath("../../../UI/Crosshairs")
+crosshair = NodePath("../../../UI/Crosshairs/Dot")
 
 [node name="Sniper" parent="Head/Hand" instance=ExtResource( 7 )]
+clip_size = 1
+pouch_size = 7
+min_damage = 20
+max_damage = 50
+crosshair_collection = NodePath("../../../UI/Crosshairs")
+crosshair = NodePath("../../../UI/Crosshairs/Dot")
 
 [node name="NetworkTickRate" type="Timer" parent="."]
 wait_time = 0.05
@@ -118,12 +146,13 @@ text = "100"
 align = 1
 valign = 1
 
-[node name="Control" type="Control" parent="UI"]
+[node name="Crosshairs" type="Control" parent="UI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="UI/Control"]
+[node name="Cross" type="TextureRect" parent="UI/Crosshairs"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -136,5 +165,28 @@ rect_scale = Vector2( 0.1, 0.1 )
 rect_pivot_offset = Vector2( 512, 300 )
 texture = ExtResource( 9 )
 stretch_mode = 4
+
+[node name="Dot" type="TextureRect" parent="UI/Crosshairs"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 537.0
+margin_bottom = 309.0
+rect_scale = Vector2( 0.05, 0.05 )
+rect_pivot_offset = Vector2( 512, 300 )
+texture = ExtResource( 10 )
+stretch_mode = 4
+
+[node name="PlayerName" type="Label3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.13929, 0 )
+billboard = 1
+double_sided = false
+no_depth_test = true
+text = "player_name"
+font = SubResource( 6 )
 
 [editable path="RobotMesh"]

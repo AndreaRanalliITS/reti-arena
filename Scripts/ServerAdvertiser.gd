@@ -17,7 +17,7 @@ var broadcast_port = Network.DEFAULT_PORT
 
 func _ready():
 	broadcast_timer.wait_time = broadcast_interval
-	Global.connect("hosting_started",self,"_start_advertising")
+#	Global.connect("hosting_started",self,"_start_advertising")
 
 
 
