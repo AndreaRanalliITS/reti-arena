@@ -117,6 +117,7 @@ remote func _instance_player(id):
 
 	if not player_inst.is_network_master():
 #		player_inst._update_mesh_material(Global.players_info[id].avatar)
+		player_inst.update_mesh(Global.players_info[id].avatar)
 		player_inst._set_label_text(Global.players_info[id].name)
 	
 	var spawn_point = lobby_spawn_points[Global.players_info[id].lobby_spawn_point]

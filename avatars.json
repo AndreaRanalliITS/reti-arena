@@ -2,16 +2,16 @@
 	{
 		"name": "MK I",
 		"material": "res://Materials/Robot1.material",
-		"mesh": ""
+		"mesh": "res://Scenes/Statics/robot_red.mesh"
 	},
 	{
 		"name": "DeepBlue",
 		"material": "res://Materials/Robot2.material",
-		"mesh": ""
+		"mesh": "res://Scenes/Statics/robot_blue.mesh"
 	},
     {
 		"name": "V3C_IO",
 		"material": "res://Materials/Robot3.material",
-		"mesh": ""
+		"mesh": "res://Scenes/Statics/robot_green.mesh"
 	}
 ]

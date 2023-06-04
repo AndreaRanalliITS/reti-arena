@@ -12,7 +12,7 @@ export(bool) var invincible = false
 export(bool) var spec_mode = false
 export(NodePath) onready var collision_shape = get_node(collision_shape) as CollisionShape
 export(NodePath) onready var head = get_node(head) as Spatial
-export(NodePath) onready var model = get_node(model) as Spatial
+export(NodePath) onready var model = get_node(model) as MeshInstance
 export(NodePath) onready var camera = get_node(camera) as Camera
 export(NodePath) onready var hand = get_node(hand) as Position3D
 export(NodePath) onready var player_name_label = get_node(player_name_label) as Label3D
@@ -47,7 +47,7 @@ func _ready():
 		var error = Global.connect("toggle_pause",self,"_toggle_pause")
 		if error != OK:
 			printerr(error)
-		rpc("_update_mesh_material",Global.players_info[get_tree().get_network_unique_id()].avatar)
+#		rpc("_update_mesh_material",Global.players_info[get_tree().get_network_unique_id()].avatar)
 	else:
 		camera.queue_free()
 		get_node("UI").queue_free()
@@ -130,6 +130,10 @@ puppet func update_state(p_position, p_velocity, p_rotation):
 	
 	movement_tween.interpolate_property(self,"global_transform",global_transform,Transform(global_transform.basis,p_position),0.1)
 	movement_tween.start()
+
+
+func update_mesh(avatar_idx):
+	model.mesh = load(Global.avatars[avatar_idx].mesh)
 
 
 puppet func _update_mesh_material(avatar_idx):
