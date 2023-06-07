@@ -135,7 +135,9 @@ func update_ready_label():
 	ready_players_label.text = text
 
 	#if is server, check if all player_scene are ready
-	if get_tree().get_network_unique_id() == 1 and everyone_is_ready():
+	if get_tree().get_network_unique_id() == 1 and \
+	 everyone_is_ready() and \
+		not Global.match_on:
 #		log_info("EVERYONE IS READY")
 		rpc("start_match")
 

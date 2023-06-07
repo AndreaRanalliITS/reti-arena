@@ -1340,6 +1340,7 @@ size_flags_vertical = 3
 script = ExtResource( 23 )
 camera = NodePath("../../../../Viewport/Camera")
 camera_pivot = NodePath("../../../../Viewport/CameraPivot")
+orbital_timer = NodePath("OrbitalTimer")
 
 [node name="SkinPreview" type="TextureRect" parent="UI/MainMenu/Right/PlayerPreview"]
 anchor_right = 1.0
@@ -1351,6 +1352,9 @@ margin_bottom = -5.0
 texture = SubResource( 4 )
 expand = true
 stretch_mode = 7
+
+[node name="OrbitalTimer" type="Timer" parent="UI/MainMenu/Right/PlayerPreview"]
+one_shot = true
 
 [node name="Panel" type="Panel" parent="UI/MainMenu/Right"]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -2230,5 +2234,6 @@ transform = Transform( 0.599517, 0, 0.0240686, 0, 0.6, 0, -0.0240686, 0, 0.59951
 [connection signal="pressed" from="UI/MainMenu/Left/HostSetup/Back" to="UI/MainMenu/Left/HostSetup" method="_stop_advertising"]
 [connection signal="mouse_entered" from="UI/MainMenu/Right/PlayerPreview" to="UI/MainMenu/Right/PlayerPreview" method="_on_PlayerPreview_mouse_entered"]
 [connection signal="mouse_exited" from="UI/MainMenu/Right/PlayerPreview" to="UI/MainMenu/Right/PlayerPreview" method="_on_PlayerPreview_mouse_exited"]
+[connection signal="timeout" from="UI/MainMenu/Right/PlayerPreview/OrbitalTimer" to="UI/MainMenu/Right/PlayerPreview" method="_on_OrbitalTimer_timeout"]
 [connection signal="pressed" from="UI/MainMenu/Right/Panel/HBoxContainer/MeshSelectorLeft" to="UI/MainMenu" method="_select_character" binds= [ -1 ]]
 [connection signal="pressed" from="UI/MainMenu/Right/Panel/HBoxContainer/MeshSelectorRight" to="UI/MainMenu" method="_select_character" binds= [ 1 ]]
