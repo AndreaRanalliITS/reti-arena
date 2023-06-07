@@ -37,3 +37,7 @@ func connect_signals(source_node,dest_node,signals):
 		if error != OK:
 			return error
 	return OK
+
+
+func log_info(message:String):
+	print("[{0}] {1}" % [get_tree().get_network_unique_id(),message])

@@ -97,9 +97,9 @@ func _physics_process(delta):
 			if spec_mode:
 				velocity.y = desired_velocity.y
 		
-		if is_on_floor():
+		if is_on_floor() && not spec_mode:
 			velocity.y=0
-			if Input.is_action_just_pressed("jump") && can_move && not spec_mode:
+			if Input.is_action_just_pressed("jump") && can_move:
 				velocity.y += jump_speed
 		
 		if not spec_mode:
@@ -136,23 +136,23 @@ func update_mesh(avatar_idx):
 	model.mesh = load(Global.avatars[avatar_idx].mesh)
 
 
-puppet func _update_mesh_material(avatar_idx):
-	print("[{0}] [{1}] Changing avatar to {2}\n".format([get_tree().get_network_unique_id(),name,avatar_idx]))
-	model.mesh.surface_set_material(0, load(Global.avatars[avatar_idx].material))
+#puppet func _update_mesh_material(avatar_idx):
+#	print("[{0}] [{1}] Changing avatar to {2}\n".format([get_tree().get_network_unique_id(),name,avatar_idx]))
+#	model.mesh.surface_set_material(0, load(Global.avatars[avatar_idx].material))
 
 
 master func receive_damage(dmg : int):
 	if invincible: return
 	health -= dmg
 	if health <= 0:
-		rpc("_update_deaths_count")
+		rpc("_update_deaths_count",get_tree().get_network_unique_id())
 		rpc("_toggle_spec_mode",true)
 		rpc("_toggle_label",false)
 	update_lifebar()
 
 
-remotesync func _update_deaths_count():
-	Global.players_info[get_tree().get_network_unique_id()].deaths += 1
+remotesync func _update_deaths_count(id):
+	Global.players_info[id].deaths += 1
 	
 	# if server and one player remaining, end match
 	if get_tree().get_network_unique_id() == 1:
