@@ -81,6 +81,8 @@ func _server_disconnected():
 func _player_disconnected(id):
 	print("Player {0} disconnected".format([id]))
 	if has_node(str(id)):
+		Global.lobby_spawn_indexes.append(Global.players_info[id].lobby_spawn_point)
+		Global.game_spawn_indexes.append(Global.players_info[id].game_spawn_point)
 		get_node(str(id)).queue_free()
 	Global.players_info.erase(id)
 	update_ready_label()

@@ -1,16 +1,21 @@
 extends StaticBody
 
 
-export(int,0,9999999)var health = 100
-onready var stream_player = get_node("../StreamPlayer") as AudioStreamPlayer3D
-onready var coffee_particles = get_node("../Particles") as Particles
+export(int,0,9999999)var health = 1000
+export(NodePath) onready var audio_player = get_node(audio_player) as AudioStreamPlayer3D
+export(NodePath) onready var particles = get_node(particles) as Particles
 
 
 
 remotesync func receive_damage(damage):
 	health -= damage
-	coffee_particles.emitting = true
-	if stream_player.playing:
-		stream_player.stop()
+	
+	if health <= 0:
+		get_parent().queue_free()
+		return
+	
+	particles.emitting = true
+	if audio_player.playing:
+		audio_player.stop()
 	else:
-		stream_player.play()
+		audio_player.play()

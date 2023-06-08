@@ -16,7 +16,7 @@ var auto_orbit = true
 
 func _process(delta):
 	if auto_orbit:
-		rotate_around(camera_pivot.transform.origin,Vector3.UP,deg2rad(auto_orbit_speed * mouse_sensitivity))
+		rotate_around(camera_pivot.transform.origin,Vector3.UP,deg2rad(auto_orbit_speed * delta))
 
 
 func _input(event):
