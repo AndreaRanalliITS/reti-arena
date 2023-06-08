@@ -1,5 +1,6 @@
 extends Spatial
 
+export(NodePath) onready var ready_title_label = get_node(ready_title_label) as Label3D
 export(NodePath) onready var ready_players_label = get_node(ready_players_label) as Label3D
 export(NodePath) onready var lobby_spawn_points = get_node(lobby_spawn_points).get_children() as Array
 export(NodePath) onready var game_spawn_points = get_node(game_spawn_points).get_children() as Array
@@ -9,6 +10,7 @@ export(AudioStream) var combat_music
 
 var player_scene = preload("res://Scenes/Player.tscn")
 var can_change_ready_status = false
+var min_n_players_to_start = 1
 
 var tree_connection_signals = {
 	"network_peer_connected": "_player_connected",
@@ -39,11 +41,12 @@ func _ready():
 
 
 
+
 func _process(_delta):
 	if Input.is_action_just_pressed("toggle_ready_state") && \
 	not Global.match_on && \
 	get_tree().network_peer != null && \
-	Global.players_info.size() >= 2:
+	Global.players_info.size() >= min_n_players_to_start:
 		rpc("_update_player_ready_state",get_tree().get_network_unique_id())
 
 
@@ -135,6 +138,13 @@ func update_ready_label():
 		var check = "X" if Global.players_info[key].ready else " "
 		text += "[{0}] {1}\n".format([check,Global.players_info[key].name])
 	ready_players_label.text = text
+	
+	if Global.players_info.size() < min_n_players_to_start:
+		ready_title_label.text = str(min_n_players_to_start)+" players required"
+	elif Global.players_info.size() >= min_n_players_to_start:
+		ready_title_label.text = "f4 to switch state"
+	else:
+		ready_title_label.text = "lobby"
 
 	#if is server, check if all player_scene are ready
 	if get_tree().get_network_unique_id() == 1 and \

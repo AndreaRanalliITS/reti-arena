@@ -1,4 +1,4 @@
-[gd_scene load_steps=243 format=2]
+[gd_scene load_steps=249 format=2]
 
 [ext_resource path="res://Scenes/UI/ServerCard.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Map.gd" type="Script" id=2]
@@ -37,6 +37,8 @@
 [ext_resource path="res://Scripts/ServerAdvertiser.gd" type="Script" id=35]
 [ext_resource path="res://Materials/Robot2.material" type="Material" id=36]
 [ext_resource path="res://Scenes/Statics/water_distributor.tscn" type="PackedScene" id=37]
+[ext_resource path="res://textures/tutorial_2.png" type="Texture" id=38]
+[ext_resource path="res://textures/tutorial_1.png" type="Texture" id=39]
 
 [sub_resource type="ViewportTexture" id=4]
 viewport_path = NodePath("Viewport")
@@ -821,8 +823,21 @@ uv1_scale = Vector3( 2.978, 2, 1 )
 material = SubResource( 201 )
 size = Vector3( 0.1, 4, 2 )
 
+[sub_resource type="SpatialMaterial" id=324]
+albedo_texture = ExtResource( 38 )
+
+[sub_resource type="PlaneMesh" id=323]
+material = SubResource( 324 )
+
+[sub_resource type="SpatialMaterial" id=325]
+albedo_texture = ExtResource( 39 )
+
+[sub_resource type="PlaneMesh" id=326]
+material = SubResource( 325 )
+
 [node name="Map" type="Spatial"]
 script = ExtResource( 2 )
+ready_title_label = NodePath("Label3DPlayersReadyTitle")
 ready_players_label = NodePath("Label3DPlayersReady")
 lobby_spawn_points = NodePath("LobbySpawnPoints")
 game_spawn_points = NodePath("GameSpawnPoints")
@@ -1332,8 +1347,16 @@ margin_right = 1014.0
 margin_bottom = 590.0
 size_flags_horizontal = 3
 
+[node name="Label" type="Label" parent="UI/MainMenu/Right"]
+margin_right = 476.0
+margin_bottom = 14.0
+text = "select avatar"
+align = 1
+uppercase = true
+
 [node name="PlayerPreview" type="Panel" parent="UI/MainMenu/Right"]
 self_modulate = Color( 1, 1, 1, 0 )
+margin_top = 18.0
 margin_right = 476.0
 margin_bottom = 536.0
 size_flags_horizontal = 3
@@ -1428,7 +1451,7 @@ transform = Transform( 1, 0, 0, 0, 0.90949, 0.415725, 0, -0.415725, 0.90949, 0, 
 cull_mask = 524288
 
 [node name="PlayerPreview" parent="." instance=ExtResource( 19 )]
-transform = Transform( 0.0627012, 0, 0.077901, 0, 0.1, 0, -0.077901, 0, 0.0627012, 0, -11.111, 0 )
+transform = Transform( -0.00871559, 0, 0.0996195, 0, 0.1, 0, -0.0996195, 0, -0.00871559, 0, -11.111, 0 )
 layers = 524288
 mesh = SubResource( 321 )
 
@@ -1438,9 +1461,10 @@ cast_shadow = 0
 pixel_size = 0.005
 double_sided = false
 modulate = Color( 0, 1, 0, 1 )
-text = "###  PLAYERS  ###"
+text = "f4 to switch state"
 font = SubResource( 84 )
 vertical_alignment = 0
+uppercase = true
 line_spacing = 1.0
 
 [node name="Label3DPlayersReady" type="Label3D" parent="."]
@@ -2213,6 +2237,14 @@ transform = Transform( 0.599517, 0, 0.0240686, 0, 0.6, 0, -0.0240686, 0, 0.59951
 
 [node name="water_distributor" parent="Statics" instance=ExtResource( 37 )]
 transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 24.5817, 0, -10.3028 )
+
+[node name="Tutorial1" type="MeshInstance" parent="Statics"]
+transform = Transform( 2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, -18.7069, 3.52273, -23.993 )
+mesh = SubResource( 323 )
+
+[node name="Tutorial2" type="MeshInstance" parent="Statics"]
+transform = Transform( 2.98925, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 15.8019, 3.52273, -23.993 )
+mesh = SubResource( 326 )
 
 [connection signal="text_changed" from="UI/MainMenu/Left/Main/HBoxContainer/Nickname" to="UI/MainMenu" method="_on_Nickname_text_changed"]
 [connection signal="pressed" from="UI/MainMenu/Left/Main/Host" to="UI/MainMenu" method="_change_tab" binds= [ 4 ]]
