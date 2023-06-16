@@ -2248,7 +2248,7 @@ mesh = SubResource( 326 )
 
 [connection signal="text_changed" from="UI/MainMenu/Left/Main/HBoxContainer/Nickname" to="UI/MainMenu" method="_on_Nickname_text_changed"]
 [connection signal="pressed" from="UI/MainMenu/Left/Main/Host" to="UI/MainMenu" method="_change_tab" binds= [ 4 ]]
-[connection signal="pressed" from="UI/MainMenu/Left/Main/Join" to="UI/MainMenu" method="_change_tab" binds= [ 3 ]]
+[connection signal="pressed" from="UI/MainMenu/Left/Main/Join" to="UI/MainMenu" method="_change_tab" binds= [ 2 ]]
 [connection signal="pressed" from="UI/MainMenu/Left/Main/Settings" to="UI/MainMenu" method="_change_tab" binds= [ 1 ]]
 [connection signal="pressed" from="UI/MainMenu/Left/Main/Quit" to="UI/MainMenu" method="_on_Quit_pressed"]
 [connection signal="drag_ended" from="UI/MainMenu/Left/Settings/MasterSlider" to="UI/MainMenu" method="_on_MasterSlider_drag_ended"]
